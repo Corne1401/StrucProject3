@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/GitHub_Projects/StrucProject3/Server/Helpers/ClientListener.h
+winsock2.h
+-
+thread
+-
+
+C:/GitHub_Projects/StrucProject3/Server/main.cpp
+iostream
+-
+winsock2.h
+-
+thread
+-
+Helpers/ClientListener.h
+C:/GitHub_Projects/StrucProject3/Server/Helpers/ClientListener.h
+
