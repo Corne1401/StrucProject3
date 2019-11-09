@@ -1,12 +1,12 @@
 #include <QCoreApplication>
-#include "myserver.h"
+#include "sockettest.h"
 
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-
-    MyServer Server;
-    Server.StartServer();
+    
+    SocketTest cTest;
+    cTest.Connect();
 
     return a.exec();
 }
