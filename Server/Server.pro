@@ -26,5 +26,34 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \ \
+    TreesHandlers/AATree.h \
+    TreesHandlers/BTreeAdmins.h \
+    TreesHandlers/BTreeClients.h \
+    TreesHandlers/BinarySearchTree.h \
+    TreesHandlers/NewAVLTree.h \
+    TreesHandlers/NewRBTree.h \
+    helpers/ArticulationPoints.h \
+    helpers/Dijkstra.h \
+    helpers/Kruskal.h \
+    helpers/PrimGraph.h \
+    helpers/citiesList.h \
+    helpers/citiesNode.h \
+    helpers/clientProductStackNode.h \
+    helpers/clientQueue.h \
+    helpers/clientQueueNode.h \
+    helpers/exceptionsHandler.h \
+    helpers/helpers.h \
+    helpers/quickSortHelper.h \
+    helpers/salesList.h \
+    helpers/salesNode.h \
+    helpers/test.h \
+    modules/modules.h \
+    nodeTypes/AANode.h \
+    nodeTypes/BNodeAdmin.h \
+    nodeTypes/BNodeClient.h \
+    nodeTypes/BSNode.h \
+    nodeTypes/BaseBinaryNode.h \
+    nodeTypes/NewAVLNode.h \
+    nodeTypes/NewRBNode.h \
     server.h \
     socketServer.h
