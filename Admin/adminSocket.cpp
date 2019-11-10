@@ -24,6 +24,7 @@ void adminSocket::disconnected(){
 void adminSocket::readyRead(){
     QByteArray data = adminSock->readAll();
     string dataToString = data.toStdString();
+    cout<<dataToString<<endl;
 
 
 

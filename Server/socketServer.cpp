@@ -32,6 +32,7 @@ void socketServer::readyRead(){
     if(serverKey=="01")//&& (validacion del server)
     {
         qDebug()<<"admin verified"<<endl;
+        socket->write("si se pudo bro \n");
     }
     else if(serverKey=="02")//&&(validacion cliente)
     {
