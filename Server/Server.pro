@@ -32,6 +32,7 @@ HEADERS += \ \
     TreesHandlers/BinarySearchTree.h \
     TreesHandlers/NewAVLTree.h \
     TreesHandlers/NewRBTree.h \
+    globalTrees.h \
     helpers/ArticulationPoints.h \
     helpers/Dijkstra.h \
     helpers/Kruskal.h \
