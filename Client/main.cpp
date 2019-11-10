@@ -1,14 +1,16 @@
-// main.cpp
+#include "mainwindow.h"
+#include "globalClient.h"
+#include <QApplication>
 
-#include <QCoreApplication>
-#include "sockettest.h"
+clientSocket clientSock;
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
+    QApplication a(argc, argv);
 
-    SocketTest mTest;
-    mTest.Test();
+    clientSock.connectSocket();
 
+    MainWindow w;
+    w.show();
     return a.exec();
 }
