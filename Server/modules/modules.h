@@ -22,7 +22,17 @@ public:
 
     /**Following methods are for client usage**/
 //    static void checkPrice(BinarySearchTree)
-    static bool validateClient(BTreeClients clients, const string& id);
+    static bool validateClient(BTreeClients clients, const string& id) {
+        try {
+            int numId = stoi(id);
+            return clients.search(numId)!=nullptr;
+
+        } catch (std::invalid_argument &e){
+            return false;
+        }
+
+    }
+
     static string executePurchase(BTreeClients &clients, clientQueue &clientsQ, BinarySearchTree &aisleList, const string& aisleCode, const string& prodCode, const string& brandCode, const string& amountToBuy, const string &clientId);
     static string getAisles(BinarySearchTree &aisles);
     static string getProductsByAisleCode(BinarySearchTree &aisles, const string& aisleCode);
@@ -31,6 +41,16 @@ public:
     static string getIsBasicByAisleProdBrandCode(AATree &inv, const string& aisleCode, const string& prodCode, const string& brandCode);
     string getTaxByAisleProdBrandCode(AATree &inv, const string& aisleCode, const string& prodCode, const string& brandCode);
 
+
+    static bool validateAdmin(BTreeAdmins &admin, const string &adminID){
+        try {
+            int numId = stoi(adminID);
+            return admin.search(numId)!=nullptr;
+
+        } catch (std::invalid_argument &e){
+            return false;
+        }
+    }
 
 private:
     double basicProd = 0.01;
@@ -866,16 +886,7 @@ void modules::reportingModuleMainMenu(BinarySearchTree &aisleList, salesList &sa
 /**
  * Checks if client exists the returns true or false
  * */
-bool modules::validateClient(BTreeClients clients, const string& id) {
-    try {
-        int numId = stoi(id);
-        return clients.search(numId)!=nullptr;
 
-    } catch (std::invalid_argument &e){
-        return false;
-    }
-
-}
 
 string modules::executePurchase(BTreeClients &clients, clientQueue &clientsQ, BinarySearchTree &aisleList,
         const string& aisleCode, const string& prodCode, const string& brandCode, const string& amountToBuy, const string &clientId) {
