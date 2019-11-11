@@ -33,8 +33,8 @@ public:
 
 
 private:
-    float basicProd = 0.01;
-    float nonBasicProd = 0.13;
+    double basicProd = 0.01;
+    double nonBasicProd = 0.13;
 };
 
 

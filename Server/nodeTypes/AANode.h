@@ -23,56 +23,132 @@ public:
 
     }
 
-    int getCount() const;
+    int getCount() const {
+        return count;
+    }
 
-    void setCount(int count);
+    void setCount(int count) {
+        AANode::count = count;
+    }
 
-    int getLevel() const;
+    int getLevel() const {
+        return level;
+    }
 
-    void setLevel(int level);
+    void setLevel(int level) {
+        AANode::level = level;
+    }
 
-    string getKey() const;
+    string getKey() const {
+        return key;
+    }
 
-    void setKey(int key);
+    void setKey(int key) {
+        AANode::key = key;
+    }
 
-    int getProdCode() const;
+    int getProdCode() const {
+        return prodCode;
+    }
 
-    void setProdCode(int prodCode);
+    void setProdCode(int prodCode) {
+        AANode::prodCode = prodCode;
+    }
 
-    int getBrandCode() const;
+    int getBrandCode() const {
+        return brandCode;
+    }
 
-    void setBrandCode(int brandCode);
+    void setBrandCode(int brandCode) {
+        AANode::brandCode = brandCode;
+    }
 
-    int getStockAmount() const;
+    int getStockAmount() const {
+        return stockAmount;
+    }
 
-    void setStockAmount(int stockAmount);
+    void setStockAmount(int stockAmount) {
+        AANode::stockAmount = stockAmount;
+    }
 
-    bool getIsBasicProd() const;
+    bool getIsBasicProd() const {
+        return isBasicProd;
+    }
 
-    void setIsBasicProd(bool isBasicProd);
+    void setIsBasicProd(bool isBasicProd) {
+        AANode::isBasicProd = isBasicProd;
+    }
 
-    const string &getName() const;
+    const string &getName() const {
+        return name;
+    }
 
-    void setName(const string &name);
+    void setName(const string &name) {
+        AANode::name = name;
+    }
 
-    AANode *getRight() const;
+    AANode *getRight() const {
+        return right;
+    }
 
-    void setRight(AANode *right);
+    void setRight(AANode *right) {
+        AANode::right = right;
+    }
 
-    AANode *getLeft() const;
+    AANode *getLeft() const {
+        return left;
+    }
 
-    void setLeft(AANode *left);
+    void setLeft(AANode *left) {
+        AANode::left = left;
+    }
 
-    AANode *getParent() const;
+    AANode *getParent() const {
+        return parent;
+    }
 
-    void setParent(AANode *parent);
+    void setParent(AANode *parent) {
+        AANode::parent = parent;
+    }
 
-    static bool isCodeInTree(AANode *R, string i);
+    static bool isCodeInTree(AANode *R, string i) {
+        if (R == nullptr){
+            return false;
+        } else {
+            if(R->getKey()==i){
+                return true;
+            } else{
+                if (i>R->getKey()){
+                    return isCodeInTree(R->getRight(), i);
+                } else {
+                    return isCodeInTree(R->getLeft(), i);
+                }
+            }
+        }
+    }
 
-    void setKey(const string &key);
+    void setKey(const string &key) {
+        AANode::key = key;
+    }
 
-    static AANode *getNodeByAisleProdBrandCodeHelper(AANode *R, string i);
-    static bool isBasicProductHelper(AANode *R, string i);
+    static AANode *getNodeByAisleProdBrandCodeHelper(AANode *R, string i){
+        if (R == nullptr){
+            return R;
+        } else {
+            if(R->getKey()==i){
+                return R;
+            } else{
+                if (i>R->getKey()){
+                    return getNodeByAisleProdBrandCodeHelper(R->getRight(), i);
+                } else {
+                    return getNodeByAisleProdBrandCodeHelper(R->getLeft(), i);
+                }
+            }
+        }
+    }
+    static bool isBasicProductHelper(AANode *R, string i) {
+        return getNodeByAisleProdBrandCodeHelper(R, i)->getIsBasicProd();
+    }
 
 
 private:
@@ -88,132 +164,3 @@ private:
     AANode *left;
     AANode *parent;
 };
-
-void AANode::setKey(const string &key) {
-    AANode::key = key;
-}
-
-int AANode::getCount() const {
-    return count;
-}
-
-void AANode::setCount(int count) {
-    AANode::count = count;
-}
-
-int AANode::getLevel() const {
-    return level;
-}
-
-void AANode::setLevel(int level) {
-    AANode::level = level;
-}
-
-string AANode::getKey() const {
-    return key;
-}
-
-void AANode::setKey(int key) {
-    AANode::key = key;
-}
-
-int AANode::getProdCode() const {
-    return prodCode;
-}
-
-void AANode::setProdCode(int prodCode) {
-    AANode::prodCode = prodCode;
-}
-
-int AANode::getBrandCode() const {
-    return brandCode;
-}
-
-void AANode::setBrandCode(int brandCode) {
-    AANode::brandCode = brandCode;
-}
-
-int AANode::getStockAmount() const {
-    return stockAmount;
-}
-
-void AANode::setStockAmount(int stockAmount) {
-    AANode::stockAmount = stockAmount;
-}
-
-bool AANode::getIsBasicProd() const {
-    return isBasicProd;
-}
-
-void AANode::setIsBasicProd(bool isBasicProd) {
-    AANode::isBasicProd = isBasicProd;
-}
-
-const string &AANode::getName() const {
-    return name;
-}
-
-void AANode::setName(const string &name) {
-    AANode::name = name;
-}
-
-AANode *AANode::getRight() const {
-    return right;
-}
-
-void AANode::setRight(AANode *right) {
-    AANode::right = right;
-}
-
-AANode *AANode::getLeft() const {
-    return left;
-}
-
-void AANode::setLeft(AANode *left) {
-    AANode::left = left;
-}
-
-AANode *AANode::getParent() const {
-    return parent;
-}
-
-void AANode::setParent(AANode *parent) {
-    AANode::parent = parent;
-}
-
-bool AANode::isCodeInTree(AANode *R, string i) {
-    if (R == nullptr){
-        return false;
-    } else {
-        if(R->getKey()==i){
-            return true;
-        } else{
-            if (i>R->getKey()){
-                return isCodeInTree(R->getRight(), i);
-            } else {
-                return isCodeInTree(R->getLeft(), i);
-            }
-        }
-    }
-}
-
-AANode *AANode::getNodeByAisleProdBrandCodeHelper(AANode *R, string i){
-    if (R == nullptr){
-        return R;
-    } else {
-        if(R->getKey()==i){
-            return R;
-        } else{
-            if (i>R->getKey()){
-                return getNodeByAisleProdBrandCodeHelper(R->getRight(), i);
-            } else {
-                return getNodeByAisleProdBrandCodeHelper(R->getLeft(), i);
-            }
-        }
-    }
-}
-
-bool AANode::isBasicProductHelper(AANode *R, string i) {
-    return getNodeByAisleProdBrandCodeHelper(R, i)->getIsBasicProd();
-}
-

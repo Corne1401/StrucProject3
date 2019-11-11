@@ -428,13 +428,13 @@ release/main.o: ../Server/main.cpp ../../../Qt/5.12.5/mingw73_64/include/QtCore/
 		../Server/helpers/PrimGraph.h \
 		../Server/helpers/citiesList.h \
 		../Server/helpers/citiesNode.h \
-		../Server/helpers/helpers.h \
-		../Server/TreesHandlers/BTreeClients.h \
-		../Server/nodeTypes/BNodeClient.h \
+		../Server/TreesHandlers/AATree.h \
+		../Server/nodeTypes/AANode.h \
 		../Server/TreesHandlers/BTreeAdmins.h \
 		../Server/nodeTypes/BNodeAdmin.h \
-		../Server/TreesHandlers/AATree.h \
-		../Server/nodeTypes/AANode.h
+		../Server/TreesHandlers/BTreeClients.h \
+		../Server/nodeTypes/BNodeClient.h \
+		../Server/helpers/helpers.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\Server\main.cpp
 
 release/server.o: ../Server/server.cpp ../Server/server.h \
@@ -530,7 +530,13 @@ release/server.o: ../Server/server.cpp ../Server/server.h \
 		../Server/helpers/Kruskal.h \
 		../Server/helpers/PrimGraph.h \
 		../Server/helpers/citiesList.h \
-		../Server/helpers/citiesNode.h
+		../Server/helpers/citiesNode.h \
+		../Server/TreesHandlers/AATree.h \
+		../Server/nodeTypes/AANode.h \
+		../Server/TreesHandlers/BTreeAdmins.h \
+		../Server/nodeTypes/BNodeAdmin.h \
+		../Server/TreesHandlers/BTreeClients.h \
+		../Server/nodeTypes/BNodeClient.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\server.o ..\Server\server.cpp
 
 release/socketServer.o: ../Server/socketServer.cpp ../Server/socketServer.h \

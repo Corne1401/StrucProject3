@@ -7,6 +7,9 @@ BinarySearchTree aisles;
 citiesList cities;
 citiesList connectionsList;
 citiesList articulationPointHelperList;
+AATree inventory;
+BTreeClients clients;
+BTreeAdmins admins;
 PrimGraph primGraph;
 PrimGraph::Graph* pGraph;
 KruskalGraph kruskalGraph;
@@ -29,6 +32,9 @@ int main(int argc, char *argv[])
     initAislesProductTree(aisles);
     initAislesProductBrandTree(aisles);
     initCitiesList(cities);
+    initClients(clients);
+    initAdmins(admins);
+    initInventory(inventory);
 
     numberOfEdges = determineConnectionsNodes(connectionsList, cities, "Conexiones");
     numberOfEdgesArticulationPoint = determineConnectionsNodes(articulationPointHelperList, cities, "Ptos de articulacion");
@@ -55,7 +61,8 @@ int main(int argc, char *argv[])
 //    std::cout << std::endl;
 //    print(path);
 
-
+//    admins.traverse();
+    inventory.print();
 
 
     Server Server;

@@ -9,12 +9,17 @@
 #include <helpers/PrimGraph.h>
 #include <helpers/citiesList.h>
 
+#include <TreesHandlers/AATree.h>
+#include <TreesHandlers/BTreeAdmins.h>
+#include <TreesHandlers/BTreeClients.h>
+
 extern int numberOfEdges;
 extern int numberOfEdgesArticulationPoint;
 
 extern citiesList cities;
 extern citiesList connectionsList;
 extern citiesList articulationPointHelperList;
+
 extern BinarySearchTree aisles;
 
 extern PrimGraph primGraph;
@@ -26,5 +31,10 @@ extern ArticulationPointGraph articulationPointGraph;
 
 extern DijkstraGraph dijkstraGraph;
 extern vector<vector<neighbor>> dijkstraAdjList;
+
+extern BTreeAdmins admins;
+extern BTreeClients clients;
+
+extern AATree inventory;
 
 #endif // GLOBALTREES_H
