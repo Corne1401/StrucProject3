@@ -12,44 +12,32 @@ public:
         this->nextNode = nullptr;
     }
 
-    const string &getCityCode() const;
+    const string &getCityCode() const {
+        return cityCode;
+    }
 
-    void setCityCode(const string &newCityCode);
+    void setCityCode(const string &newCityCode) {
+        citiesNode::cityCode = newCityCode;
+    }
 
-    const string &getCityName() const;
+    const string &getCityName() const {
+        return cityName;
+    }
 
-    void setCityName(const string &newCityName);
+    void setCityName(const string &newCityName) {
+        citiesNode::cityName = newCityName;
+    }
 
-    citiesNode *getNextNode() const;
+    citiesNode *getNextNode() const {
+        return nextNode;
+    }
 
-    void setNextNode(citiesNode *newNextNode);
+    void setNextNode(citiesNode *newNextNode) {
+        citiesNode::nextNode = newNextNode;
+    }
 
 private:
     string cityCode;
     string cityName;
     citiesNode *nextNode;
 };
-
-const string &citiesNode::getCityCode() const {
-    return cityCode;
-}
-
-void citiesNode::setCityCode(const string &newCityCode) {
-    citiesNode::cityCode = newCityCode;
-}
-
-const string &citiesNode::getCityName() const {
-    return cityName;
-}
-
-void citiesNode::setCityName(const string &newCityName) {
-    citiesNode::cityName = newCityName;
-}
-
-citiesNode *citiesNode::getNextNode() const {
-    return nextNode;
-}
-
-void citiesNode::setNextNode(citiesNode *newNextNode) {
-    citiesNode::nextNode = newNextNode;
-}

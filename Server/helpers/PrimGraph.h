@@ -16,7 +16,9 @@ public:
 
     int totalWeight;
 
-    int getTotalWeight() const;
+    int getTotalWeight() const {
+        return totalWeight;
+    }
 
 
     // A structure to represent a node in adjacency list
@@ -286,6 +288,4 @@ public:
     }
 };
 
-int PrimGraph::getTotalWeight() const {
-    return totalWeight;
-}
+

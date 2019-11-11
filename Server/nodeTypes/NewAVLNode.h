@@ -18,43 +18,131 @@ public:
         this->productAisleBrandTreePointer = nullptr;
     }
 
-    int getKey() const;
+    int getKey() const {
+        return key;
+    }
 
-    void setKey(int newKey);
+    void setKey(int newKey) {
+        NewAVLNode::key = newKey;
+    }
 
-    NewAVLNode *getLeftPointer() const;
+    NewAVLNode *getLeftPointer() const {
+        return left;
+    }
 
-    void setLeftPointer(NewAVLNode *newLeft);
+    void setLeftPointer(NewAVLNode *newLeft) {
+        NewAVLNode::left = newLeft;
+    }
 
-    NewAVLNode *getRightPointer() const;
+    NewAVLNode *getRightPointer() const {
+        return right;
+    }
 
-    void setRightPointer(NewAVLNode *newRight);
+    void setRightPointer(NewAVLNode *newRight) {
+        NewAVLNode::right = newRight;
+    }
 
-    int getHeight() const;
+    int getHeight() const {
+        return height;
+    }
 
-    void setHeight(int newHeight);
+    void setHeight(int newHeight) {
+        NewAVLNode::height = newHeight;
+    }
 
-    const string &getName() const;
+    const string &getName() const {
+        return name;
+    }
 
-    void setName(const string &newName);
+    void setName(const string &newName) {
+        NewAVLNode::name = newName;
+    }
 
-    int getTimesSold() const;
+    int getTimesSold() const {
+        return timesSold;
+    }
 
-    void setTimesSold(int newTimesSold);
+    void setTimesSold(int newTimesSold) {
+        NewAVLNode::timesSold = newTimesSold;
+    }
 
-    NewRBTree *getProductAisleBrandTreePointer() const;
+    NewRBTree *getProductAisleBrandTreePointer() const {
+        return productAisleBrandTreePointer;
+    }
 
-    void setProductAisleBrandTreePointer(NewRBTree *newProductAisleBrandTreePointer);
+    void setProductAisleBrandTreePointer(NewRBTree *newProductAisleBrandTreePointer) {
+        NewAVLNode::productAisleBrandTreePointer = newProductAisleBrandTreePointer;
+    }
 
-    bool isProdCodeInTree(NewAVLNode *R, int i);
+    bool isProdCodeInTree(NewAVLNode *R, int i) {
+        if (R == nullptr){
+            return false;
+        } else {
+            if(R->key==i){
+                return true;
+            } else{
+                if (i>R->key){
+                    return isProdCodeInTree((NewAVLNode*) R->getRightPointer(), i);
+                } else {
+                    return isProdCodeInTree((NewAVLNode*) R->getLeftPointer(), i);
+                }
+            }
+        }
+    }
 
-    NewAVLNode *getNodeByProdCode(NewAVLNode *R, int i);
+    NewAVLNode *getNodeByProdCode(NewAVLNode *R, int i){
+        if (R == nullptr){
+            return R;
+        } else {
+            if(R->key==i){
+                return R;
+            } else{
+                if (i>R->key){
+                    return getNodeByProdCode((NewAVLNode*) R->getRightPointer(), i);
+                } else {
+                    return getNodeByProdCode((NewAVLNode*) R->getLeftPointer(), i);
+                }
+            }
+        }
+    }
 
-    static void getMostBoughtValue(NewAVLNode *R, int &highestValue);
+    static void getMostBoughtValue(NewAVLNode *R, int &highestValue){
+        if(R == nullptr){
+            return;
+        }else{
+            getMostBoughtValue((NewAVLNode*) R->getLeftPointer(), highestValue);
 
-    static void generateMostBoughtProd(NewAVLNode *R, int highestValue, ofstream &outfile);
+            if(R->getTimesSold() >= highestValue){
+                highestValue = R->getTimesSold();
+            }
 
-    static void generateProductsList(NewAVLNode *R, ofstream &outfile);
+            getMostBoughtValue((NewAVLNode*) R->getRightPointer(), highestValue);
+        }
+    }
+
+    static void generateMostBoughtProd(NewAVLNode *R, int highestValue, ofstream &outfile){
+        if(R == nullptr){
+            return;
+        }else{
+            generateMostBoughtProd((NewAVLNode*) R->getLeftPointer(), highestValue, outfile);
+
+            if(R->getTimesSold() <= highestValue){
+                outfile << "Prod Code: " << R->key << " Prod Name: " << R->getName() << " Times bought: " << R->getTimesSold() << endl;
+            }
+
+            generateMostBoughtProd((NewAVLNode*) R->getRightPointer(), highestValue, outfile);
+        }
+    }
+
+    static void generateProductsList(NewAVLNode *R, ofstream &outfile) {
+        if(R == nullptr){
+            return;
+        }else{
+            generateProductsList((NewAVLNode*) R->getLeftPointer(), outfile);
+            outfile << "Prod Code: " << R->key << " Prod Name: " << R->getName() << " Times bought: " << R->getTimesSold() << endl;
+            generateProductsList((NewAVLNode*) R->getRightPointer(), outfile);
+        }
+    }
 
 private:
     int key;
@@ -68,130 +156,3 @@ private:
     friend class NewAVLTree;
 
 };
-
-int NewAVLNode::getKey() const {
-    return key;
-}
-
-void NewAVLNode::setKey(int newKey) {
-    NewAVLNode::key = newKey;
-}
-
-NewAVLNode *NewAVLNode::getLeftPointer() const {
-    return left;
-}
-
-void NewAVLNode::setLeftPointer(NewAVLNode *newLeft) {
-    NewAVLNode::left = newLeft;
-}
-
-NewAVLNode *NewAVLNode::getRightPointer() const {
-    return right;
-}
-
-void NewAVLNode::setRightPointer(NewAVLNode *newRight) {
-    NewAVLNode::right = newRight;
-}
-
-int NewAVLNode::getHeight() const {
-    return height;
-}
-
-void NewAVLNode::setHeight(int newHeight) {
-    NewAVLNode::height = newHeight;
-}
-
-const string &NewAVLNode::getName() const {
-    return name;
-}
-
-void NewAVLNode::setName(const string &newName) {
-    NewAVLNode::name = newName;
-}
-
-int NewAVLNode::getTimesSold() const {
-    return timesSold;
-}
-
-void NewAVLNode::setTimesSold(int newTimesSold) {
-    NewAVLNode::timesSold = newTimesSold;
-}
-
-NewRBTree *NewAVLNode::getProductAisleBrandTreePointer() const {
-    return productAisleBrandTreePointer;
-}
-
-void NewAVLNode::setProductAisleBrandTreePointer(NewRBTree *newProductAisleBrandTreePointer) {
-    NewAVLNode::productAisleBrandTreePointer = newProductAisleBrandTreePointer;
-}
-
-bool NewAVLNode::isProdCodeInTree(NewAVLNode *R, int i) {
-    if (R == nullptr){
-        return false;
-    } else {
-        if(R->key==i){
-            return true;
-        } else{
-            if (i>R->key){
-                return isProdCodeInTree((NewAVLNode*) R->getRightPointer(), i);
-            } else {
-                return isProdCodeInTree((NewAVLNode*) R->getLeftPointer(), i);
-            }
-        }
-    }
-}
-
-NewAVLNode *NewAVLNode::getNodeByProdCode(NewAVLNode *R, int i){
-    if (R == nullptr){
-        return R;
-    } else {
-        if(R->key==i){
-            return R;
-        } else{
-            if (i>R->key){
-                return getNodeByProdCode((NewAVLNode*) R->getRightPointer(), i);
-            } else {
-                return getNodeByProdCode((NewAVLNode*) R->getLeftPointer(), i);
-            }
-        }
-    }
-}
-
-void NewAVLNode::getMostBoughtValue(NewAVLNode *R, int &highestValue){
-    if(R == nullptr){
-        return;
-    }else{
-        getMostBoughtValue((NewAVLNode*) R->getLeftPointer(), highestValue);
-
-        if(R->getTimesSold() >= highestValue){
-            highestValue = R->getTimesSold();
-        }
-
-        getMostBoughtValue((NewAVLNode*) R->getRightPointer(), highestValue);
-    }
-}
-
-void NewAVLNode::generateMostBoughtProd(NewAVLNode *R, int highestValue, ofstream &outfile){
-    if(R == nullptr){
-        return;
-    }else{
-        generateMostBoughtProd((NewAVLNode*) R->getLeftPointer(), highestValue, outfile);
-
-        if(R->getTimesSold() <= highestValue){
-            outfile << "Prod Code: " << R->key << " Prod Name: " << R->getName() << " Times bought: " << R->getTimesSold() << endl;
-        }
-
-        generateMostBoughtProd((NewAVLNode*) R->getRightPointer(), highestValue, outfile);
-    }
-}
-
-void NewAVLNode::generateProductsList(NewAVLNode *R, ofstream &outfile) {
-    if(R == nullptr){
-        return;
-    }else{
-        generateProductsList((NewAVLNode*) R->getLeftPointer(), outfile);
-        outfile << "Prod Code: " << R->key << " Prod Name: " << R->getName() << " Times bought: " << R->getTimesSold() << endl;
-        generateProductsList((NewAVLNode*) R->getRightPointer(), outfile);
-    }
-}
-
