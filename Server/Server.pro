@@ -1,6 +1,7 @@
 QT -= gui
 QT += network
 
+CONFIG += console
 CONFIG += c++11 console
 CONFIG -= app_bundle
 
@@ -36,6 +37,7 @@ HEADERS += \ \
     helpers/ArticulationPoints.h \
     helpers/Dijkstra.h \
     helpers/Kruskal.h \
+    helpers/Neighbor.h \
     helpers/PrimGraph.h \
     helpers/citiesList.h \
     helpers/citiesNode.h \
@@ -58,3 +60,14 @@ HEADERS += \ \
     nodeTypes/NewRBNode.h \
     server.h \
     socketServer.h
+
+DISTFILES += \
+    data/Administradores.txt \
+    data/Ciudades.txt \
+    data/Clientes.txt \
+    data/Conexiones.txt \
+    data/Inventario.txt \
+    data/MarcasProductos.txt \
+    data/Pasillos.txt \
+    data/ProductosPasillos.txt \
+    data/Ptos de articulacion.txt

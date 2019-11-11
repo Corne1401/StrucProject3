@@ -8,39 +8,27 @@ protected:
         this->data = data;
     }
 
-    BaseBinaryNode *getLeftPointer() const;
-    BaseBinaryNode *getRightPointer() const;
-    void setLeftPointer(BaseBinaryNode *newLeftPointer);
-    void setRightPointer(BaseBinaryNode *newRightPointer);
-    void setData(int newData);
-    int getData() const;
+    BaseBinaryNode *getLeftPointer() const {
+        return leftPointer;
+    }
+    BaseBinaryNode *getRightPointer() const {
+        return rightPointer;
+    }
+    void setLeftPointer(BaseBinaryNode *newLeftPointer) {
+        BaseBinaryNode::leftPointer = newLeftPointer;
+    }
+    void setRightPointer(BaseBinaryNode *newRightPointer) {
+        BaseBinaryNode::rightPointer = newRightPointer;
+    }
+    void setData(int newData) {
+        BaseBinaryNode::data = newData;
+    }
+    int getData() const {
+        return data;
+    }
 
 private:
     BaseBinaryNode *leftPointer;
     BaseBinaryNode *rightPointer;
     int data;
 };
-
-BaseBinaryNode *BaseBinaryNode::getLeftPointer() const {
-    return leftPointer;
-}
-
-void BaseBinaryNode::setLeftPointer(BaseBinaryNode *newLeftPointer) {
-    BaseBinaryNode::leftPointer = newLeftPointer;
-}
-
-BaseBinaryNode *BaseBinaryNode::getRightPointer() const {
-    return rightPointer;
-}
-
-void BaseBinaryNode::setRightPointer(BaseBinaryNode *newRightPointer) {
-    BaseBinaryNode::rightPointer = newRightPointer;
-}
-
-int BaseBinaryNode::getData() const {
-    return data;
-}
-
-void BaseBinaryNode::setData(int newData) {
-    BaseBinaryNode::data = newData;
-}

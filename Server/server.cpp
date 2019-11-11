@@ -1,5 +1,6 @@
 #include "server.h"
 #include <iostream>
+#include "globalTrees.h"
 using namespace std;
 Server::Server(QObject *parent) :
     QTcpServer(parent)
@@ -10,6 +11,9 @@ Server::Server(QObject *parent) :
 
 void Server::StartServer()
 {
+
+    aisles.deleteAisle(1);
+    aisles.printAisleForPurchase();
     if(this->listen(QHostAddress::Any, 8080))
     {
         qDebug() << "Server started";

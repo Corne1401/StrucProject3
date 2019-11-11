@@ -71,37 +71,105 @@ public:
                (right != nullptr and right->color == RED);
     }
 
-    const string &getName() const;
+    const string &getName() const {
+        return name;
+    }
 
-    void setName(const string &name);
+    void setName(const string &name) {
+        NewRBNode::name = name;
+    }
 
-    int getAmount() const;
+    int getAmount() const {
+        return amount;
+    }
 
-    void setAmount(int amount);
+    void setAmount(int amount) {
+        NewRBNode::amount = amount;
+    }
 
-    int getPrice() const;
+    int getPrice() const {
+        return price;
+    }
 
-    void setPrice(int price);
+    void setPrice(int price) {
+        NewRBNode::price = price;
+    }
 
-    int getTimesSold() const;
+    int getTimesSold() const {
+        return timesSold;
+    }
 
-    void setTimesSold(int timesSold);
+    void setTimesSold(int timesSold) {
+        this->timesSold = timesSold;
+    }
 
-    NewRBNode *getLeftPointer() const;
+    NewRBNode *getLeftPointer() const {
+        return left;
+    }
 
-    void setLeftPointer(NewRBNode *left);
+    void setLeftPointer(NewRBNode *left) {
+        this->left = left;
+    }
 
-    NewRBNode *getRightPointer() const;
+    NewRBNode *getRightPointer() const {
+        return right;
+    }
 
-    void setRightPointer(NewRBNode *right);
+    void setRightPointer(NewRBNode *right) {
+        this->right = right;
+    }
 
-    bool isBrandCodeOnList(NewRBNode *R, int i);
+    bool isBrandCodeOnList(NewRBNode *R, int i) {
+        if (R == nullptr){
+            return false;
+        } else {
+            if(R->val==i){
+                return true;
+            } else{
+                if (i>R->val){
+                    return isBrandCodeOnList((NewRBNode*) R->getRightPointer(), i);
+                } else {
+                    return isBrandCodeOnList((NewRBNode*) R->getLeftPointer(), i);
+                }
+            }
+        }
+    }
 
-    NewRBNode *getBrandNode(NewRBNode *R, int i);
+    NewRBNode *getBrandNode(NewRBNode *R, int i){
+        if (R == nullptr){
+            return R;
+        } else {
+            if(R->val==i){
+                return R;
+            } else{
+                if (i>R->val){
+                    return getBrandNode((NewRBNode*) R->getRightPointer(), i);
+                } else {
+                    return getBrandNode((NewRBNode*) R->getLeftPointer(), i);
+                }
+            }
+        }
+    }
 
-    void generateBrand(NewRBNode *R, ofstream &outfile);
+    void generateBrand(NewRBNode *R, ofstream &outfile) {
+        if (R == nullptr)
+            return;
 
-    string getBrandsForClient(NewRBNode *R, string &concat);
+        generateBrand((NewRBNode*) R->getLeftPointer(), outfile);
+        outfile << "Brand Code: " << R->val << ", Brand Name: " << R->getName() << endl;
+        generateBrand((NewRBNode*) R->getRightPointer(), outfile);
+    }
+
+    string getBrandsForClient(NewRBNode *R, string &concat) {
+        if (R == nullptr){
+            return concat;
+        } else {
+            concat = getBrandsForClient((NewRBNode*) R->getLeftPointer(), concat);
+            concat += "Brand Code: " + to_string(R->val) + ", Brand Name: " + R->getName() + ", Amount: " + to_string(R->getAmount()) + "\n";
+            concat = getBrandsForClient((NewRBNode*) R->getRightPointer(), concat);
+        }
+        return concat;
+    }
 
 private:
     string name;
@@ -113,103 +181,3 @@ private:
 
     friend class NewRBTree;
 };
-
-NewRBNode *NewRBNode::getLeftPointer() const {
-    return left;
-}
-
-void NewRBNode::setLeftPointer(NewRBNode *left) {
-    NewRBNode::left = left;
-}
-
-NewRBNode *NewRBNode::getRightPointer() const {
-    return right;
-}
-
-void NewRBNode::setRightPointer(NewRBNode *right) {
-    NewRBNode::right = right;
-}
-
-const string &NewRBNode::getName() const {
-    return name;
-}
-
-void NewRBNode::setName(const string &name) {
-    NewRBNode::name = name;
-}
-
-int NewRBNode::getAmount() const {
-    return amount;
-}
-
-void NewRBNode::setAmount(int amount) {
-    NewRBNode::amount = amount;
-}
-
-int NewRBNode::getPrice() const {
-    return price;
-}
-
-void NewRBNode::setPrice(int price) {
-    NewRBNode::price = price;
-}
-
-int NewRBNode::getTimesSold() const {
-    return timesSold;
-}
-
-void NewRBNode::setTimesSold(int timesSold) {
-    NewRBNode::timesSold = timesSold;
-}
-
-bool NewRBNode::isBrandCodeOnList(NewRBNode *R, int i) {
-    if (R == nullptr){
-        return false;
-    } else {
-        if(R->val==i){
-            return true;
-        } else{
-            if (i>R->val){
-                return isBrandCodeOnList((NewRBNode*) R->getRightPointer(), i);
-            } else {
-                return isBrandCodeOnList((NewRBNode*) R->getLeftPointer(), i);
-            }
-        }
-    }
-}
-
-NewRBNode *NewRBNode::getBrandNode(NewRBNode *R, int i){
-    if (R == nullptr){
-        return R;
-    } else {
-        if(R->val==i){
-            return R;
-        } else{
-            if (i>R->val){
-                return getBrandNode((NewRBNode*) R->getRightPointer(), i);
-            } else {
-                return getBrandNode((NewRBNode*) R->getLeftPointer(), i);
-            }
-        }
-    }
-}
-
-void NewRBNode::generateBrand(NewRBNode *R, ofstream &outfile) {
-    if (R == nullptr)
-        return;
-
-    generateBrand((NewRBNode*) R->getLeftPointer(), outfile);
-    outfile << "Brand Code: " << R->val << ", Brand Name: " << R->getName() << endl;
-    generateBrand((NewRBNode*) R->getRightPointer(), outfile);
-}
-
-string NewRBNode::getBrandsForClient(NewRBNode *R, string &concat) {
-    if (R == nullptr){
-        return concat;
-    } else {
-        concat = getBrandsForClient((NewRBNode*) R->getLeftPointer(), concat);
-        concat += "Brand Code: " + to_string(R->val) + ", Brand Name: " + R->getName() + ", Amount: " + to_string(R->getAmount()) + "\n";
-        concat = getBrandsForClient((NewRBNode*) R->getRightPointer(), concat);
-    }
-    return concat;
-}

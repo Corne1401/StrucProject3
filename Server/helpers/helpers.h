@@ -14,6 +14,8 @@
 
 using namespace std;
 
+static const string PATH_TO_FILES = "C:\\GitHub_Projects\\StrucProject3\\Server\\data\\";
+
 /**
  * Splits file contents into formats to be inserted in doubleListAisle list
  * @param aisles Is the given list object where to be inserted
@@ -518,13 +520,14 @@ void splitIntoCitiesList(citiesList &cities, const string& fullString, char deli
  * **/
 void initAisleTree(BinarySearchTree &aisles){
     string line;
-    ifstream arch1("data/Pasillos.txt");
+    ifstream arch1(PATH_TO_FILES+"Pasillos.txt");
 
     while (getline(arch1, line)) {
         if(!line.empty()){
             splitIntoAisleTree(aisles, line, ';');
         }
     }
+    arch1.close();
 }
 
 
@@ -534,13 +537,14 @@ void initAisleTree(BinarySearchTree &aisles){
  * **/
 void initCitiesList(citiesList &cities){
     string line;
-    ifstream arch1("data/Ciudades.txt");
+    ifstream arch1(PATH_TO_FILES+"Ciudades.txt");
 
     while (getline(arch1, line)) {
         if(!line.empty()){
             splitIntoCitiesList(cities, line, ';');
         }
     }
+    arch1.close();
 }
 
 
@@ -551,14 +555,14 @@ void initCitiesList(citiesList &cities){
  * **/
 void initAislesProductTree(BinarySearchTree &aisles){
     string line;
-    ifstream arch1("data/ProductosPasillos.txt");
+    ifstream arch1(PATH_TO_FILES+"ProductosPasillos.txt");
 
     while (getline(arch1, line)) {
         if(!line.empty()){
             splitIntoListAisleProduct(aisles, line, ';');
         }
     }
-
+    arch1.close();
 
 }
 
@@ -568,13 +572,14 @@ void initAislesProductTree(BinarySearchTree &aisles){
  * **/
 void initAislesProductBrandTree(BinarySearchTree &aisles){
     string line;
-    ifstream arch1("data/MarcasProductos.txt");
+    ifstream arch1(PATH_TO_FILES+"MarcasProductos.txt");
 
     while (getline(arch1, line)) {
         if(!line.empty()){
             splitIntoListAisleProductBrand(aisles, line, ';');
         }
     }
+    arch1.close();
 }
 
 /**
@@ -583,13 +588,14 @@ void initAislesProductBrandTree(BinarySearchTree &aisles){
  * **/
 void initClients(BTreeClients &clients){
     string line;
-    ifstream arch1("data/Clientes.txt");
+    ifstream arch1(PATH_TO_FILES+"Clientes.txt");
 
     while (getline(arch1, line)) {
         if(!line.empty()){
             splitIntoClients(clients, line, ';');
         }
     }
+    arch1.close();
 }
 
 /**
@@ -598,13 +604,14 @@ void initClients(BTreeClients &clients){
  * **/
 void initAdmins(BTreeAdmins &admins){
     string line;
-    ifstream arch1("data/Administradores.txt");
+    ifstream arch1(PATH_TO_FILES+"Administradores.txt");
 
     while (getline(arch1, line)) {
         if(!line.empty()){
             splitIntoAdmins(admins, line, ';');
         }
     }
+    arch1.close();
 }
 
 /**
@@ -613,13 +620,14 @@ void initAdmins(BTreeAdmins &admins){
  * **/
 void initInventory(AATree &inventory){
     string line;
-    ifstream arch1("data/Inventario.txt");
+    ifstream arch1(PATH_TO_FILES+"Inventario.txt");
 
     while (getline(arch1, line)) {
         if(!line.empty()){
             splitIntoInventory(inventory, line, ';');
         }
     }
+    arch1.close();
 }
 
 static bool checkEndOption(const string& endOp){
@@ -742,9 +750,9 @@ int** create2DArray(unsigned height, unsigned width){
 }
 
 
-int determineConnectionsNodes(citiesList &helperCitiesList, class citiesList citiesList, const string& file){
+int determineConnectionsNodes(citiesList &helperCitiesList, class citiesList &citiesList, const string& file){
     string line;
-    ifstream arch1("data/"+file+".txt");
+    ifstream arch1(PATH_TO_FILES+file+".txt");
 
     while (getline(arch1, line)) {
         if(!line.empty()){
@@ -803,6 +811,8 @@ int determineConnectionsNodes(citiesList &helperCitiesList, class citiesList cit
             }
         }
     }
+    arch1.close();
+    //cout << helperCitiesList.listSize() << endl;
     return helperCitiesList.listSize();
 }
 
@@ -811,7 +821,7 @@ int determineConnectionsNodes(citiesList &helperCitiesList, class citiesList cit
  * Initializes a list with values from file
  * @param citiesList is the clientList value to check for IDs
  * **/
-void initGraph(citiesList &citiesList, PrimGraph::Graph* &graph, PrimGraph primGraph, class citiesList &connectionsList, struct KruskalGraph &g, adjacency_list_t &dijkstraAdjList){
+void initGraph(citiesList &citiesList, PrimGraph::Graph* &graph, PrimGraph &primGraph, class citiesList &connectionsList, struct KruskalGraph &g, vector<vector<neighbor>> &dijkstraAdjList){
     map<int, int> citiesMap;
     map<int, int> indexToCity;
     class citiesList list2;
@@ -827,9 +837,10 @@ void initGraph(citiesList &citiesList, PrimGraph::Graph* &graph, PrimGraph primG
     }
     //cout << "Cities Map: " << endl;
     //cout << indexToCity.at(16) << endl;
+    //cout << citiesMap.size() << endl;
 
     string line;
-    ifstream arch1("data/Conexiones.txt");
+    ifstream arch1(PATH_TO_FILES+"Conexiones.txt");
 
     while (getline(arch1, line)) {
         if(!line.empty()){
@@ -904,6 +915,7 @@ void initGraph(citiesList &citiesList, PrimGraph::Graph* &graph, PrimGraph primG
             }
         }
     }
+    arch1.close();
     //cout << list2.listSize() << endl;
 }
 
@@ -929,7 +941,7 @@ void initArticulationPoints(citiesList &citiesList, class citiesList &connection
     //cout << indexToCity.at(16) << endl;
 
     string line;
-    ifstream arch1("data/Ptos de articulacion.txt");
+    ifstream arch1(PATH_TO_FILES+"Ptos de articulacion.txt");
 
     while (getline(arch1, line)) {
         if(!line.empty()){
@@ -996,5 +1008,6 @@ void initArticulationPoints(citiesList &citiesList, class citiesList &connection
             }
         }
     }
+    arch1.close();
     //cout << list2.listSize() << endl;
 }

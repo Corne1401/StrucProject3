@@ -344,15 +344,27 @@ public:
 
     NewRBNode *getRoot() { return root; }
 
-    bool isBrandCodeOnList(int brandCode);
+    bool isBrandCodeOnList(int brandCode) {return root->isBrandCodeOnList(root, brandCode);}
 
-    void printBrandsForPurchase();
+    void printBrandsForPurchase() {printBrandsForPurchaseHelper(root);}
 
-    NewRBNode *getNodeByBrandCode(int brandCode);
+    NewRBNode *getNodeByBrandCode(int brandCode) {return root->getBrandNode(root, brandCode);}
 
-    void generateBrand(string path, int aisleCode, int prodCode);
+    void generateBrand(string path, int aisleCode, int prodCode) {
+        ofstream outfile (path);
+        outfile << "Products List for aisle: " << aisleCode << endl;
 
-    string getBrandsForClient();
+        root->generateBrand(root, outfile);
+
+        outfile.flags();
+        outfile.close();
+        cout << "Report generated successfully..." << endl;
+    }
+
+    string getBrandsForClient() {
+        string concat;
+        return root->getBrandsForClient(root, concat);
+    }
 
     // searches for given value
     // if found returns the node (used for delete)
@@ -457,23 +469,3 @@ public:
 
 
 };
-
-bool NewRBTree::isBrandCodeOnList(int brandCode) {return root->isBrandCodeOnList(root, brandCode);}
-void NewRBTree::printBrandsForPurchase() {printBrandsForPurchaseHelper(root);}
-NewRBNode *NewRBTree::getNodeByBrandCode(int brandCode) {return root->getBrandNode(root, brandCode);}
-
-void NewRBTree::generateBrand(string path, int aisleCode, int prodCode) {
-    ofstream outfile (path);
-    outfile << "Products List for aisle: " << aisleCode << endl;
-
-    root->generateBrand(root, outfile);
-
-    outfile.flags();
-    outfile.close();
-    cout << "Report generated successfully..." << endl;
-}
-
-string NewRBTree::getBrandsForClient() {
-    string concat;
-    return root->getBrandsForClient(root, concat);
-}

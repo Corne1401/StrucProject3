@@ -14,8 +14,12 @@ public:
     int highestBoughValue;
     int lowestBoughtValue;
 
-    bool isProdCodeOnTree(int prodCode);
-    NewAVLNode *getNodeByProdCode(int prodCode);
+    bool isProdCodeOnTree(int prodCode) {
+        return root->isProdCodeInTree(root, prodCode);
+    }
+    NewAVLNode *getNodeByProdCode(int prodCode){
+        return root->getNodeByProdCode(root, prodCode);
+    }
 
     void deleteProduct(int prodCode){
         root = deleteNode(root, prodCode);
@@ -168,28 +172,216 @@ public:
         }
     }
 
-    string getProductsForClient();
+    string getProductsForClient() {
+        string concat;
+        return getProductsForClientHelper(root, concat);
+    }
 
-    void generateProd(const string &path, int aisleCode);
+    void generateProd(const string &path, int aisleCode) {
+        ofstream outfile (path);
+        outfile << "Products List for aisle: " << aisleCode << endl;
 
-    string getProductsForClientHelper(NewAVLNode *t, string &concat);
+        NewAVLNode::generateProductsList(root, outfile);
 
-    void show(NewAVLNode *p, int l);
+        outfile.flags();
+        outfile.close();
+        cout << "Report generated successfully..." << endl;
+    }
 
-    void fullInorder(NewAVLNode *t);
+    string getProductsForClientHelper(NewAVLNode *t, string &concat) {
+        if (t == nullptr){
+            return concat;
+        } else {
+            concat = getProductsForClientHelper((NewAVLNode*) t->getLeftPointer(), concat);
+            concat += "Product Code:" + to_string(t->key) + ", Product Name:" + t->getName() + "\n";
+            concat = getProductsForClientHelper((NewAVLNode*) t->getRightPointer(), concat);
+        }
+        return concat;
+    }
 
-    void inorder(NewAVLNode *t);
-    void postorder(NewAVLNode *);
+    void show(NewAVLNode *p, int l) {
+        int i;
+        if (p != nullptr) {
+            show((NewAVLNode*) p->getRightPointer(), l+ 1);
+            cout<<" ";
+            if (p == root)
+                cout << "Root -> ";
+            for (i = 0; i < l&& p != root; i++)
+                cout << " ";
+            cout << p->key;
+            show((NewAVLNode*) p->getLeftPointer(), l + 1);
+        }
+    }
 
-    void printProductsForPurchaseHelper(NewAVLNode *t);
+    void fullInorder(NewAVLNode *t) {
+        if (t == nullptr)
+            return;
+        fullInorder((NewAVLNode*) t->getLeftPointer());
+        cout << "(" <<t->key << ", " << t->getName()  << ", " << t->getTimesSold() << " ) -";
+        if(t->getProductAisleBrandTreePointer()!= nullptr){
+            cout << "Third tree inorder for: " << t->key << endl;
+            t->getProductAisleBrandTreePointer()->inorder();
+            cout << "End of Second Tree Inorder" << endl;
+        }
+        fullInorder((NewAVLNode*) t->getRightPointer());
+    }
 
-    void generateMostBoughtProd(const string &path, int aisleCode);
+    void inorder(NewAVLNode *t) {
+        if (t == nullptr)
+            return;
+        inorder((NewAVLNode*) t->getLeftPointer());
+        cout << "(" <<t->key << ", " << t->getName()  << ", " << t->getTimesSold() << " ) -";
+        inorder((NewAVLNode*) t->getRightPointer());
+    }
+    void postorder(NewAVLNode *t) {
+        if (t == nullptr)
+            return;
+        postorder( (NewAVLNode*) t ->getLeftPointer());
+        postorder((NewAVLNode*) t ->getRightPointer());
+        cout << t->key << " ";
+    }
 
-    NewAVLNode *minValueNode(NewAVLNode *node);
+    void printProductsForPurchaseHelper(NewAVLNode *t) {
+        if (t == nullptr)
+            return;
+        printProductsForPurchaseHelper((NewAVLNode *) t->getLeftPointer());
+        cout << "Product Code:" <<t->key << ", Product Name:" << t->getName() << endl;
+        printProductsForPurchaseHelper((NewAVLNode *) t->getRightPointer());
+    }
 
-    NewAVLNode *deleteNode(NewAVLNode *root, int key);
+    void generateMostBoughtProd(const string &path, int aisleCode){
+        ofstream outfile (path);
+        outfile << "Most bought prod on aisle: " << aisleCode << endl;
 
-    void printProductsForPurchase();
+        NewAVLNode::getMostBoughtValue(root, highestBoughValue);
+        NewAVLNode::generateMostBoughtProd(root, highestBoughValue, outfile);
+
+        outfile.flags();
+        outfile.close();
+        cout << "Report generated successfully..." << endl;
+    }
+
+    NewAVLNode *minValueNode(NewAVLNode *node)
+    {
+        NewAVLNode* current = node;
+
+        /* loop down to find the leftmost leaf */
+        while (current->left != nullptr)
+            current = current->left;
+
+        return current;
+    }
+
+    NewAVLNode *deleteNode(NewAVLNode *root, int key)
+    {
+
+        // STEP 1: PERFORM STANDARD BST DELETE
+        if (root == nullptr)
+            return root;
+
+        // If the key to be deleted is smaller
+        // than the root's key, then it lies
+        // in left subtree
+        if ( key < root->key )
+            root->left = deleteNode(root->left, key);
+
+        // If the key to be deleted is greater
+        // than the root's key, then it lies
+        // in right subtree
+        else if( key > root->key )
+            root->right = deleteNode(root->right, key);
+
+        // if key is same as root's key, then
+        // This is the node to be deleted
+        else
+        {
+            // node with only one child or no child
+            if( (root->left == nullptr) ||
+                    (root->right == nullptr) )
+            {
+                NewAVLNode *temp = root->left ?
+                            root->left :
+                            root->right;
+
+                // No child case
+                if (temp == nullptr)
+                {
+                    temp = root;
+                    root = nullptr;
+                }
+                else // One child case
+                    *root = *temp; // Copy the contents of
+                // the non-empty child
+                free(temp);
+            }
+            else
+            {
+                // node with two children: Get the inorder
+                // successor (smallest in the right subtree)
+                NewAVLNode* temp = minValueNode(root->right);
+
+                // Copy the inorder successor's
+                // data to this node
+                root->key = temp->key;
+                root->name = temp->name;
+                root->timesSold = temp->timesSold;
+                root->productAisleBrandTreePointer = temp->productAisleBrandTreePointer;
+
+                // Delete the inorder successor
+                root->right = deleteNode(root->right,
+                                         temp->key);
+            }
+        }
+
+        // If the tree had only one node
+        // then return
+        if (root == nullptr)
+            return root;
+
+        // STEP 2: UPDATE HEIGHT OF THE CURRENT NODE
+        root->height = 1 + max(height(root->left),
+                               height(root->right));
+
+        // STEP 3: GET THE BALANCE FACTOR OF
+        // THIS NODE (to check whether this
+        // node became unbalanced)
+        int balance = getBalance(root);
+
+        // If this node becomes unbalanced,
+        // then there are 4 cases
+
+        // Left Left Case
+        if (balance > 1 &&
+                getBalance(root->left) >= 0)
+            return rightRotate(root);
+
+        // Left Right Case
+        if (balance > 1 &&
+                getBalance(root->left) < 0)
+        {
+            root->left = leftRotate(root->left);
+            return rightRotate(root);
+        }
+
+        // Right Right Case
+        if (balance < -1 &&
+                getBalance(root->right) <= 0)
+            return leftRotate(root);
+
+        // Right Left Case
+        if (balance < -1 &&
+                getBalance(root->right) > 0)
+        {
+            root->right = rightRotate(root->right);
+            return leftRotate(root);
+        }
+
+        return root;
+    }
+
+    void printProductsForPurchase(){
+        printProductsForPurchaseHelper(root);
+    }
 
 private:
     NewAVLNode *root;
@@ -197,232 +389,3 @@ private:
 
 
 };
-
-bool NewAVLTree::isProdCodeOnTree(int prodCode) {
-    return root->isProdCodeInTree(root, prodCode);
-}
-
-NewAVLNode *NewAVLTree::getNodeByProdCode(int prodCode){
-    return root->getNodeByProdCode(root, prodCode);
-}
-
-void NewAVLTree::show(NewAVLNode *p, int l) {
-    int i;
-    if (p != nullptr) {
-        show((NewAVLNode*) p->getRightPointer(), l+ 1);
-        cout<<" ";
-        if (p == root)
-            cout << "Root -> ";
-        for (i = 0; i < l&& p != root; i++)
-            cout << " ";
-        cout << p->key;
-        show((NewAVLNode*) p->getLeftPointer(), l + 1);
-    }
-}
-void NewAVLTree::inorder(NewAVLNode *t) {
-    if (t == nullptr)
-        return;
-    inorder((NewAVLNode*) t->getLeftPointer());
-    cout << "(" <<t->key << ", " << t->getName()  << ", " << t->getTimesSold() << " ) -";
-    inorder((NewAVLNode*) t->getRightPointer());
-}
-
-void NewAVLTree::fullInorder(NewAVLNode *t) {
-    if (t == nullptr)
-        return;
-    fullInorder((NewAVLNode*) t->getLeftPointer());
-    cout << "(" <<t->key << ", " << t->getName()  << ", " << t->getTimesSold() << " ) -";
-    if(t->getProductAisleBrandTreePointer()!= nullptr){
-        cout << "Third tree inorder for: " << t->key << endl;
-        t->getProductAisleBrandTreePointer()->inorder();
-        cout << "End of Second Tree Inorder" << endl;
-    }
-    fullInorder((NewAVLNode*) t->getRightPointer());
-}
-
-void NewAVLTree::postorder(NewAVLNode *t) {
-    if (t == nullptr)
-        return;
-    postorder( (NewAVLNode*) t ->getLeftPointer());
-    postorder((NewAVLNode*) t ->getRightPointer());
-    cout << t->key << " ";
-}
-
-void NewAVLTree::printProductsForPurchase(){
-    printProductsForPurchaseHelper(root);
-}
-
-void NewAVLTree::printProductsForPurchaseHelper(NewAVLNode *t) {
-    if (t == nullptr)
-        return;
-    printProductsForPurchaseHelper((NewAVLNode *) t->getLeftPointer());
-    cout << "Product Code:" <<t->key << ", Product Name:" << t->getName() << endl;
-    printProductsForPurchaseHelper((NewAVLNode *) t->getRightPointer());
-}
-
-void NewAVLTree::generateMostBoughtProd(const string &path, int aisleCode){
-    ofstream outfile (path);
-    outfile << "Most bought prod on aisle: " << aisleCode << endl;
-
-    NewAVLNode::getMostBoughtValue(root, highestBoughValue);
-    NewAVLNode::generateMostBoughtProd(root, highestBoughValue, outfile);
-
-    outfile.flags();
-    outfile.close();
-    cout << "Report generated successfully..." << endl;
-}
-
-void NewAVLTree::generateProd(const string &path, int aisleCode) {
-    ofstream outfile (path);
-    outfile << "Products List for aisle: " << aisleCode << endl;
-
-    NewAVLNode::generateProductsList(root, outfile);
-
-    outfile.flags();
-    outfile.close();
-    cout << "Report generated successfully..." << endl;
-}
-
-string NewAVLTree::getProductsForClient() {
-    string concat;
-    return getProductsForClientHelper(root, concat);
-}
-
-string NewAVLTree::getProductsForClientHelper(NewAVLNode *t, string &concat) {
-    if (t == nullptr){
-        return concat;
-    } else {
-        concat = getProductsForClientHelper((NewAVLNode*) t->getLeftPointer(), concat);
-        concat += "Product Code:" + to_string(t->key) + ", Product Name:" + t->getName() + "\n";
-        concat = getProductsForClientHelper((NewAVLNode*) t->getRightPointer(), concat);
-    }
-    return concat;
-}
-
-/* Given a non-empty binary search tree,
-return the node with minimum key value
-found in that tree. Note that the entire
-tree does not need to be searched. */
-NewAVLNode * NewAVLTree::minValueNode(NewAVLNode* node)
-{
-    NewAVLNode* current = node;
-
-    /* loop down to find the leftmost leaf */
-    while (current->left != NULL)
-        current = current->left;
-
-    return current;
-}
-
-// Recursive function to delete a node
-// with given key from subtree with
-// given root. It returns root of the
-// modified subtree.
-NewAVLNode* NewAVLTree::deleteNode(NewAVLNode* root, int key)
-{
-
-    // STEP 1: PERFORM STANDARD BST DELETE
-    if (root == nullptr)
-        return root;
-
-    // If the key to be deleted is smaller
-    // than the root's key, then it lies
-    // in left subtree
-    if ( key < root->key )
-        root->left = deleteNode(root->left, key);
-
-        // If the key to be deleted is greater
-        // than the root's key, then it lies
-        // in right subtree
-    else if( key > root->key )
-        root->right = deleteNode(root->right, key);
-
-        // if key is same as root's key, then
-        // This is the node to be deleted
-    else
-    {
-        // node with only one child or no child
-        if( (root->left == nullptr) ||
-            (root->right == nullptr) )
-        {
-            NewAVLNode *temp = root->left ?
-                               root->left :
-                               root->right;
-
-            // No child case
-            if (temp == nullptr)
-            {
-                temp = root;
-                root = nullptr;
-            }
-            else // One child case
-                *root = *temp; // Copy the contents of
-            // the non-empty child
-            free(temp);
-        }
-        else
-        {
-            // node with two children: Get the inorder
-            // successor (smallest in the right subtree)
-            NewAVLNode* temp = minValueNode(root->right);
-
-            // Copy the inorder successor's
-            // data to this node
-            root->key = temp->key;
-            root->name = temp->name;
-            root->timesSold = temp->timesSold;
-            root->productAisleBrandTreePointer = temp->productAisleBrandTreePointer;
-
-            // Delete the inorder successor
-            root->right = deleteNode(root->right,
-                                     temp->key);
-        }
-    }
-
-    // If the tree had only one node
-    // then return
-    if (root == nullptr)
-        return root;
-
-    // STEP 2: UPDATE HEIGHT OF THE CURRENT NODE
-    root->height = 1 + max(height(root->left),
-                           height(root->right));
-
-    // STEP 3: GET THE BALANCE FACTOR OF
-    // THIS NODE (to check whether this
-    // node became unbalanced)
-    int balance = getBalance(root);
-
-    // If this node becomes unbalanced,
-    // then there are 4 cases
-
-    // Left Left Case
-    if (balance > 1 &&
-        getBalance(root->left) >= 0)
-        return rightRotate(root);
-
-    // Left Right Case
-    if (balance > 1 &&
-        getBalance(root->left) < 0)
-    {
-        root->left = leftRotate(root->left);
-        return rightRotate(root);
-    }
-
-    // Right Right Case
-    if (balance < -1 &&
-        getBalance(root->right) <= 0)
-        return leftRotate(root);
-
-    // Right Left Case
-    if (balance < -1 &&
-        getBalance(root->right) > 0)
-    {
-        root->right = rightRotate(root->right);
-        return leftRotate(root);
-    }
-
-    return root;
-}
-
-
