@@ -8,6 +8,9 @@
 #include <helpers/Kruskal.h>
 #include <helpers/PrimGraph.h>
 #include <helpers/citiesList.h>
+#include <helpers/helpers.h>
+
+#include <modules/modules.h>
 
 #include <TreesHandlers/AATree.h>
 #include <TreesHandlers/BTreeAdmins.h>
@@ -15,6 +18,8 @@
 
 extern int numberOfEdges;
 extern int numberOfEdgesArticulationPoint;
+
+extern helper helpers;
 
 extern citiesList cities;
 extern citiesList connectionsList;
@@ -36,5 +41,9 @@ extern BTreeAdmins admins;
 extern BTreeClients clients;
 
 extern AATree inventory;
+
+extern modules modules;
+
+extern salesList sales;
 
 #endif // GLOBALTREES_H

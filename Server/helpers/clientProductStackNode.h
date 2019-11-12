@@ -17,25 +17,45 @@ public:
         this->nextNode = nullptr;
     }
 
-    const string &getAisleCode() const;
+    const string &getAisleCode() const {
+        return aisleCode;
+    }
 
-    void setAisleCode(const string &newAisleCode);
+    void setAisleCode(const string &newAisleCode) {
+        clientProductStackNode::aisleCode = newAisleCode;
+    }
 
-    const string &getProdCode() const;
+    const string &getProdCode() const {
+        return prodCode;
+    }
 
-    void setProdCode(const string &newProdCode);
+    void setProdCode(const string &newProdCode) {
+        clientProductStackNode::prodCode = newProdCode;
+    }
 
-    const string &getBrandCode() const;
+    const string &getBrandCode() const {
+        return brandCode;
+    }
 
-    void setBrandCode(const string &newBrandCode);
+    void setBrandCode(const string &newBrandCode) {
+        clientProductStackNode::brandCode = newBrandCode;
+    }
 
-    int getAmount() const;
+    int getAmount() const {
+        return amount;
+    }
 
-    void setAmount(int newAmount);
+    void setAmount(int newAmount) {
+        clientProductStackNode::amount = newAmount;
+    }
 
-    clientProductStackNode *getNextNode() const;
+    clientProductStackNode *getNextNode() const {
+        return nextNode;
+    }
 
-    void setNextNode(clientProductStackNode *newNextNode);
+    void setNextNode(clientProductStackNode *newNextNode) {
+        clientProductStackNode::nextNode = newNextNode;
+    }
 
 private:
     string aisleCode;
@@ -45,43 +65,3 @@ private:
 
     clientProductStackNode *nextNode;
 };
-
-const string &clientProductStackNode::getAisleCode() const {
-    return aisleCode;
-}
-
-void clientProductStackNode::setAisleCode(const string &newAisleCode) {
-    clientProductStackNode::aisleCode = newAisleCode;
-}
-
-const string &clientProductStackNode::getProdCode() const {
-    return prodCode;
-}
-
-void clientProductStackNode::setProdCode(const string &newProdCode) {
-    clientProductStackNode::prodCode = newProdCode;
-}
-
-const string &clientProductStackNode::getBrandCode() const {
-    return brandCode;
-}
-
-void clientProductStackNode::setBrandCode(const string &newBrandCode) {
-    clientProductStackNode::brandCode = newBrandCode;
-}
-
-int clientProductStackNode::getAmount() const {
-    return amount;
-}
-
-void clientProductStackNode::setAmount(int newAmount) {
-    clientProductStackNode::amount = newAmount;
-}
-
-clientProductStackNode *clientProductStackNode::getNextNode() const {
-    return nextNode;
-}
-
-void clientProductStackNode::setNextNode(clientProductStackNode *newNextNode) {
-    clientProductStackNode::nextNode = newNextNode;
-}

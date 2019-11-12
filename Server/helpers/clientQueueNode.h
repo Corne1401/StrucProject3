@@ -23,41 +23,29 @@ public:
         this->firstClientProd = nullptr;
     }
 
-    const string &getClientId() const;
-    void setClientId(const string &newClientId);
-    clientProductStackNode *getFirstClientProd() const;
-    void setFirstClientProd(clientProductStackNode *newFirstClientProd);
+    const string &getClientId() const {
+        return clientId;
+    }
+    void setClientId(const string &newClientId) {
+        clientQueueNode::clientId = newClientId;
+    }
+    clientProductStackNode *getFirstClientProd() const {
+        return firstClientProd;
+    }
+    void setFirstClientProd(clientProductStackNode *newFirstClientProd) {
+        clientQueueNode::firstClientProd = newFirstClientProd;
+    }
 
-    clientQueueNode *getNextNode() const;
+    clientQueueNode *getNextNode() const {
+        return nextNode;
+    }
 
-    void setNextNode(clientQueueNode *newNextNode);
+    void setNextNode(clientQueueNode *newNextNode) {
+        clientQueueNode::nextNode = newNextNode;
+    }
 
 private:
     string clientId;
     clientProductStackNode *firstClientProd;
     clientQueueNode *nextNode;
 };
-
-clientQueueNode *clientQueueNode::getNextNode() const {
-    return nextNode;
-}
-
-void clientQueueNode::setNextNode(clientQueueNode *newNextNode) {
-    clientQueueNode::nextNode = newNextNode;
-}
-
-const string &clientQueueNode::getClientId() const {
-    return clientId;
-}
-
-void clientQueueNode::setClientId(const string &newClientId) {
-    clientQueueNode::clientId = newClientId;
-}
-
-clientProductStackNode *clientQueueNode::getFirstClientProd() const {
-    return firstClientProd;
-}
-
-void clientQueueNode::setFirstClientProd(clientProductStackNode *newFirstClientProd) {
-    clientQueueNode::firstClientProd = newFirstClientProd;
-}

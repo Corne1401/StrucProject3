@@ -1,7 +1,7 @@
 #include <QCoreApplication>
 #include "server.h"
 #include "globalTrees.h"
-#include "helpers/helpers.h"
+
 
 BinarySearchTree aisles;
 citiesList cities;
@@ -18,6 +18,8 @@ DijkstraGraph dijkstraGraph;
 int numberOfEdges;
 int numberOfEdgesArticulationPoint;
 vector<vector<neighbor>> dijkstraAdjList;
+helper helpers;
+salesList sales;
 
 void print(std::list<int> const &list){
     for (auto v : list)
@@ -28,23 +30,23 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    initAisleTree(aisles);
-    initAislesProductTree(aisles);
-    initAislesProductBrandTree(aisles);
-    initCitiesList(cities);
-    initClients(clients);
-    initAdmins(admins);
-    initInventory(inventory);
+    helpers.initAisleTree(aisles);
+    helpers.initAislesProductTree(aisles);
+    helpers.initAislesProductBrandTree(aisles);
+    helpers.initCitiesList(cities);
+    helpers.initClients(clients);
+    helpers.initAdmins(admins);
+    helpers.initInventory(inventory);
 
-    numberOfEdges = determineConnectionsNodes(connectionsList, cities, "Conexiones");
-    numberOfEdgesArticulationPoint = determineConnectionsNodes(articulationPointHelperList, cities, "Ptos de articulacion");
+    numberOfEdges = helpers.determineConnectionsNodes(connectionsList, cities, "Conexiones");
+    numberOfEdgesArticulationPoint = helpers.determineConnectionsNodes(articulationPointHelperList, cities, "Ptos de articulacion");
     dijkstraAdjList.resize(numberOfEdgesArticulationPoint);
 
     pGraph = primGraph.createGraph(numberOfEdges);
     kruskalGraph.setEdgesCount(numberOfEdges);
     articulationPointGraph.setEdgesCount(numberOfEdgesArticulationPoint);
 
-    initGraph(cities, pGraph, primGraph, connectionsList, kruskalGraph, dijkstraAdjList);
+    helpers.initGraph(cities, pGraph, primGraph, connectionsList, kruskalGraph, dijkstraAdjList);
 
 //    cout << "Edges of MST are \n";
 //    int mst_wt = kruskalGraph.kruskalMST();
@@ -62,8 +64,7 @@ int main(int argc, char *argv[])
 //    print(path);
 
 //    admins.traverse();
-    inventory.print();
-
+    //inventory.print();
 
     Server Server;
     Server.StartServer();

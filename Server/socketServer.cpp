@@ -1,4 +1,5 @@
 #include "socketServer.h"
+#include "globalTrees.h"
 #include <iostream>
 using namespace std;
 
@@ -31,8 +32,11 @@ void socketServer::readyRead(){
 
     if(serverKey=="01")//&& (validacion del server)
     {
-        qDebug()<<"admin verified"<<endl;
-        socket->write("si se pudo bro \n");
+        if(modules.validateAdmin(admins, "6875")){
+            cout << "NASA IS HERE" << endl;
+        } else {
+            cout << "NASA IS NOT HERE" << endl;
+        }
     }
     else if(serverKey=="02")//&&(validacion cliente)
     {
