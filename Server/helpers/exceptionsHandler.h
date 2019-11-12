@@ -12,11 +12,11 @@ public:
     const char* what() const noexcept override{
         return "Provided index doesn't exist. Index is out of bounds";
     }
-} indexOutOfBounds;
+} static indexOutOfBounds;
 
 class elementNotFound : public exception{
 public:
     const char* what() const noexcept override {
         return "Element not found with given parameters";
     }
-} elementNotFound;
+} static elementNotFound;

@@ -49,7 +49,6 @@ HEADERS += \ \
     helpers/quickSortHelper.h \
     helpers/salesList.h \
     helpers/salesNode.h \
-    helpers/test.h \
     modules/modules.h \
     nodeTypes/AANode.h \
     nodeTypes/BNodeAdmin.h \
