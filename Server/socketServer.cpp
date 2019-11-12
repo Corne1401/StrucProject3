@@ -1,6 +1,8 @@
 #include "socketServer.h"
 #include "globalTrees.h"
+#include "helpers/stringSpliter.h"
 #include <iostream>
+
 using namespace std;
 
 socketServer::socketServer(QObject *parent) : QTcpSocket(parent){
@@ -28,19 +30,30 @@ void socketServer::disconnected(){
 void socketServer::readyRead(){
     QByteArray data = socket->readAll();
     string dataToStr = data.toStdString();
-    string serverKey = dataToStr.substr(0,2);
+    stringList holder = splitString(";", dataToStr);
+    string serverKey = holder.getByIndex(0);
+    holder.print();
+
+    // "6875"
 
     if(serverKey=="01")//&& (validacion del server)
     {
-        if(modules.validateAdmin(admins, "6875")){
-            cout << "NASA IS HERE" << endl;
-        } else {
-            cout << "NASA IS NOT HERE" << endl;
+        if(modules.validateAdmin(admins,holder.getByIndex(1))){
+            qDebug()<<"yes pez \n";
+            socket->write("01");
         }
+        else{
+            qDebug()<<"Id no valido";
+        }
+
     }
     else if(serverKey=="02")//&&(validacion cliente)
     {
-        qDebug()<<"client verified"<<endl;
+        if(modules.validateClient(clients,holder.getByIndex(1))){
+            qDebug()<<"client verifie \n";
+            socket->write("01");
+        }
+
     }
 
 

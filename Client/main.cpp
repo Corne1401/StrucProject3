@@ -1,8 +1,10 @@
 #include "mainwindow.h"
 #include "globalClient.h"
 #include <QApplication>
+using namespace std;
 
 clientSocket clientSock;
+string dataFromServer;
 
 int main(int argc, char *argv[])
 {

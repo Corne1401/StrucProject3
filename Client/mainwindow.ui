@@ -40,7 +40,7 @@
      <string>Continue</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="editId">
     <property name="geometry">
      <rect>
       <x>330</x>

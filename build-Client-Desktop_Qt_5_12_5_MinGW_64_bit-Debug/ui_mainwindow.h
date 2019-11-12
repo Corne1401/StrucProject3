@@ -27,7 +27,7 @@ public:
     QWidget *centralwidget;
     QLabel *label;
     QPushButton *pushButton;
-    QLineEdit *lineEdit;
+    QLineEdit *editId;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -44,9 +44,9 @@ public:
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(350, 210, 81, 21));
-        lineEdit = new QLineEdit(centralwidget);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        lineEdit->setGeometry(QRect(330, 120, 121, 21));
+        editId = new QLineEdit(centralwidget);
+        editId->setObjectName(QString::fromUtf8("editId"));
+        editId->setGeometry(QRect(330, 120, 121, 21));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));

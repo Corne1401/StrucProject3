@@ -1,8 +1,10 @@
 #include "mainwindow.h"
 #include "globalAdmin.h"
 #include <QApplication>
+using namespace std;
 
 adminSocket adminSock;
+string dataFromServer;
 
 using namespace std;
 

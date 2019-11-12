@@ -19,15 +19,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     clientSocket.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    reports.cpp
 
 HEADERS += \
     clientSocket.h \
     globalClient.h \
-    mainwindow.h
+    mainwindow.h \
+    reports.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    reports.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
