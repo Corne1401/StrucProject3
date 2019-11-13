@@ -18,25 +18,82 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     adminSocket.cpp \
+    check/check.cpp \
+    eliminations.cpp \
+    eliminations/deleteaisle.cpp \
+    eliminations/deletebrand.cpp \
+    eliminations/deleteclient.cpp \
+    eliminations/deleteproduct.cpp \
+    eliminations/newaisle.cpp \
+    eliminations/newbrand.cpp \
+    eliminations/newclient.cpp \
+    eliminations/newproduct.cpp \
+    insertions.cpp \
+    insertions/newaisle.cpp \
+    insertions/newbrand.cpp \
+    insertions/newclient.cpp \
+    insertions/newproduct.cpp \
     main.cpp \
     mainwindow.cpp \
     menu.cpp \
     modifications.cpp \
-    reports.cpp
+    modifications/modbasicproduct.cpp \
+    modifications/modtax.cpp \
+    modifications/pricemod.cpp \
+    reports.cpp \
+    restock/restock.cpp
 
 HEADERS += \
     adminSocket.h \
+    check/check.h \
+    eliminations.h \
+    eliminations/deleteaisle.h \
+    eliminations/deletebrand.h \
+    eliminations/deleteclient.h \
+    eliminations/deleteproduct.h \
+    eliminations/newaisle.h \
+    eliminations/newbrand.h \
+    eliminations/newclient.h \
+    eliminations/newproduct.h \
     globalAdmin.h \
+    insertions.h \
+    insertions/newaisle.h \
+    insertions/newbrand.h \
+    insertions/newclient.h \
+    insertions/newproduct.h \
     mainwindow.h \
     menu.h \
     modifications.h \
-    reports.h
+    modifications/modbasicproduct.h \
+    modifications/modtax.h \
+    modifications/pricemod.h \
+    reports.h \
+    restock/restock.h
 
 FORMS += \
+    check/check.ui \
+    eliminations.ui \
+    eliminations/deleteaisle.ui \
+    eliminations/deleteaisle.ui \
+    eliminations/deletebrand.ui \
+    eliminations/deleteclient.ui \
+    eliminations/deleteproduct.ui \
+    eliminations/newbrand.ui \
+    eliminations/newclient.ui \
+    eliminations/newproduct.ui \
+    insertions.ui \
+    insertions/newaisle.ui \
+    insertions/newbrand.ui \
+    insertions/newclient.ui \
+    insertions/newproduct.ui \
     mainwindow.ui \
     menu.ui \
     modifications.ui \
-    reports.ui
+    modifications/modbasicproduct.ui \
+    modifications/modprice.ui \
+    modifications/modtax.ui \
+    reports.ui \
+    restock/restock.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

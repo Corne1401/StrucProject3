@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Modifications</class>
- <widget class="QMainWindow" name="Modifications">
+ <class>DeleteClient</class>
+ <widget class="QMainWindow" name="DeleteClient">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -17,53 +17,37 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>70</y>
-      <width>80</width>
+      <x>367</x>
+      <y>180</y>
+      <width>91</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>Modify price</string>
+     <string>Delete</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QLineEdit" name="clientID">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>160</y>
-      <width>80</width>
+      <x>358</x>
+      <y>110</y>
+      <width>113</width>
       <height>21</height>
      </rect>
-    </property>
-    <property name="text">
-     <string>Modify tax</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>250</y>
-      <width>80</width>
-      <height>21</height>
+      <x>390</x>
+      <y>80</y>
+      <width>47</width>
+      <height>13</height>
      </rect>
     </property>
     <property name="text">
-     <string>Modify product</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="backButton">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>330</y>
-      <width>80</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Back</string>
+     <string>Client ID</string>
     </property>
    </widget>
   </widget>

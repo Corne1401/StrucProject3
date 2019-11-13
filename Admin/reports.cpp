@@ -1,5 +1,6 @@
 #include "reports.h"
 #include "ui_reports.h"
+#include "menu.h"
 
 Reports::Reports(QWidget *parent) :
     QMainWindow(parent),
@@ -15,5 +16,8 @@ Reports::~Reports()
 
 void Reports::on_reportsBack_clicked()
 {
+    Menu *menu = new Menu;
+    menu->show();
     this->close();
 }
+

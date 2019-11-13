@@ -14,11 +14,11 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="Modify">
+   <widget class="QPushButton" name="modifyButton">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>80</y>
+      <x>90</x>
+      <y>90</y>
       <width>80</width>
       <height>21</height>
      </rect>
@@ -27,11 +27,11 @@
      <string>Modify</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="Reports">
+   <widget class="QPushButton" name="reportButton">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>150</y>
+      <x>90</x>
+      <y>180</y>
       <width>80</width>
       <height>20</height>
      </rect>
@@ -43,8 +43,8 @@
    <widget class="QPushButton" name="menuBack">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>280</y>
+      <x>340</x>
+      <y>350</y>
       <width>80</width>
       <height>20</height>
      </rect>
@@ -56,14 +56,92 @@
    <widget class="QPushButton" name="chainReports">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>210</y>
+      <x>570</x>
+      <y>270</y>
       <width>80</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
      <string>Chain Reports</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="insertButton">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>90</y>
+      <width>80</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Insertions</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="deleteButton">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>180</y>
+      <width>80</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Eliminations</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="checkButton">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>260</y>
+      <width>80</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Check</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="billingButton">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>90</y>
+      <width>80</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Billing</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="restockButton">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>180</y>
+      <width>80</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Restock</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="checkInventory">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>270</y>
+      <width>80</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Check inventory</string>
     </property>
    </widget>
   </widget>

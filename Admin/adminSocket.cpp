@@ -2,7 +2,7 @@
 #include "globalAdmin.h"
 #include <iostream>
 
-
+#include "mainwindow.h"
 #include "menu.h"
 
 
@@ -35,6 +35,7 @@ void adminSocket::readyRead(){
     if(dataFromServer == "01"){
         Menu *menu = new Menu;
         menu->show();
+
     }
 
 

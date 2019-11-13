@@ -17,9 +17,27 @@ public:
     ~Menu();
 
 private slots:
-    void on_Reports_2_clicked();
 
-    void on_Reports_clicked();
+
+    void on_menuBack_clicked();
+
+    void on_modifyButton_clicked();
+
+    void on_reportButton_clicked();
+
+    void on_checkButton_clicked();
+
+    void on_billingButton_clicked();
+
+    void on_restockButton_clicked();
+
+    void on_insertButton_clicked();
+
+    void on_deleteButton_clicked();
+
+    void on_chainReports_clicked();
+
+    void on_checkInventory_clicked();
 
 private:
     Ui::Menu *ui;
