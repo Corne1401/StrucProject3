@@ -121,15 +121,20 @@ public:
         printHelper(root);
     }
 
-    void generateInventory(string path) {
-        ofstream outfile (path);
-        outfile << "List of Inventory. " << endl;
+    bool generateInventory(string path) {
+        try {
+            ofstream outfile (path);
+            outfile << "List of Inventory. " << endl;
 
-        generateProductsListHelper(root, outfile);
+            generateProductsListHelper(root, outfile);
 
-        outfile.flags();
-        outfile.close();
-        cout << "Report generated successfully..." << endl;
+            outfile.flags();
+            outfile.close();
+            cout << "Report generated successfully..." << endl;
+            return true;
+        } catch (...) {
+            return false;
+        }
     }
     void generateProductsListHelper(AANode *R, ofstream &outfile) {
         if (!R)

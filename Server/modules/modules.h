@@ -672,6 +672,8 @@ public:
                 BSNode *selectedAisle = aisleList.getNodeByAisleCode(aisleIndex);
                 selectedAisle->getProductAisleTreePointer()->generateMostBoughtProd(path, selectedAisle->getData());
                 return true;
+            } else {
+                return false;
             }
         } catch (invalid_argument &e) {
             cout << e.what() << endl;
@@ -681,75 +683,59 @@ public:
 
     }
 
-    static void generateProductsReport(const string& path, BinarySearchTree &aisleList){
-        bool isValidOption = false;
-        while (!isValidOption){
-            cout << "Please select an aisle: " << endl;
+    static bool generateProductsReport(const string& path, BinarySearchTree &aisleList, string aisleCode){
+        try {
+            int aisleIndex = stoi(aisleCode);
 
-            //Prints aisles
-            aisleList.printAisleForPurchase();
-
-            string chosenAisle;
-            cin >> chosenAisle;
-
-            try {
-                int aisleIndex = stoi(chosenAisle);
-                isValidOption = true;
+            if(aisleList.isAisleCodeInTree(aisleIndex)){
                 auto *selectedAisle = aisleList.getNodeByAisleCode(aisleIndex);
-
                 selectedAisle->getProductAisleTreePointer()->generateProd(path, selectedAisle->getData());
-            } catch (invalid_argument &e) {
-                cout << "Not a valid option. Try again" << endl;
+                return true;
+            } else {
+                return false;
             }
+        } catch (invalid_argument &e) {
+            cout << "Not a valid option. Try again" << endl;
+            return false;
         }
     }
 
-    static void generateBrandsReport(const string& path, BinarySearchTree aisles){
-        while (true){
-            try {
-                cout << "Please select an aisle (numeric code): " << endl;
+    static bool generateBrandsReport(const string& path, BinarySearchTree aisles, string aisleCode, string prodCode){
+        try {
+            int chosenAisle;
+            chosenAisle = stoi(aisleCode);
 
-                //Prints aisles
-                aisles.printAisleForPurchase();
+            if (aisles.isAisleCodeInTree(chosenAisle)) {
+                auto *selectedAisle = aisles.getNodeByAisleCode(chosenAisle);
 
-                string chosenAisleString;
-                int chosenAisle;
-                cin >> chosenAisleString;
-                chosenAisle = stoi(chosenAisleString);
+                if (selectedAisle->getProductAisleTreePointer() != nullptr) {
 
-                if (aisles.isAisleCodeInTree(chosenAisle)) {
-                    auto *selectedAisle = aisles.getNodeByAisleCode(chosenAisle);
+                    int chosenProd;
+                    chosenProd = stoi(prodCode);
 
-                    if (selectedAisle->getProductAisleTreePointer() != nullptr) {
-                        cout << "Please select a product for aisle (numeric code): " << selectedAisle->getName() << endl;
+                    if (selectedAisle->getProductAisleTreePointer()->isProdCodeOnTree(chosenProd)) {
+                        auto *selectedProd = selectedAisle->getProductAisleTreePointer()->getNodeByProdCode(chosenProd);
 
-                        selectedAisle->getProductAisleTreePointer()->printProductsForPurchaseHelper(selectedAisle->getProductAisleTreePointer()->getAVLRoot());
+                        selectedProd->getProductAisleBrandTreePointer()->generateBrand(path, chosenAisle, chosenProd);
+                        return true;
 
-                        string chosenProdString;
-                        int chosenProd;
-                        cin >> chosenProdString;
-                        chosenProd = stoi(chosenProdString);
-
-                        if (selectedAisle->getProductAisleTreePointer()->isProdCodeOnTree(chosenProd)) {
-                            auto *selectedProd = selectedAisle->getProductAisleTreePointer()->getNodeByProdCode(chosenProd);
-
-                            selectedProd->getProductAisleBrandTreePointer()->generateBrand(path, chosenAisle, chosenProd);
-                            break;
-
-
-                        } else {
-                            cout << "ERROR: No such product on system. Please Try Again." << endl;
-                        }
                     } else {
-                        cout << "ERROR: There are no Products associated to given Aisle" << endl;
+                        cout << "ERROR: No such product on system. Please Try Again." << endl;
+                        return false;
                     }
                 } else {
-                    cout << "ERROR: No such aisle on system. Please Try Again." << endl;
+                    cout << "ERROR: There are no Products associated to given Aisle" << endl;
+                    return false;
                 }
-            } catch (std::invalid_argument& e){
-                cout << "Value is not numeric. Please try again" << endl;
+            } else {
+                cout << "ERROR: No such aisle on system. Please Try Again." << endl;
+                return false;
             }
+        } catch (...){
+            cout << "Error" << endl;
+            return false;
         }
+
     }
 
     static void reportingModuleMainMenu(BinarySearchTree &aisleList, salesList &sales, BTreeClients &clients, AATree &inventory, helper &helpers) {
@@ -795,9 +781,9 @@ public:
             } else if (op=="10"){
                 aisleList.generateAisles("../reports/aislesList.txt");
             } else if (op=="11"){
-                generateProductsReport("../reports/productsList.txt", aisleList);
+                //generateProductsReport("../reports/productsList.txt", aisleList);
             } else if (op=="12"){
-                generateBrandsReport("../reports/brandsList.txt", aisleList);
+                //generateBrandsReport("../reports/brandsList.txt", aisleList);
             } else if (op=="13"){
                 clients.generateClients("../reports/clientsList.txt");
             } else if (op=="14"){
@@ -813,8 +799,8 @@ public:
                 clients.generateLeastBilledClient("../reports/leastBilledClient.txt");
                 clients.generateMostBilledClient("../reports/mostBilledClient.txt");
                 aisleList.generateAisles("../reports/aislesList.txt");
-                generateProductsReport("../reports/productsList.txt", aisleList);
-                generateBrandsReport("../reports/brandsList.txt", aisleList);
+                //generateProductsReport("../reports/productsList.txt", aisleList);
+                //generateBrandsReport("../reports/brandsList.txt", aisleList);
                 clients.generateClients("../reports/clientsList.txt");
                 inventory.generateInventory("../reports/inventoryList.txt");
             } else if (op=="16"){
@@ -1708,8 +1694,7 @@ public:
     static string getProductsByAisleCode(BinarySearchTree &aisles, const string& aisleCode) {
         try{
             return aisles.getNodeByAisleCode(stoi(aisleCode))->getProductAisleTreePointer()->getProductsForClient();
-        } catch (invalid_argument &e){
-            cout << e.what() << endl;
+        } catch (...){
             return "Error";
         }
     }
@@ -1717,8 +1702,7 @@ public:
     static string getBrandsByAisleProdCode(BinarySearchTree &aisles, const string& aisleCode, const string& prodCode) {
         try{
             return aisles.getNodeByAisleCode(stoi(aisleCode))->getProductAisleTreePointer()->getNodeByProdCode(stoi(prodCode))->getProductAisleBrandTreePointer()->getBrandsForClient();
-        } catch (invalid_argument &e){
-            cout << e.what() << endl;
+        } catch (...){
             return "Error";
         }
     }
@@ -1726,8 +1710,7 @@ public:
     static string getPriceByAisleProdBrandCode(BinarySearchTree &aisles, const string& aisleCode, const string& prodCode, const string& brandCode) {
         try{
             return to_string(aisles.getNodeByAisleCode(stoi(aisleCode))->getProductAisleTreePointer()->getNodeByProdCode(stoi(prodCode))->getProductAisleBrandTreePointer()->getNodeByBrandCode(stoi(brandCode))->getPrice());
-        } catch (invalid_argument &e){
-            cout << e.what() << endl;
+        } catch (...){
             return "Error";
         }
     }
@@ -1737,8 +1720,7 @@ public:
             if(inv.getNodeByAisleProdBrandCode(aisleCode+prodCode+brandCode)->getIsBasicProd()){
                 return "It is basic prod";
             } else return "It is NOT basic prod";
-        } catch (invalid_argument &e){
-            cout << e.what() << endl;
+        } catch (...){
             return "Error";
         }
     }
@@ -1748,8 +1730,7 @@ public:
             if(inv.getNodeByAisleProdBrandCode(aisleCode+prodCode+brandCode)->getIsBasicProd()){
                 return "Tax: "+to_string(basicProd);
             } else return "Tax: "+to_string(nonBasicProd);
-        } catch (invalid_argument &e){
-            cout << e.what() << endl;
+        } catch (...){
             return "Error";
         }
     }

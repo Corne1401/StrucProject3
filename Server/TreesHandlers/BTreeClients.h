@@ -22,61 +22,86 @@ public:
         }
     }
 
-    void generateMostExpensiveBill(const string &path) {
-        ofstream outfile (path);
-        outfile << "Most expensive bill report. " << endl;
+    bool generateMostExpensiveBill(const string &path) {
+        try {
+            ofstream outfile (path);
+            outfile << "Most expensive bill report. " << endl;
 
-        root->getHighestBoughtValue(highestBoughtValue);
-        root->generateMostExpensiveBill(highestBoughtValue, outfile);
+            root->getHighestBoughtValue(highestBoughtValue);
+            root->generateMostExpensiveBill(highestBoughtValue, outfile);
 
-        outfile.flags();
-        outfile.close();
-        cout << "Report generated successfully..." << endl;
+            outfile.flags();
+            outfile.close();
+            cout << "Report generated successfully..." << endl;
+            return true;
+        } catch (...) {
+            return false;
+        }
     }
-    void generateMostBilledClient(const string &path){
-        ofstream outfile (path);
-        outfile << "Most billed client report. " << endl;
+    bool generateMostBilledClient(const string &path){
+        try {
+            ofstream outfile (path);
+            outfile << "Most billed client report. " << endl;
 
-        root->getMostBoughtValue(mostBoughtValue);
-        root->generateMostBilledClient(mostBoughtValue, outfile);
+            root->getMostBoughtValue(mostBoughtValue);
+            root->generateMostBilledClient(mostBoughtValue, outfile);
 
-        outfile.flags();
-        outfile.close();
-        cout << "Report generated successfully..." << endl;
+            outfile.flags();
+            outfile.close();
+            cout << "Report generated successfully..." << endl;
+            return true;
+        } catch (...) {
+            return false;
+        }
     }
-    void generateLeastExpensiveBill(const string &path) {
-        ofstream outfile (path);
-        outfile << "Least expensive bill report. " << endl;
+    bool generateLeastExpensiveBill(const string &path) {
+        try {
+            ofstream outfile (path);
+            outfile << "Least expensive bill report. " << endl;
 
-        highestBoughtValue = root->searchClient(root->keys[0]).getAmountSpent();
-        root->getLowestBoughtValue(highestBoughtValue);
-        root->generateLeastExpensiveBill(highestBoughtValue, outfile);
+            highestBoughtValue = root->searchClient(root->keys[0]).getAmountSpent();
+            root->getLowestBoughtValue(highestBoughtValue);
+            root->generateLeastExpensiveBill(highestBoughtValue, outfile);
 
-        outfile.flags();
-        outfile.close();
-        cout << "Report generated successfully..." << endl;
+            outfile.flags();
+            outfile.close();
+            cout << "Report generated successfully..." << endl;
+            return true;
+        } catch (...) {
+            return false;
+        }
     }
-    void generateLeastBilledClient(const string &path) {
-        ofstream outfile (path);
-        outfile << "Least expensive bill report. " << endl;
+    bool generateLeastBilledClient(const string &path) {
+        try {
+            ofstream outfile (path);
+            outfile << "Least expensive bill report. " << endl;
 
-        mostBoughtValue = root->searchClient(root->keys[0]).getAmountSpent();
-        root->getLeastBoughtValue(mostBoughtValue);
-        root->generateLeastBilledClient(mostBoughtValue, outfile);
+            mostBoughtValue = root->searchClient(root->keys[0]).getAmountSpent();
+            root->getLeastBoughtValue(mostBoughtValue);
+            root->generateLeastBilledClient(mostBoughtValue, outfile);
 
-        outfile.flags();
-        outfile.close();
-        cout << "Report generated successfully..." << endl;
+            outfile.flags();
+            outfile.close();
+            cout << "Report generated successfully..." << endl;
+            return true;
+        } catch (...) {
+            return false;
+        }
     }
-    void generateClients(const string &path) {
-        ofstream outfile (path);
-        outfile << "Clients List. " << endl;
+    bool generateClients(const string &path) {
+        try {
+            ofstream outfile (path);
+            outfile << "Clients List. " << endl;
 
-        root->generateClients(outfile);
+            root->generateClients(outfile);
 
-        outfile.flags();
-        outfile.close();
-        cout << "Report generated successfully..." << endl;
+            outfile.flags();
+            outfile.close();
+            cout << "Report generated successfully..." << endl;
+            return true;
+        } catch (...) {
+            return false;
+        }
     }
 
     string getClientsForServer(){
