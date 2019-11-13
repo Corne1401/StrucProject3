@@ -1,5 +1,6 @@
 #include "modifications.h"
 #include "ui_modifications.h"
+#include "menu.h"
 
 Modifications::Modifications(QWidget *parent) :
     QMainWindow(parent),
@@ -11,4 +12,11 @@ Modifications::Modifications(QWidget *parent) :
 Modifications::~Modifications()
 {
     delete ui;
+}
+
+void Modifications::on_backButton_clicked()
+{
+    Menu *menu = new Menu;
+    menu->show();
+    this->close();
 }

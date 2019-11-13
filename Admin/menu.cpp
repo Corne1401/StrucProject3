@@ -1,4 +1,10 @@
 #include "menu.h"
+#include "modifications.h"
+#include "reports.h"
+#include "check/check.h"
+#include "restock/restock.h"
+#include "insertions.h"
+#include "eliminations.h"
 #include "ui_menu.h"
 
 Menu::Menu(QWidget *parent) :
@@ -13,13 +19,61 @@ Menu::~Menu()
     delete ui;
 }
 
-void Menu::on_Reports_2_clicked()
+
+void Menu::on_menuBack_clicked()
 {
     this->close();
 }
-
-void Menu::on_Reports_clicked()
+void Menu::on_modifyButton_clicked()
 {
-   Reports *reportWindow = new Reports;
-   reportWindow->show();
+    Modifications *modMenu = new Modifications;
+    modMenu->show();
+    this->close();
+}
+void Menu::on_reportButton_clicked()
+{
+    Reports *getReport = new Reports;
+    getReport->show();
+    this->close();
+}
+void Menu::on_checkButton_clicked()
+{
+    Check *checkMenu = new Check;
+    checkMenu->show();
+    this->close();
+}
+
+void Menu::on_billingButton_clicked()
+{
+    // emit code to generate files
+}
+
+void Menu::on_restockButton_clicked()
+{
+    ReStock *restockMenu = new ReStock;
+    restockMenu->show();
+    this->close();
+}
+
+
+{
+
+}
+
+void Menu::on_insertButton_clicked()
+{
+    insertions *insertMenu = new insertions;
+    insertMenu->show();
+    this->close();
+}
+void Menu::on_deleteButton_clicked()
+{
+    eliminations *elimMenu = new eliminations;
+    elimMenu->show();
+    this->close();
+}
+
+void Menu::on_chainReports_clicked()
+{
+
 }
