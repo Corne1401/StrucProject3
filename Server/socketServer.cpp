@@ -265,4 +265,19 @@ void socketServer::readyRead(){
             socket->write("0");
         }
     }
+    else if(holder[0]=="37"){ //leastVisitedAisle
+        if(aisles.generateLeastVisitedAisleReport(PATH_TO_REPORTS+"leastVisitedAisle.txt")){
+            socket->write("1");
+        } else {
+            socket->write("0");
+        }
+    }
+    else if(holder[0]=="38"){ //mostProductsPerAisle
+        //holder[1]==aisleCode
+        if(modules.mostProductPerAisle(PATH_TO_REPORTS+"mostProductsPerAisle.txt", aisles, holder[1])){
+            socket->write("1");
+        } else {
+            socket->write("0");
+        }
+    }
 }

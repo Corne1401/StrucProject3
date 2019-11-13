@@ -35,14 +35,19 @@ public:
     bool isAisleCodeInTree(int aisleCode) {
         return root->isAisleCodeInTree(root, aisleCode);
     }
-    void generateAisles(string path) {
-        ofstream outfile (path);
-        outfile << "Aisles List. " << endl;
-        BSNode::generateAisles(root, outfile);
+    bool generateAisles(string path) {
+        try {
+            ofstream outfile (path);
+            outfile << "Aisles List. " << endl;
+            BSNode::generateAisles(root, outfile);
 
-        outfile.flags();
-        outfile.close();
-        cout << "Report generated successfully..." << endl;
+            outfile.flags();
+            outfile.close();
+            cout << "Report generated successfully..." << endl;
+            return true;
+        } catch (...) {
+            return false;
+        }
     }
     bool generateMostVisitedAisleReport(string path) {
         try {
@@ -59,16 +64,21 @@ public:
             return false;
         }
     }
-    void generateLeastVisitedAisleReport(string path) {
-        ofstream outfile (path);
-        outfile << "Least visited aisle report. " << endl;
-        lowestVisitedValue = root->getVisits();
-        BSNode::getLeastVisitedValue(root, lowestVisitedValue);
-        BSNode::generateLeastVisitedAisleReport(root, lowestVisitedValue, outfile);
+    bool generateLeastVisitedAisleReport(string path) {
+        try {
+            ofstream outfile (path);
+            outfile << "Least visited aisle report. " << endl;
+            lowestVisitedValue = root->getVisits();
+            BSNode::getLeastVisitedValue(root, lowestVisitedValue);
+            BSNode::generateLeastVisitedAisleReport(root, lowestVisitedValue, outfile);
 
-        outfile.flags();
-        outfile.close();
-        cout << "Report generated successfully..." << endl;
+            outfile.flags();
+            outfile.close();
+            cout << "Report generated successfully..." << endl;
+            return true;
+        } catch (...) {
+            return false;
+        }
     }
     string getAislesForClient() {
         string concat;
