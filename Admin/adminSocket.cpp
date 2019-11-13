@@ -32,7 +32,10 @@ void adminSocket::readyRead(){
     string dataToString = data.toStdString();
     dataFromServer = dataToString;
 
-    if(dataFromServer == "01"){
+    cout<<"<------DATA------>"<<endl;
+    cout<<dataFromServer<<endl;
+    cout<<">----------------<"<<endl;
+    if(dataFromServer == "1"){
         Menu *menu = new Menu;
         menu->show();
 

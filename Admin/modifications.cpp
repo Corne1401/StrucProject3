@@ -1,6 +1,9 @@
 #include "modifications.h"
 #include "ui_modifications.h"
 #include "menu.h"
+#include "modifications/pricemod.h"
+#include "modifications/modtax.h"
+#include "modifications/modbasicproduct.h"
 
 Modifications::Modifications(QWidget *parent) :
     QMainWindow(parent),
@@ -18,5 +21,14 @@ void Modifications::on_backButton_clicked()
 {
     Menu *menu = new Menu;
     menu->show();
+    this->close();
+}
+
+
+
+void Modifications::on_modPrice_clicked()
+{
+    priceMod *modifyPrice = new priceMod;
+    modifyPrice->show();
     this->close();
 }
