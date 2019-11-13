@@ -65,6 +65,8 @@ public:
 class KruskalGraph{
 
 public:
+    int graphWeight;
+
     int V;
     vector< pair<int, iPair> > edges;
 
@@ -79,6 +81,10 @@ public:
         this->V = 0;
     }
 
+    int getGraphWeight(){
+        return this->graphWeight;
+    }
+
 
 
     // Utility function to add an edge
@@ -89,8 +95,9 @@ public:
 
     // Function to find MST using Kruskal's
     // MST algorithm
-    int kruskalMST()
+    string kruskalMST()
     {
+        string concat;
         int mst_wt = 0; // Initialize result
 
         // Sort edges in increasing order on basis of cost
@@ -116,7 +123,7 @@ public:
             {
                 // Current edge will be in the MST
                 // so print it
-                cout << u << " - " << v << endl;
+                concat += to_string(u) + " - " + to_string(v) + "\n";
 
                 // Update MST weight
                 mst_wt += it->first;
@@ -125,8 +132,8 @@ public:
                 ds.merge(set_u, set_v);
             }
         }
-
-        return mst_wt;
+        this->graphWeight = mst_wt;
+        return concat;
     }
 };
 

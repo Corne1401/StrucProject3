@@ -79,6 +79,11 @@ public:
         cout << "Report generated successfully..." << endl;
     }
 
+    string getClientsForServer(){
+        string concat;
+        return root->generateClientsAsString(concat);
+    }
+
     // function to search a key in this tree
     BTreeNode* search(int k){
         return (root == nullptr)? nullptr : root->search(k);

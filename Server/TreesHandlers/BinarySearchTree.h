@@ -44,15 +44,20 @@ public:
         outfile.close();
         cout << "Report generated successfully..." << endl;
     }
-    void generateMostVisitedAisleReport(string path) {
-        ofstream outfile (path);
-        outfile << "Most visited aisle report. " << endl;
-        BSNode::getMostVisitedValue(root, highestVisitedValue);
-        BSNode::generateMostVisitedAisleReport(root, highestVisitedValue, outfile);
+    bool generateMostVisitedAisleReport(string path) {
+        try {
+            ofstream outfile (path);
+            outfile << "Most visited aisle report. " << endl;
+            BSNode::getMostVisitedValue(root, highestVisitedValue);
+            BSNode::generateMostVisitedAisleReport(root, highestVisitedValue, outfile);
 
-        outfile.flags();
-        outfile.close();
-        cout << "Report generated successfully..." << endl;
+            outfile.flags();
+            outfile.close();
+            cout << "Report generated successfully..." << endl;
+            return true;
+        } catch (...) {
+            return false;
+        }
     }
     void generateLeastVisitedAisleReport(string path) {
         ofstream outfile (path);
@@ -80,6 +85,10 @@ public:
 
     void setRoot(BSNode *newRoot) {
         BinarySearchTree::root = newRoot;
+    }
+
+    void deleteNode(int key){
+        root = root->deleteNode(root, key);
     }
 
 private:
