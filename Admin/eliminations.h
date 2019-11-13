@@ -15,6 +15,9 @@ public:
     explicit eliminations(QWidget *parent = nullptr);
     ~eliminations();
 
+private slots:
+    void on_deleteBack_clicked();
+
 private:
     Ui::eliminations *ui;
 };

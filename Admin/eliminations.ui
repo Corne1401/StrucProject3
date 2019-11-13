@@ -1,7 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author/>
- <comment/>
- <exportmacro/>
  <class>eliminations</class>
  <widget class="QMainWindow" name="eliminations">
   <property name="geometry">
@@ -15,10 +13,75 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QMenuBar" name="menubar"/>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="deleteAisleButton">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>80</y>
+      <width>80</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Delete aisle</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="deleteBrandButton">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>80</y>
+      <width>80</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Delete brand</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="deleteProductButton">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>190</y>
+      <width>80</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Delete product</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="deleteClientButton">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>200</y>
+      <width>80</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Delete client</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="deleteBack">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>290</y>
+      <width>80</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Back</string>
+    </property>
+   </widget>
+  </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <pixmapfunction/>
+ <resources/>
  <connections/>
 </ui>

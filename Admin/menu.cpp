@@ -54,12 +54,6 @@ void Menu::on_restockButton_clicked()
     restockMenu->show();
     this->close();
 }
-
-
-{
-
-}
-
 void Menu::on_insertButton_clicked()
 {
     insertions *insertMenu = new insertions;
@@ -74,6 +68,11 @@ void Menu::on_deleteButton_clicked()
 }
 
 void Menu::on_chainReports_clicked()
+{
+
+}
+
+void Menu::on_checkInventory_clicked()
 {
 
 }

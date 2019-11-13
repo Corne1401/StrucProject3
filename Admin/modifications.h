@@ -15,6 +15,9 @@ public:
     explicit Modifications(QWidget *parent = nullptr);
     ~Modifications();
 
+private slots:
+    void on_backButton_clicked();
+
 private:
     Ui::Modifications *ui;
 };

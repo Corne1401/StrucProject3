@@ -50,6 +50,19 @@
      <string>Restock</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="backButton">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>270</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Back</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

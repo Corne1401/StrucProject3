@@ -15,6 +15,9 @@ public:
     explicit insertions(QWidget *parent = nullptr);
     ~insertions();
 
+private slots:
+    void on_insertBack_clicked();
+
 private:
     Ui::insertions *ui;
 };
