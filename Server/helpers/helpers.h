@@ -402,7 +402,7 @@ public:
         for (auto x : fullString){
             switch(dataCount){
                 case 0:
-                    if(x==delimiter){
+                    if(x==delimiter || x==':'){
                         //cout << data1 << endl;
                         dataCount++;
                     } else {
@@ -410,7 +410,7 @@ public:
                     }
                     break;
                 case 1:
-                    if(x==delimiter){
+                    if(x==delimiter || x==':'){
                         //cout << data2 << endl;
                         dataCount++;
                     } else {
@@ -418,7 +418,7 @@ public:
                     }
                     break;
                 case 2:
-                    if(x==delimiter){
+                    if(x==delimiter || x==':'){
                         //cout << data3 << endl;
                         dataCount++;
                     } else {
@@ -426,7 +426,7 @@ public:
                     }
                     break;
                 case 3:
-                    if(x==delimiter){
+                    if(x==delimiter || x==':'){
                         //cout << data3 << endl;
                         dataCount++;
                     } else {
@@ -434,7 +434,7 @@ public:
                     }
                     break;
                 case 4:
-                    if(x==delimiter){
+                    if(x==delimiter || x==':'){
                         //cout << data3 << endl;
                         dataCount++;
                     } else {
@@ -442,7 +442,7 @@ public:
                     }
                     break;
                 case 5:
-                    if(x==delimiter){
+                    if(x==delimiter || x==':'){
                         //cout << data3 << endl;
                         dataCount++;
                     } else {

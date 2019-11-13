@@ -664,27 +664,21 @@ public:
         return result;
     }
 
-    static void mostProductPerAisle(const string& path, BinarySearchTree &aisleList) {
-        bool isValidOption = false;
-        while (!isValidOption){
-            cout << "Please select an aisle: " << endl;
+    static bool mostProductPerAisle(const string& path, BinarySearchTree &aisleList, string aisleCode) {
+        try {
+            int aisleIndex = stoi(aisleCode);
 
-            //Prints aisles
-            aisleList.printAisleForPurchase();
-
-            string chosenAisle;
-            cin >> chosenAisle;
-
-            try {
-                int aisleIndex = stoi(chosenAisle);
-                isValidOption = true;
+            if(aisleList.isAisleCodeInTree(aisleIndex)){
                 BSNode *selectedAisle = aisleList.getNodeByAisleCode(aisleIndex);
-
                 selectedAisle->getProductAisleTreePointer()->generateMostBoughtProd(path, selectedAisle->getData());
-            } catch (invalid_argument &e) {
-                cout << "Not a valid option. Try again" << endl;
+                return true;
             }
+        } catch (invalid_argument &e) {
+            cout << e.what() << endl;
+            cout << "Not a valid option. Try again" << endl;
+            return false;
         }
+
     }
 
     static void generateProductsReport(const string& path, BinarySearchTree &aisleList){
@@ -785,7 +779,7 @@ public:
             } else if (op=="2"){
                 aisleList.generateLeastVisitedAisleReport("../reports/leastVisitedAisle.txt");
             } else if (op=="3"){
-                mostProductPerAisle("../reports/mostProductsPerAisle.txt", aisleList);
+                //mostProductPerAisle("../reports/mostProductsPerAisle.txt", aisleList);
             } else if (op=="4"){
                 sales.generateMostSoldBrands("../reports/mostSoldBrand.txt");
             } else if (op=="5"){
@@ -811,7 +805,7 @@ public:
             } else if (op=="15"){
                 aisleList.generateMostVisitedAisleReport("../reports/mostVisitedAisle.txt");
                 aisleList.generateLeastVisitedAisleReport("../reports/leastVisitedAisle.txt");
-                mostProductPerAisle("../reports/mostProductsPerAisle.txt", aisleList);
+                //mostProductPerAisle("../reports/mostProductsPerAisle.txt", aisleList);
                 sales.generateMostSoldBrands("../reports/mostSoldBrand.txt");
                 clients.generateMostExpensiveBill("../reports/mostExpensiveBill.txt");
                 clients.generateMostExpensiveBill("../reports/clientWhoBoughtTheMost.txt");
