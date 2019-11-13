@@ -22,6 +22,7 @@ helper helpers;
 salesList sales;
 clientQueue clientsQ;
 class modules modules;
+string PATH_TO_REPORTS = "C:\\GitHub_Projects\\StrucProject3\\Server\\reports\\";
 
 void print(std::list<int> const &list){
     for (auto v : list)
@@ -32,7 +33,6 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    PATH_TO_REPORTS = "C:\\GitHub_Projects\\StrucProject3\\Server\\reports\\";
 
     helpers.initAisleTree(aisles);
     helpers.initAislesProductTree(aisles);
@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
       //cout << modules.getClients(clients) << endl;
     //clients.traverse();
 
-    //inventory.print();
+    inventory.print();
 
     Server Server;
     Server.StartServer();
