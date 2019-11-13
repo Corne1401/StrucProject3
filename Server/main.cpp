@@ -20,6 +20,8 @@ int numberOfEdgesArticulationPoint;
 vector<vector<neighbor>> dijkstraAdjList;
 helper helpers;
 salesList sales;
+clientQueue clientsQ;
+class modules modules;
 
 void print(std::list<int> const &list){
     for (auto v : list)
@@ -29,6 +31,8 @@ void print(std::list<int> const &list){
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
+
+    PATH_TO_REPORTS = "C:\\GitHub_Projects\\StrucProject3\\Server\\reports\\";
 
     helpers.initAisleTree(aisles);
     helpers.initAislesProductTree(aisles);
@@ -64,6 +68,10 @@ int main(int argc, char *argv[])
 //    print(path);
 
 //    admins.traverse();
+
+      //cout << modules.getClients(clients) << endl;
+    //clients.traverse();
+
     //inventory.print();
 
     Server Server;

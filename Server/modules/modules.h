@@ -140,6 +140,95 @@ public:
             cout << "Value is not numeric. Please try again" << endl;
         }
     }
+
+
+    bool insertAisle(BinarySearchTree &aisles, string newAisleCode, string newAisleName){
+        bool result = false;
+        try {
+            if(!aisles.isAisleCodeInTree(stoi(newAisleCode))){
+                aisles.insert(new BSNode(stoi(newAisleCode), newAisleName));
+                result = true;
+            } else {
+                result = false;
+                cout << "ERROR: Aisle code is already present on tree. Try Again." << endl;
+            }
+        } catch (invalid_argument &e) {
+            cout << e.what() << endl;
+            cout << "Please use numbers" << endl;
+            result = false;
+        }
+        return result;
+    }
+
+    bool insertProduct(BinarySearchTree &aisles, string aisleCode, string newProdCode, string newProdName){
+        bool result = false;
+        try {
+            if(aisles.isAisleCodeInTree(stoi(aisleCode))){
+                auto *bsNode = aisles.getNodeByAisleCode(stoi(aisleCode));
+                if(!bsNode->getProductAisleTreePointer()->isProdCodeOnTree(stoi(newProdCode))){
+                    bsNode->getProductAisleTreePointer()->insert(stoi(newProdCode), newProdName);
+                    result = true;
+                } else {
+                    result = false;
+                    cout << "ERROR: Prod code is already present on tree. Try Again." << endl;
+                }
+            } else {
+                result = false;
+                cout << "ERROR: No Aisle code present on tree. Try Again." << endl;
+            }
+        } catch (invalid_argument &e) {
+            cout << e.what() << endl;
+            cout << "Please use numbers" << endl;
+            result = false;
+        }
+        return result;
+    }
+
+    bool insertBrand(BinarySearchTree &aisles, string aisleCode, string prodCode, string newBrandCode, string newBrandName, string amount, string price){
+        bool result = false;
+        try {
+            if(aisles.isAisleCodeInTree(stoi(aisleCode))){
+                auto *bsNode = aisles.getNodeByAisleCode(stoi(aisleCode));
+                if(bsNode->getProductAisleTreePointer()->isProdCodeOnTree(stoi(prodCode))){
+                    auto *avlNode = bsNode->getProductAisleTreePointer()->getNodeByProdCode(stoi(prodCode));
+                    if(!avlNode->getProductAisleBrandTreePointer()->isBrandCodeOnList(stoi(newBrandCode))){
+                        avlNode->getProductAisleBrandTreePointer()->insert(stoi(newBrandCode), newBrandName, stoi(amount), stoi(price));
+                        result = true;
+                    } else {
+                        cout << "ERROR: Brand code is already present on tree. Try Again." << endl;
+                    }
+                } else {
+                    cout << "ERROR: No Prod code present on tree. Try Again." << endl;
+                }
+            } else {
+                cout << "ERROR: No Aisle code present on tree. Try Again." << endl;
+            }
+        } catch (invalid_argument &e) {
+            cout << e.what() << endl;
+            cout << "Please use numbers" << endl;
+            result = false;
+        }
+        return result;
+    }
+
+    bool insertClient(BTreeClients &clients, string clientId, string name, string email, string cityCode, string phoneNumber){
+        bool result = false;
+        try {
+            if(clients.search(stoi(clientId)) == nullptr){
+                clients.insert(stoi(clientId), ClientData(name, cityCode, phoneNumber, email));
+                result = true;
+            } else {
+                cout << "ERROR: Client id present on tree. Try Again." << endl;
+            }
+        } catch (invalid_argument &e) {
+            cout << e.what() << endl;
+            cout << "Please use numbers" << endl;
+            result = false;
+        }
+        return result;
+    }
+
+
     static void insertModule(BinarySearchTree &aisles, BTreeClients &clients) {
         string op;
         while (true){
@@ -510,7 +599,7 @@ public:
             }
         }
     }
-    static void checkGondolas(AATree &inventory, salesList &sales, BinarySearchTree &aisleList) {
+    static void checkGondolass(AATree &inventory, salesList &sales, BinarySearchTree &aisleList) {
         bool endGondolaMenu = false;
         int reStock = 0;
         string stockString;
@@ -546,6 +635,33 @@ public:
             }
             aux = aux->getNextNode();
         }
+    }
+
+    bool checkGondolas(AATree &inventory, salesList &sales, BinarySearchTree &aisleList, string reStock) {
+        bool result = false;
+        salesNode *aux = sales.getFirstNode();
+        int invAmount;
+        while (aux!= nullptr){
+            try {
+                AANode *inventoryItem = inventory.getNodeByAisleProdBrandCode(aux->getAisleCode()+aux->getProdCode()+aux->getBrandCode());
+                auto *prodToRestore = aisleList.getNodeByAisleCode(stoi(aux->getAisleCode()))->getProductAisleTreePointer()->getNodeByProdCode(stoi(aux->getProdCode()))->getProductAisleBrandTreePointer()->getNodeByBrandCode(stoi(aux->getBrandCode()));
+                if(prodToRestore->getAmount() < 2){
+                    invAmount = inventoryItem->getStockAmount();
+                    if(invAmount >= stoi(reStock)){
+                        inventoryItem->setStockAmount(invAmount-stoi(reStock));
+                        prodToRestore->setAmount(prodToRestore->getAmount()+stoi(reStock));
+                        result = true;
+                    } else {
+                        cout << "There is not enough stock in inventory for re stock for: " << inventory.getNodeByAisleProdBrandCode(aux->getAisleCode()+aux->getProdCode()+aux->getBrandCode())->getName() << endl;
+                        result = false;
+                    }
+                }
+            } catch (class elementNotFound& e) {
+                cout << e.what() << endl;
+            }
+            aux = aux->getNextNode();
+        }
+        return result;
     }
 
     static void mostProductPerAisle(const string& path, BinarySearchTree &aisleList) {
@@ -712,6 +828,7 @@ public:
             }
         }
     }
+
     void billingModule(BinarySearchTree &aisles, clientQueue &clientsQ, BTreeClients &clients, AATree &inventory, salesList &sales) {
 
 
@@ -852,8 +969,10 @@ public:
             }
 
         }
-        }
-    void modifyModule(BinarySearchTree &aisles, AATree &inventory) {
+   }
+
+
+   void modifyModule(BinarySearchTree &aisles, AATree &inventory) {
         string op;
         while (true){
             cout << "Welcome to modify menu. Please choose an option." << endl;
@@ -1031,7 +1150,7 @@ public:
                                         cout << "ERROR: No such brand on system. Please Try Again." << endl;
                                     }
                                 } else {
-                                    cout << "ERROR: There are no Brands associated to given Aisle" << endl;
+                                    cout << "ERROR: There are no Brands associated to given Prod" << endl;
                                 }
                             } else {
                                 cout << "ERROR: No such product on system. Please Try Again." << endl;
@@ -1051,8 +1170,9 @@ public:
         }
     }
 
-    /**Following methods are for client usage**/
-//    static void checkPrice(BinarySearchTree)
+
+
+    //    static void checkPrice(BinarySearchTree)
     static bool validateClient(BTreeClients clients, const string& id) {
         try {
             int numId = stoi(id);
@@ -1062,9 +1182,433 @@ public:
             return false;
         }
 
+
     }
 
-    static string executePurchase(BTreeClients &clients, clientQueue &clientsQ, BinarySearchTree &aisleList, const string& aisleCode, const string& prodCode, const string& brandCode, const string& amountToBuy, const string &clientId) {
+    bool updateNormalProdTaxRate(string taxRate){
+        bool result = false;
+        try {
+            this->nonBasicProd = stof(taxRate);
+            result = true;
+        } catch (invalid_argument &e) {
+            cout << e.what() << endl;
+            cout << "Please use numbers" << endl;
+            result = false;
+        }
+        return result;
+    }
+
+    bool updateBasicProdTaxRate(string taxRate){
+        bool result = false;
+        try {
+            this->basicProd = stof(taxRate);
+            result = true;
+        } catch (invalid_argument &e) {
+            cout << e.what() << endl;
+            cout << "Please use numbers" << endl;
+            result = false;
+        }
+        return result;
+    }
+
+    bool deleteAisle(BinarySearchTree &aisles, string aisleCode){
+        bool result = false;
+        try {
+            if(aisles.isAisleCodeInTree(stoi(aisleCode))){
+                aisles.deleteNode(stoi(aisleCode));
+                result = true;
+            } else {
+                cout << "ERROR: No such aisle on system. Please Try Again." << endl;
+                result = false;
+            }
+        } catch (invalid_argument &e) {
+            cout << e.what() << endl;
+            cout << "Please use numbers" << endl;
+            result = false;
+        }
+        return result;
+    }
+
+    bool deleteProduct(BinarySearchTree &aisles, string aisleCode, string prodCode){
+        bool result = false;
+        try {
+            if(aisles.isAisleCodeInTree(stoi(aisleCode))){
+                auto *selectedAisle = aisles.getNodeByAisleCode(stoi(aisleCode));
+
+                if(selectedAisle->getProductAisleTreePointer() != nullptr){
+
+                    if (selectedAisle->getProductAisleTreePointer()->isProdCodeOnTree(stoi(prodCode))) {
+                        selectedAisle->getProductAisleTreePointer()->deleteNode(stoi(prodCode));
+                        result = true;
+                    } else {
+                        cout << "ERROR: No such product on system. Please Try Again." << endl;
+                        result = false;
+                    }
+
+                } else {
+                    cout << "ERROR: There are no Products associated to given Aisle" << endl;
+                    result = false;
+                }
+
+            } else {
+                cout << "ERROR: No such aisle on system. Please Try Again." << endl;
+                result = false;
+            }
+        } catch (invalid_argument &e) {
+            cout << e.what() << endl;
+            cout << "Please use numbers" << endl;
+            result = false;
+        }
+        return result;
+    }
+
+    bool deleteBrand(BinarySearchTree &aisles, string aisleCode, string prodCode, string brandCode){
+        bool result = false;
+        try {
+            if(aisles.isAisleCodeInTree(stoi(aisleCode))){
+                auto *selectedAisle = aisles.getNodeByAisleCode(stoi(aisleCode));
+
+                if(selectedAisle->getProductAisleTreePointer() != nullptr){
+
+                    if (selectedAisle->getProductAisleTreePointer()->isProdCodeOnTree(stoi(prodCode))) {
+                        auto *selectedProd = selectedAisle->getProductAisleTreePointer()->getNodeByProdCode(stoi(prodCode));
+
+                        if (selectedProd->getProductAisleBrandTreePointer() != nullptr) {
+
+                            if (selectedProd->getProductAisleBrandTreePointer()->isBrandCodeOnList(stoi(brandCode))) {
+                               selectedProd->getProductAisleBrandTreePointer()->deleteByVal(stoi(brandCode));
+                               result = true;
+                            } else {
+                                cout << "ERROR: No such brand on system. Please Try Again." << endl;
+                                result = false;
+                            }
+                        } else {
+                            cout << "ERROR: There are no Brands associated to given Prod" << endl;
+                            result = false;
+                        }
+                    } else {
+                        cout << "ERROR: No such product on system. Please Try Again." << endl;
+                        result = false;
+                    }
+                } else {
+                    cout << "ERROR: There are no Products associated to given Aisle" << endl;
+                    result = false;
+                }
+            } else {
+                cout << "ERROR: No such aisle on system. Please Try Again." << endl;
+                result = false;
+            }
+        } catch (invalid_argument &e) {
+            cout << e.what() << endl;
+            cout << "Please use numbers" << endl;
+            result = false;
+        }
+        return result;
+    }
+
+    bool deleteClient(BTreeClients &clients, string clientId){
+        bool result = false;
+        try {
+            if(clients.search(stoi(clientId)) == nullptr){
+                clients.remove(stoi(clientId));
+                result = true;
+            } else {
+                cout << "ERROR: Client id present on tree. Try Again." << endl;
+            }
+        } catch (invalid_argument &e) {
+            cout << e.what() << endl;
+            cout << "Please use numbers" << endl;
+            result = false;
+        }
+        return result;
+    }
+
+    bool bill(BinarySearchTree &aisles, clientQueue &clientsQ, BTreeClients &clients, AATree &inventory, salesList &sales){
+
+        bool result = false;
+        string aisleCode;
+        string prodCode;
+        string brandCode;
+        int amount;
+        QuickSort quickSort;
+        Node *a;
+
+        string clientId;
+        string clientName;
+        string clientPhone;
+        string clientEmail;
+
+        if(!clientsQ.isEmpty()){
+            clientQueueNode *firstInLine = clientsQ.getLastElement();
+            //clientNode *currentClient = clients.getClientByClientId(firstInLine->getClientId());
+            ClientData currentClient = clients.searchClient(stoi(firstInLine->getClientId()));
+            cout << "Currently billing: " << currentClient.getName() << endl;
+            clientId = firstInLine->getClientId();
+            clientName = currentClient.getName();
+            clientPhone = currentClient.getPhoneNumber();
+            clientEmail = currentClient.getEmail();
+
+            //PERFORM QUICK SORT ON ITEMS
+            while (firstInLine->getFirstClientProd()!= nullptr){
+
+                clientProductStackNode *cartProducts = firstInLine->getFirstClientProd();
+
+                //Deletes tops element of stack
+                if(cartProducts->getNextNode() == nullptr){
+                    aisleCode = cartProducts->getAisleCode();
+                    prodCode = cartProducts->getProdCode();
+                    brandCode = cartProducts->getBrandCode();
+                    amount = cartProducts->getAmount();
+                    quickSort.push(&a, amount, aisleCode, prodCode, brandCode);
+                    firstInLine->setFirstClientProd(nullptr);
+                    delete cartProducts;
+
+                } else {
+                    while (cartProducts->getNextNode()->getNextNode() != nullptr){
+                        cartProducts = cartProducts->getNextNode();
+                    }
+                    aisleCode = cartProducts->getNextNode()->getAisleCode();
+                    prodCode = cartProducts->getNextNode()->getProdCode();
+                    brandCode = cartProducts->getNextNode()->getBrandCode();
+                    amount = cartProducts->getNextNode()->getAmount();
+                    quickSort.push(&a, amount, aisleCode, prodCode, brandCode);
+                    clientProductStackNode *temp = cartProducts->getNextNode();
+                    cartProducts->setNextNode(nullptr);
+                    delete temp;
+                }
+
+            }
+            //Actual quicksort excution
+            quickSort.quickSort(&a);
+
+            Node *tmp = a;
+
+            //Billing loop
+            double finalPrice = 0;
+            double priceWithTax = 0;
+            int productPrice = 0;
+            double taxRate;
+
+            //Outfile prep work
+            ofstream outfile ("../bills/"+clientId+"_Bill.txt");
+            outfile << "Client ID: " << clientId << endl;
+            outfile << "Name: " << clientName << endl;
+            outfile << "Phone Number: " << clientPhone << endl;
+            outfile << "Email: " << clientEmail << endl;
+            outfile << endl;
+
+
+            while (tmp!=nullptr){
+
+                productPrice = aisles.getNodeByAisleCode(stoi(tmp->aisleCode))->getProductAisleTreePointer()->getNodeByProdCode(stoi(tmp->prodCode))->getProductAisleBrandTreePointer()->getNodeByBrandCode(stoi(tmp->brandCode))->getPrice();
+                //productPrice = aisleList.getNodeByAisleCode(tmp->aisleCode)->getProductAisleListPointer()->getNodeByProdCode(tmp->prodCode)->getAisleProductBrandListPointer()->getNodeByBrandCode(tmp->brandCode)->getPrice();
+                if(inventory.isBasicProduct(tmp->aisleCode+tmp->prodCode+tmp->brandCode)){
+                    taxRate = this->basicProd;
+
+                } else {
+                    taxRate = this->nonBasicProd;
+                }
+                priceWithTax = (productPrice*taxRate)+productPrice;
+                finalPrice += priceWithTax;
+
+
+                //Updates elements in sales list
+                if(!sales.isElementInList(tmp->aisleCode, tmp->prodCode, tmp->brandCode)){
+                    sales.appendAtEnd(new salesNode(tmp->aisleCode, tmp->prodCode, tmp->brandCode, tmp->amount));
+                } else {
+                    sales.updateElementInList(tmp->aisleCode, tmp->prodCode, tmp->brandCode, tmp->amount);
+                }
+
+                cout << "Sales list: " << endl;
+                sales.printList();
+
+                outfile << "Amount: " << tmp->amount << "; ProdCode: " << tmp->prodCode << "; Name: " << aisles.getNodeByAisleCode(stoi(tmp->aisleCode))->getProductAisleTreePointer()->getNodeByProdCode(stoi(tmp->prodCode))->getName() << "; Price: " << productPrice << "; Tax Rate: " << taxRate << "; Total: " << priceWithTax << endl;
+
+                tmp = tmp->next;
+            }
+            outfile << "Total Final Price: " << finalPrice << endl;
+            outfile << flush;
+            outfile.flush();
+            outfile.close();
+
+            //Adds spent amount for reports
+            currentClient.setAmountSpent(currentClient.getAmountSpent()+finalPrice);
+            currentClient.incBillingCount();
+
+            //Delete las client in queue and delete struct helper
+            clientsQ.deleteAtEnd();
+            quickSort.deleteList(&a);
+            result = true;
+        } else {
+            cout << "There is no one in line to be billed" << endl;
+            result = false;
+        }
+        return result;
+    }
+
+    bool updateProoductStatus(BinarySearchTree &aisles, AATree &inventory, string aisleCode, string prodCode, string brandCode, string productStatus){
+        bool result = false;
+        try {
+            if (aisles.isAisleCodeInTree(stoi(aisleCode))) {
+                auto *selectedAisle = aisles.getNodeByAisleCode(stoi(aisleCode));
+
+                if (selectedAisle->getProductAisleTreePointer() != nullptr) {
+
+                    if (selectedAisle->getProductAisleTreePointer()->isProdCodeOnTree(stoi(prodCode))) {
+                        auto *selectedProd = selectedAisle->getProductAisleTreePointer()->getNodeByProdCode(stoi(prodCode));
+
+                        if (selectedProd->getProductAisleBrandTreePointer() != nullptr) {
+
+                            if (selectedProd->getProductAisleBrandTreePointer()->isBrandCodeOnList(stoi(brandCode))) {
+
+                                string checkInventoryCode = aisleCode;
+                                checkInventoryCode.append(prodCode);
+                                checkInventoryCode.append(brandCode);
+
+                                if(inventory.isDataPresent(checkInventoryCode)){
+                                    bool isBasic;
+
+                                    if(productStatus=="1"){
+                                        isBasic = true;
+                                    } else {
+                                        isBasic = false;
+                                    }
+
+                                    inventory.getNodeByAisleProdBrandCode(checkInventoryCode)->setIsBasicProd(isBasic);
+                                    result = true;
+                                } else {
+                                    cout << "ERROR: No such element on inventory on system. Please Try Again." << endl;
+                                    result = false;
+                                }
+                            } else {
+                                cout << "ERROR: No such brand on system. Please Try Again." << endl;
+                                result = false;
+                            }
+                        } else {
+                            cout << "ERROR: There are no Brands associated to given Aisle" << endl;
+                            result = false;
+                        }
+                    } else {
+                        cout << "ERROR: No such product on system. Please Try Again." << endl;
+                        result = false;
+                    }
+                } else {
+                    cout << "ERROR: There are no Products associated to given Aisle" << endl;
+                    result = false;
+                }
+            } else {
+                cout << "ERROR: No such aisle on system. Please Try Again." << endl;
+                result = false;
+            }
+        } catch (invalid_argument &e) {
+            cout << e.what() << endl;
+            cout << "Please use numbers" << endl;
+            result = false;
+        }
+        return result;
+    }
+
+    bool updatePrice(BinarySearchTree &aisles, string aisleCode, string prodCode, string brandCode, string newPrice){
+        bool result = false;
+        try {
+            if (aisles.isAisleCodeInTree(stoi(aisleCode))) {
+                auto *selectedAisle = aisles.getNodeByAisleCode(stoi(aisleCode));
+
+                if (selectedAisle->getProductAisleTreePointer() != nullptr) {
+
+                    if (selectedAisle->getProductAisleTreePointer()->isProdCodeOnTree(stoi(prodCode))) {
+                        auto *selectedProd = selectedAisle->getProductAisleTreePointer()->getNodeByProdCode(stoi(prodCode));
+
+                        if (selectedProd->getProductAisleBrandTreePointer() != nullptr) {
+
+                            if (selectedProd->getProductAisleBrandTreePointer()->isBrandCodeOnList(stoi(brandCode))) {
+                                auto *selectedBrand = selectedProd->getProductAisleBrandTreePointer()->getNodeByBrandCode(stoi(brandCode));
+                                selectedBrand->setPrice(stoi(newPrice));
+                                result = true;
+                            } else {
+                                cout << "ERROR: No such brand on system. Please Try Again." << endl;
+                                result = false;
+                            }
+                        } else {
+                            cout << "ERROR: There are no Brands associated to given Aisle" << endl;
+                            result = false;
+                        }
+                    } else {
+                        cout << "ERROR: No such product on system. Please Try Again." << endl;
+                        result = false;
+                    }
+                } else {
+                    cout << "ERROR: There are no Products associated to given Aisle" << endl;
+                    result = false;
+                }
+            } else {
+                cout << "ERROR: No such aisle on system. Please Try Again." << endl;
+                result = false;
+            }
+        } catch (invalid_argument &e) {
+            cout << e.what() << endl;
+            cout << "Please use numbers" << endl;
+            result = false;
+        }
+        return result;
+    }
+
+    bool isBasicProd(BinarySearchTree &aisles, AATree &inventory, string aisleCode, string prodCode, string brandCode){
+        bool result = false;
+        try {
+            if (aisles.isAisleCodeInTree(stoi(aisleCode))) {
+                auto *selectedAisle = aisles.getNodeByAisleCode(stoi(aisleCode));
+
+                if (selectedAisle->getProductAisleTreePointer() != nullptr) {
+
+                    if (selectedAisle->getProductAisleTreePointer()->isProdCodeOnTree(stoi(prodCode))) {
+                        auto *selectedProd = selectedAisle->getProductAisleTreePointer()->getNodeByProdCode(stoi(prodCode));
+
+                        if (selectedProd->getProductAisleBrandTreePointer() != nullptr) {
+
+                            if (selectedProd->getProductAisleBrandTreePointer()->isBrandCodeOnList(stoi(brandCode))) {
+
+                                string checkInventoryCode = aisleCode;
+                                checkInventoryCode.append(prodCode);
+                                checkInventoryCode.append(brandCode);
+
+                                if(inventory.isDataPresent(checkInventoryCode)){
+                                    result = inventory.getNodeByAisleProdBrandCode(checkInventoryCode)->getIsBasicProd();
+                                } else {
+                                    cout << "ERROR: No such element on inventory on system. Please Try Again." << endl;
+                                    result = false;
+                                }
+                            } else {
+                                cout << "ERROR: No such brand on system. Please Try Again." << endl;
+                                result = false;
+                            }
+                        } else {
+                            cout << "ERROR: There are no Brands associated to given Aisle" << endl;
+                            result = false;
+                        }
+                    } else {
+                        cout << "ERROR: No such product on system. Please Try Again." << endl;
+                        result = false;
+                    }
+                } else {
+                    cout << "ERROR: There are no Products associated to given Aisle" << endl;
+                    result = false;
+                }
+            } else {
+                cout << "ERROR: No such aisle on system. Please Try Again." << endl;
+                result = false;
+            }
+        } catch (invalid_argument &e) {
+            cout << e.what() << endl;
+            cout << "Please use numbers" << endl;
+            result = false;
+        }
+        return result;
+    }
+
+
+
+    static bool executePurchase(BTreeClients &clients, clientQueue &clientsQ, BinarySearchTree &aisleList, const string& aisleCode, const string& prodCode, const string& brandCode, const string& amountToBuy, const string &clientId) {
 
         try {
             if(!clientsQ.isClientIdInList(clientId)){
@@ -1122,43 +1666,44 @@ public:
 
                                             //Adds amounts to reporting usage
                                             selectedProd->setTimesSold(selectedProd->getTimesSold()+intAmountToBuy);
-                                            return "Purchase successful. Product added to cart.";
+                                            return true;
                                         } else {
                                             cout << "Not enough amount to buy. Try again" << endl;
-                                            return "Not enough amount to buy. Try again";
+                                            return false;
                                         }
 
                                     } else {
                                         cout << "Please select a positive number." << endl;
-                                        return "Please select a positive number.";
+                                        return false;
                                     }
                                 } else {
                                     cout << "ERROR: No such brand on system. Please Try Again." << endl;
-                                    return "ERROR: No such brand on system. Please Try Again.";
+                                    return false;
                                 }
                             } else {
                                 cout << "ERROR: There are no Brands associated to given Aisle" << endl;
-                                return "ERROR: There are no Brands associated to given Aisle";
+                                return false;
                             }
                         } else {
                             cout << "ERROR: No such product on system. Please Try Again." << endl;
-                            return "ERROR: No such product on system. Please Try Again.";
+                            return false;
                         }
                     } else {
                         cout << "ERROR: There are no Products associated to given Aisle" << endl;
-                        return "ERROR: There are no Products associated to given Aisle";
+                        return false;
                     }
                 } else {
                     cout << "ERROR: No such aisle on system. Please Try Again." << endl;
-                    return "ERROR: No such aisle on system. Please Try Again.";
+                    return false;
                 }
             } else {
                 cout << "ERROR: Client is already on line. " << endl;
-                return "ERROR: Client is already on line. ";
+                return false;
             }
-        } catch (std::invalid_argument& e){
+        } catch (invalid_argument& e){
+            cout << e.what() << endl;
             cout << "Value is not numeric. Please try again" << endl;
-            return "Value is not numeric. Please try again";
+            return false;
         }
     }
 
@@ -1170,6 +1715,7 @@ public:
         try{
             return aisles.getNodeByAisleCode(stoi(aisleCode))->getProductAisleTreePointer()->getProductsForClient();
         } catch (invalid_argument &e){
+            cout << e.what() << endl;
             return "Error";
         }
     }
@@ -1178,6 +1724,7 @@ public:
         try{
             return aisles.getNodeByAisleCode(stoi(aisleCode))->getProductAisleTreePointer()->getNodeByProdCode(stoi(prodCode))->getProductAisleBrandTreePointer()->getBrandsForClient();
         } catch (invalid_argument &e){
+            cout << e.what() << endl;
             return "Error";
         }
     }
@@ -1186,6 +1733,7 @@ public:
         try{
             return to_string(aisles.getNodeByAisleCode(stoi(aisleCode))->getProductAisleTreePointer()->getNodeByProdCode(stoi(prodCode))->getProductAisleBrandTreePointer()->getNodeByBrandCode(stoi(brandCode))->getPrice());
         } catch (invalid_argument &e){
+            cout << e.what() << endl;
             return "Error";
         }
     }
@@ -1196,6 +1744,7 @@ public:
                 return "It is basic prod";
             } else return "It is NOT basic prod";
         } catch (invalid_argument &e){
+            cout << e.what() << endl;
             return "Error";
         }
     }
@@ -1206,6 +1755,7 @@ public:
                 return "Tax: "+to_string(basicProd);
             } else return "Tax: "+to_string(nonBasicProd);
         } catch (invalid_argument &e){
+            cout << e.what() << endl;
             return "Error";
         }
     }
@@ -1217,8 +1767,67 @@ public:
             return admin.search(numId)!=nullptr;
 
         } catch (std::invalid_argument &e){
+            cout << e.what() << endl;
             return false;
         }
+    }
+
+    string getClients(BTreeClients &clients){
+        return clients.getClientsForServer();
+    }
+
+    string getAdmins(BTreeAdmins &admins){
+        return admins.getAdminsForServer();
+    }
+
+    void reloadInventory(AATree &inventory, class helper helper) {
+        //Restart values for inventory
+        inventory.clear();
+        helper.initInventory(inventory);
+
+        cout << "Inventory restock successful" << endl;
+    }
+
+    string getPrimAlgorithm(PrimGraph &primGraph, PrimGraph::Graph *graph){
+        return primGraph.PrimMST(graph);
+    }
+
+    string getPrimWeight(PrimGraph &primGraph){
+        return to_string(primGraph.getTotalWeight());
+    }
+
+    string getKurskalGraph(KruskalGraph &kruskal){
+        return kruskal.kruskalMST();
+    }
+
+    string getKurskalWeight(KruskalGraph &kruskal){
+        return to_string(kruskal.getGraphWeight());
+    }
+
+    string getDijkstraGraph(DijkstraGraph &dijkstra, vector<vector<neighbor>> &dijkstraAdjList, string fromNode, string toNode){
+        string concat = "";
+        try {
+            vector<double> min_distance;
+            vector<int> previous;
+            dijkstra.DijkstraComputePaths(stoi(fromNode), dijkstraAdjList, min_distance, previous);
+            dijkstra.minDistance = min_distance[stoi(toNode)];
+
+            list<int> path = dijkstra.DijkstraGetShortestPathTo(stoi(toNode), previous);
+
+            concat = dijkstra.getPath(path);
+        } catch (invalid_argument &e) {
+            concat = "Could not convert number values.";
+            cout << e.what() << endl;
+        }
+        return concat;
+    }
+
+    string getDijkstraDistance(DijkstraGraph &dijkstra){
+        return to_string(dijkstra.getMinDistance());
+    }
+
+    string getArticulationPoints(ArticulationPointGraph &g1){
+        g1.AP();
     }
 
 private:

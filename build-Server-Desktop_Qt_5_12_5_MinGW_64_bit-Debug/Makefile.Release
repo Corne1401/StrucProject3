@@ -629,7 +629,37 @@ release/socketServer.o: ../Server/socketServer.cpp ../Server/socketServer.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtCore/QThreadPool \
 		../../../Qt/5.12.5/mingw73_64/include/QtCore/qthreadpool.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtCore/qthread.h \
-		../../../Qt/5.12.5/mingw73_64/include/QtCore/qrunnable.h
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qrunnable.h \
+		../Server/globalTrees.h \
+		../Server/TreesHandlers/BinarySearchTree.h \
+		../Server/nodeTypes/BSNode.h \
+		../Server/TreesHandlers/NewAVLTree.h \
+		../Server/nodeTypes/NewAVLNode.h \
+		../Server/TreesHandlers/NewRBTree.h \
+		../Server/nodeTypes/NewRBNode.h \
+		../Server/nodeTypes/BaseBinaryNode.h \
+		../Server/helpers/ArticulationPoints.h \
+		../Server/helpers/Dijkstra.h \
+		../Server/helpers/Neighbor.h \
+		../Server/helpers/Kruskal.h \
+		../Server/helpers/PrimGraph.h \
+		../Server/helpers/citiesList.h \
+		../Server/helpers/citiesNode.h \
+		../Server/helpers/helpers.h \
+		../Server/TreesHandlers/BTreeClients.h \
+		../Server/nodeTypes/BNodeClient.h \
+		../Server/TreesHandlers/BTreeAdmins.h \
+		../Server/nodeTypes/BNodeAdmin.h \
+		../Server/TreesHandlers/AATree.h \
+		../Server/nodeTypes/AANode.h \
+		../Server/modules/modules.h \
+		../Server/helpers/clientQueue.h \
+		../Server/helpers/clientQueueNode.h \
+		../Server/helpers/clientProductStackNode.h \
+		../Server/helpers/quickSortHelper.h \
+		../Server/helpers/salesList.h \
+		../Server/helpers/salesNode.h \
+		../Server/helpers/exceptionsHandler.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\socketServer.o ..\Server\socketServer.cpp
 
 release/moc_server.o: release/moc_server.cpp 

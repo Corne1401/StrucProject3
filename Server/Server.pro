@@ -69,4 +69,5 @@ DISTFILES += \
     data/MarcasProductos.txt \
     data/Pasillos.txt \
     data/ProductosPasillos.txt \
-    data/Ptos de articulacion.txt
+    data/Ptos de articulacion.txt \
+    reports/cosa.txt

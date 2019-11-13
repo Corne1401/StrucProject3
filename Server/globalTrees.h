@@ -15,9 +15,11 @@
 #include <TreesHandlers/AATree.h>
 #include <TreesHandlers/BTreeAdmins.h>
 #include <TreesHandlers/BTreeClients.h>
+#include <string>
 
 extern int numberOfEdges;
 extern int numberOfEdgesArticulationPoint;
+extern std::string PATH_TO_REPORTS;
 
 extern helper helpers;
 
@@ -45,5 +47,7 @@ extern AATree inventory;
 extern modules modules;
 
 extern salesList sales;
+
+extern clientQueue clientsQ;
 
 #endif // GLOBALTREES_H
