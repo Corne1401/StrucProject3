@@ -1,5 +1,11 @@
 #include "adminSocket.h"
+#include "globalAdmin.h"
 #include <iostream>
+
+
+#include "menu.h"
+
+
 using namespace std;
 
 adminSocket::adminSocket(QObject *parent):QThread(parent){};
@@ -24,8 +30,12 @@ void adminSocket::disconnected(){
 void adminSocket::readyRead(){
     QByteArray data = adminSock->readAll();
     string dataToString = data.toStdString();
-    cout<<dataToString<<endl;
+    dataFromServer = dataToString;
 
+    if(dataFromServer == "01"){
+        Menu *menu = new Menu;
+        menu->show();
+    }
 
 
 }

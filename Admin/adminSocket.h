@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QThread>
 
+
 class adminSocket : public QThread{
     Q_OBJECT
 public:

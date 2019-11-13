@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "adminSocket.h"
+#include "globalAdmin.h"
 
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow)
 {
@@ -16,17 +17,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    if(ui->lineEdit->text() == "1"){
-        emit send(QString::fromStdString("01").toUtf8());
-        this->thread()->sleep(1);
-
-        Menu *menuWindow = new Menu;
-        menuWindow->show();
-    }
-    else{
-        QMessageBox idNotFound;
-        idNotFound.setText("Id not Found");
-        idNotFound.exec();
-    }
+    QString id = "01;";
+    id = id + ui->lineEdit->text();
+    emit send(id.toUtf8());
 
 }

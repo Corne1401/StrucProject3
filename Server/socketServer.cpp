@@ -1,6 +1,8 @@
 #include "socketServer.h"
 #include "globalTrees.h"
+#include "helpers/stringSpliter.h"
 #include <iostream>
+
 using namespace std;
 
 socketServer::socketServer(QObject *parent) : QTcpSocket(parent){
@@ -38,6 +40,7 @@ void socketServer::readyRead(){
         } else {
             socket->write("0");
         }
+
     }
     else if(holder[0]=="02"){ //validate Client
         if(modules.validateClient(clients, holder[1])){

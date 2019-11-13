@@ -1,0 +1,11 @@
+release/adminSocket.o
+release/main.o
+release/mainwindow.o
+release/menu.o
+release/modifications.o
+release/reports.o
+release/moc_adminSocket.o
+release/moc_mainwindow.o
+release/moc_menu.o
+release/moc_modifications.o
+release/moc_reports.o
