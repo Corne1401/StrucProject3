@@ -27,7 +27,7 @@ public:
     { return (root == nullptr)? nullptr : root->search(k); }
 
     AdminData searchAdmin(int k){
-        return root->searchClient(k);
+        return root->searchAdmin(k);
     }
 
     // The main function that inserts a new key in this B-Tree
@@ -96,6 +96,11 @@ public:
             delete tmp;
         }
         return;
+    }
+
+    string getAdminsForServer(){
+        string concat;
+        return root->getAdminsAsString(concat);
     }
 };
 

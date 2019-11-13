@@ -1,12 +1,9 @@
 #pragma once
 
 // C / C++ program for Prim's MST for adjacency list representation of graph
+#include <string>
 
-#include <limits.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-
+using namespace std;
 class PrimGraph{
 
 public:
@@ -224,10 +221,20 @@ public:
             printf("%d - %d\n", arr[i], i);
     }
 
+    string getStringArr(int arr[], int n){
+        string concat;
+        for (int i = 1; i < n; ++i){
+            printf("%d - %d\n", arr[i], i);
+            concat += to_string(arr[i]) + "-" + to_string(i) + "\n";
+        }
+        return concat;
+    }
+
 // The main function that constructs Minimum Spanning Tree (MST)
 // using Prim's algorithm
-    void PrimMST(struct Graph* graph)
+    string PrimMST(struct Graph* graph)
     {
+        string hola = "h";
         int V = graph->V; // Get the number of vertices in graph
         int parent[V]; // Array to store constructed MST
         int key[V]; // Key values used to pick minimum weight edge in cut
@@ -285,6 +292,7 @@ public:
 
         // print edges of MST
         printArr(parent, V);
+        return getStringArr(parent, V);
     }
 };
 

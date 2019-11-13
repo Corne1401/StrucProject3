@@ -195,7 +195,7 @@ public:
         // Go to the appropriate child
         return C[i]->search(k);
     } // returns NULL if k is not present.
-    AdminData searchClient(int k) {
+    AdminData searchAdmin(int k) {
         // Find the first key greater than or equal to k
         int i = 0;
         while (i < n && k > keys[i])
@@ -212,7 +212,7 @@ public:
         }
 
         // Go to the appropriate child
-        return C[i]->searchClient(k);
+        return C[i]->searchAdmin(k);
     }
 
 
@@ -547,10 +547,28 @@ public:
         return;
     }
 
+    string getAdminsAsString(string &concat){
+        // There are n keys and n+1 children, travers through n keys
+        // and first n children
+        int i;
+        for (i = 0; i < n; i++){
+            // If this is not leaf, then before printing key[i],
+            // traverse the subtree rooted with child C[i].
+            if (!leaf)
+                C[i]->getAdminsAsString(concat);
+            auto tmpAdm = searchAdmin(keys[i]);
+            concat += "Admin Id: " + to_string(keys[i]) + " Admin Name: " + tmpAdm.getName() + "\n";
+        }
+
+        // Print the subtree rooted with last child
+        if (!leaf)
+            C[i]->getAdminsAsString(concat);
+        return concat;
+    }
+
 
     // Make BTreeClients friend of this so that we can access private members of this
 // class in BTreeClients functions
     friend class BTreeAdmins;
-
 
 };

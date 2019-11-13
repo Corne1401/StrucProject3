@@ -22,7 +22,7 @@ public:
     }
 
     void deleteProduct(int prodCode){
-        root = deleteNode(root, prodCode);
+        root = deleteNodeHelper(root, prodCode);
     }
 
     NewAVLNode *getAVLRoot() const {
@@ -272,7 +272,12 @@ public:
         return current;
     }
 
-    NewAVLNode *deleteNode(NewAVLNode *root, int key)
+    void deleteNode(int key){
+        root = deleteNodeHelper(root, key);
+    }
+
+
+    NewAVLNode *deleteNodeHelper(NewAVLNode *root, int key)
     {
 
         // STEP 1: PERFORM STANDARD BST DELETE
@@ -283,13 +288,13 @@ public:
         // than the root's key, then it lies
         // in left subtree
         if ( key < root->key )
-            root->left = deleteNode(root->left, key);
+            root->left = deleteNodeHelper(root->left, key);
 
         // If the key to be deleted is greater
         // than the root's key, then it lies
         // in right subtree
         else if( key > root->key )
-            root->right = deleteNode(root->right, key);
+            root->right = deleteNodeHelper(root->right, key);
 
         // if key is same as root's key, then
         // This is the node to be deleted
@@ -328,7 +333,7 @@ public:
                 root->productAisleBrandTreePointer = temp->productAisleBrandTreePointer;
 
                 // Delete the inorder successor
-                root->right = deleteNode(root->right,
+                root->right = deleteNodeHelper(root->right,
                                          temp->key);
             }
         }

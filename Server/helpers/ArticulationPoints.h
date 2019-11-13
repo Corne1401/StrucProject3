@@ -25,7 +25,8 @@ public:
         adj[w].push_back(x); //add v to u's list
     }
 
-    void AP() {
+    string AP() {
+        string concat;
         // Mark all the vertices as unvisited
         bool *visited = new bool[n];
         int *dis = new int[n];
@@ -44,7 +45,9 @@ public:
         //print the articulation points
         for (int i = 0; i < n; i++)
             if (ap[i] == true)
-                cout << i << " ";
+                concat += to_string(i) + " ";
+
+        return concat;
     }
     void APT(int w, bool visited[], int dis[], int low[], int par[], bool ap[]) {
         static int t=0;

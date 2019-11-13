@@ -778,14 +778,33 @@ public:
             // If this is not leaf, then before printing key[i],
             // traverse the subtree rooted with child C[i].
             if (!leaf)
-                C[i]->traverse();
+                C[i]->generateClients(outfile);
             auto tmpClient = searchClient(keys[i]);
             outfile << "Client Id: " << keys[i] << " Client Name: " << tmpClient.getName() << " Amount spent: " << tmpClient.getAmountSpent() << endl;
         }
 
         // Print the subtree rooted with last child
         if (!leaf)
-            C[i]->traverse();
+            C[i]->generateClients(outfile);
+    }
+
+    string generateClientsAsString(string &concat){
+        // There are n keys and n+1 children, travers through n keys
+        // and first n children
+        int i;
+        for (i = 0; i < n; i++){
+            // If this is not leaf, then before printing key[i],
+            // traverse the subtree rooted with child C[i].
+            if (!leaf)
+                C[i]->generateClientsAsString(concat);
+            auto tmpClient = searchClient(keys[i]);
+            concat += "Client Id: " + to_string(keys[i]) + " Client Name: " + tmpClient.getName() + " Amount spent: " + to_string(tmpClient.getAmountSpent()) + "\n";
+        }
+
+        // Print the subtree rooted with last child
+        if (!leaf)
+            C[i]->generateClientsAsString(concat);
+        return concat;
     }
 
 // Make BTreeClients friend of this so that we can access private members of this

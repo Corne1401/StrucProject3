@@ -20,11 +20,16 @@ class DijkstraGraph {
 public:
     DijkstraGraph()= default;
 
+    double minDistance;
 
     typedef vector<vector<neighbor>> adjacency_list_t;
     typedef pair<double, int> weight_vertex_pair_t;
 
     const double max_weight = std::numeric_limits<double>::infinity();
+
+    double getMinDistance(){
+        return  this->minDistance;
+    }
 
     void DijkstraComputePaths(int source,
                               const adjacency_list_t &adjacency_list,
@@ -83,6 +88,14 @@ public:
         for ( ; vertex != -1; vertex = previous[vertex])
             path.push_front(vertex);
         return path;
+    }
+
+    string getPath(std::list<int> const &list){
+        string concat;
+        for (auto v : list){
+            concat + to_string(v) + "\n";
+        }
+        return concat;
     }
 };
 
