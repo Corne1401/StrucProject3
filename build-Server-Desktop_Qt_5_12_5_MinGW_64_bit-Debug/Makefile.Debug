@@ -77,6 +77,7 @@ DIST          = data/Administradores.txt \
 		..\Server\TreesHandlers\NewRBTree.h \
 		..\Server\globalTrees.h \
 		..\Server\helpers\ArticulationPoints.h \
+		..\Server\helpers\BFSGraph.h \
 		..\Server\helpers\Dijkstra.h \
 		..\Server\helpers\Kruskal.h \
 		..\Server\helpers\Neighbor.h \
@@ -436,6 +437,7 @@ debug/main.o: ../Server/main.cpp D:/Qt/5.12.5/mingw73_64/include/QtCore/QCoreApp
 		../Server/nodeTypes/BNodeAdmin.h \
 		../Server/TreesHandlers/AATree.h \
 		../Server/nodeTypes/AANode.h \
+		../Server/helpers/BFSGraph.h \
 		../Server/modules/modules.h \
 		../Server/helpers/clientQueue.h \
 		../Server/helpers/clientQueueNode.h \
@@ -547,6 +549,7 @@ debug/server.o: ../Server/server.cpp ../Server/server.h \
 		../Server/nodeTypes/BNodeAdmin.h \
 		../Server/TreesHandlers/AATree.h \
 		../Server/nodeTypes/AANode.h \
+		../Server/helpers/BFSGraph.h \
 		../Server/modules/modules.h \
 		../Server/helpers/clientQueue.h \
 		../Server/helpers/clientQueueNode.h \
@@ -654,6 +657,7 @@ debug/socketServer.o: ../Server/socketServer.cpp ../Server/socketServer.h \
 		../Server/nodeTypes/BNodeAdmin.h \
 		../Server/TreesHandlers/AATree.h \
 		../Server/nodeTypes/AANode.h \
+		../Server/helpers/BFSGraph.h \
 		../Server/modules/modules.h \
 		../Server/helpers/clientQueue.h \
 		../Server/helpers/clientQueueNode.h \

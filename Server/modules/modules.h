@@ -165,6 +165,11 @@ public:
         try {
             if(aisles.isAisleCodeInTree(stoi(aisleCode))){
                 auto *bsNode = aisles.getNodeByAisleCode(stoi(aisleCode));
+
+                if(bsNode->getProductAisleTreePointer()==nullptr){
+                    bsNode->setProductAisleTreePointer(new NewAVLTree);
+                }
+
                 if(!bsNode->getProductAisleTreePointer()->isProdCodeOnTree(stoi(newProdCode))){
                     bsNode->getProductAisleTreePointer()->insert(stoi(newProdCode), newProdName);
                     result = true;
@@ -180,6 +185,8 @@ public:
             cout << e.what() << endl;
             cout << "Please use numbers" << endl;
             result = false;
+        } catch(...){
+            return false;
         }
         return result;
     }
@@ -189,17 +196,31 @@ public:
         try {
             if(aisles.isAisleCodeInTree(stoi(aisleCode))){
                 auto *bsNode = aisles.getNodeByAisleCode(stoi(aisleCode));
-                if(bsNode->getProductAisleTreePointer()->isProdCodeOnTree(stoi(prodCode))){
-                    auto *avlNode = bsNode->getProductAisleTreePointer()->getNodeByProdCode(stoi(prodCode));
-                    if(!avlNode->getProductAisleBrandTreePointer()->isBrandCodeOnList(stoi(newBrandCode))){
-                        avlNode->getProductAisleBrandTreePointer()->insert(stoi(newBrandCode), newBrandName, stoi(amount), stoi(price));
-                        result = true;
+
+                if(bsNode->getProductAisleTreePointer()!=nullptr){
+
+                    if(bsNode->getProductAisleTreePointer()->isProdCodeOnTree(stoi(prodCode))){
+                        auto *avlNode = bsNode->getProductAisleTreePointer()->getNodeByProdCode(stoi(prodCode));
+
+                        if(avlNode->getProductAisleBrandTreePointer()==nullptr){
+                            avlNode->setProductAisleBrandTreePointer(new NewRBTree);
+                        }
+
+                        if(!avlNode->getProductAisleBrandTreePointer()->isBrandCodeOnList(stoi(newBrandCode))){
+                            avlNode->getProductAisleBrandTreePointer()->insert(stoi(newBrandCode), newBrandName, stoi(amount), stoi(price));
+                            result = true;
+                        } else {
+                            cout << "ERROR: Brand code is already present on tree. Try Again." << endl;
+                        }
                     } else {
-                        cout << "ERROR: Brand code is already present on tree. Try Again." << endl;
+                        cout << "ERROR: No Prod code present on tree. Try Again." << endl;
                     }
-                } else {
-                    cout << "ERROR: No Prod code present on tree. Try Again." << endl;
+
+                } else{
+                    cout << "Given aisle has no associated products." << endl;
+                    return false;
                 }
+
             } else {
                 cout << "ERROR: No Aisle code present on tree. Try Again." << endl;
             }
@@ -207,6 +228,8 @@ public:
             cout << e.what() << endl;
             cout << "Please use numbers" << endl;
             result = false;
+        } catch (...) {
+            return false;
         }
         return result;
     }
@@ -1755,16 +1778,21 @@ public:
         return admins.getAdminsForServer();
     }
 
-    void reloadInventory(AATree &inventory, class helper helper) {
-        //Restart values for inventory
-        inventory.clear();
-        helper.initInventory(inventory);
+    bool reloadInventory(AATree &inventory, class helper helper) {
+        try{
+            //Restart values for inventory
+            inventory.clear();
+            helper.initInventory(inventory);
 
-        cout << "Inventory restock successful" << endl;
+            cout << "Inventory restock successful" << endl;
+            return true;
+        } catch(...){
+            return false;
+        }
     }
 
-    string getPrimAlgorithm(PrimGraph &primGraph, PrimGraph::Graph *graph){
-        return primGraph.PrimMST(graph);
+    string getPrimAlgorithm(PrimGraph &primGraph){
+        return primGraph.getPrimGraphResult();
     }
 
     string getPrimWeight(PrimGraph &primGraph){
@@ -1772,7 +1800,7 @@ public:
     }
 
     string getKurskalGraph(KruskalGraph &kruskal){
-        return kruskal.kruskalMST();
+        return kruskal.getKurskalGraphResult();
     }
 
     string getKurskalWeight(KruskalGraph &kruskal){
@@ -1786,10 +1814,11 @@ public:
             vector<int> previous;
             dijkstra.DijkstraComputePaths(stoi(fromNode), dijkstraAdjList, min_distance, previous);
             dijkstra.minDistance = min_distance[stoi(toNode)];
-
+           //cout << dijkstra.minDistance << endl;
             list<int> path = dijkstra.DijkstraGetShortestPathTo(stoi(toNode), previous);
 
             concat = dijkstra.getPath(path);
+            dijkstra.dijkstraPath = concat;
         } catch (invalid_argument &e) {
             concat = "Could not convert number values.";
             cout << e.what() << endl;
@@ -1798,6 +1827,7 @@ public:
     }
 
     string getDijkstraDistance(DijkstraGraph &dijkstra){
+        cout << to_string(dijkstra.getMinDistance()) << endl;
         return to_string(dijkstra.getMinDistance());
     }
 

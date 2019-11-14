@@ -11,6 +11,12 @@ public:
         totalWeight = 0;
     }
 
+    string primGraphResult;
+
+    string getPrimGraphResult(){
+        return this->primGraphResult;
+    }
+
     int totalWeight;
 
     int getTotalWeight() const {
@@ -224,7 +230,7 @@ public:
     string getStringArr(int arr[], int n){
         string concat;
         for (int i = 1; i < n; ++i){
-            printf("%d - %d\n", arr[i], i);
+            //printf("%d - %d\n", arr[i], i);
             concat += to_string(arr[i]) + "-" + to_string(i) + "\n";
         }
         return concat;
@@ -291,8 +297,9 @@ public:
             totalWeight+=key[i];
 
         // print edges of MST
-        printArr(parent, V);
-        return getStringArr(parent, V);
+        //printArr(parent, V);
+        this->primGraphResult = getStringArr(parent, V);
+        return this->primGraphResult;
     }
 };
 

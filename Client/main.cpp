@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 
     MainWindow w;
     MapGraph r;
-    //w.show();
-    r.show();
+
+    w.show();
     return a.exec();
 }

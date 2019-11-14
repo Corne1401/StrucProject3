@@ -21,6 +21,7 @@ vector<vector<neighbor>> dijkstraAdjList;
 helper helpers;
 salesList sales;
 clientQueue clientsQ;
+BFSGraphs bfsGraph;
 class modules modules;
 string PATH_TO_REPORTS = "C:\\GitHub_Projects\\StrucProject3\\Server\\reports\\";
 
@@ -46,11 +47,26 @@ int main(int argc, char *argv[])
     numberOfEdgesArticulationPoint = helpers.determineConnectionsNodes(articulationPointHelperList, cities, "Ptos de articulacion");
     dijkstraAdjList.resize(numberOfEdgesArticulationPoint);
 
+
     pGraph = primGraph.createGraph(numberOfEdges);
     kruskalGraph.setEdgesCount(numberOfEdges);
+    bfsGraph.setEdgesCount(numberOfEdges);
     articulationPointGraph.setEdgesCount(numberOfEdgesArticulationPoint);
 
-    helpers.initGraph(cities, pGraph, primGraph, connectionsList, kruskalGraph, dijkstraAdjList);
+
+
+    helpers.initGraph(cities, pGraph, primGraph, connectionsList, kruskalGraph, dijkstraAdjList, bfsGraph);
+    helpers.initArticulationPoints(cities, articulationPointHelperList, articulationPointGraph);
+
+
+
+    primGraph.PrimMST(pGraph);
+    kruskalGraph.kruskalMST();
+    bfsGraph.BFS(0);
+    articulationPointGraph.AP();
+    modules.getDijkstraGraph(dijkstraGraph, dijkstraAdjList, "0", "16");
+
+
 
 //    cout << "Edges of MST are \n";
 //    int mst_wt = kruskalGraph.kruskalMST();
@@ -69,6 +85,7 @@ int main(int argc, char *argv[])
 
 //    admins.traverse();
     //cout << kruskalGraph.kruskalMST() << endl;
+
 
       //cout << modules.getClients(clients) << endl;
     //clients.traverse();

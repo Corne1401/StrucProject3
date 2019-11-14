@@ -66,6 +66,7 @@ class KruskalGraph{
 
 public:
     int graphWeight;
+    string kurskalGraphResult;
 
     int V;
     vector< pair<int, iPair> > edges;
@@ -74,6 +75,10 @@ public:
 
     void setEdgesCount(int v){
         this->V = v;
+    }
+
+    string getKurskalGraphResult(){
+        return this->kurskalGraphResult;
     }
 
 
@@ -133,6 +138,7 @@ public:
             }
         }
         this->graphWeight = mst_wt;
+        this->kurskalGraphResult = concat;
         return concat;
     }
 };
