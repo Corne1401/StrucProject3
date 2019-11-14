@@ -17,9 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    check/checkprice.cpp \
-    check/checkprod.cpp \
-    check/checktax.cpp \
+    check/check.cpp \
     clientSocket.cpp \
     graphresults.cpp \
     main.cpp \
@@ -27,12 +25,11 @@ SOURCES += \
     mapgraph.cpp \
     menu.cpp \
     reports.cpp \
+    reports/reports.cpp \
     unloggedMenu/unloggedmenu.cpp
 
 HEADERS += \
-    check/checkprice.h \
-    check/checkprod.h \
-    check/checktax.h \
+    check/check.h \
     clientSocket.h \
     globalClient.h \
     graphresults.h \
@@ -41,17 +38,17 @@ HEADERS += \
     mapgraph.h \
     menu.h \
     reports.h \
+    reports/reports.h \
     unloggedMenu/unloggedmenu.h
 
 FORMS += \
-    check/checkprice.ui \
-    check/checkprod.ui \
-    check/checktax.ui \
+    check/check.ui \
     graphresults.ui \
     mainwindow.ui \
     mapgraph.ui \
     menu.ui \
     reports.ui \
+    reports/reports.ui \
     unloggedMenu/unloggedmenu.ui
 
 # Default rules for deployment.
