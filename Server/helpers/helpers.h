@@ -747,6 +747,10 @@ public:
         //cout << "Cities Map: " << endl;
         //cout << indexToCity.at(16) << endl;
         //cout << citiesMap.size() << endl;
+        for(int i =0; i<indexToCity.size(); i++){
+            cout << indexToCity.at(i) << endl;
+        }
+
 
         string line;
         ifstream arch1(PATH_TO_FILES+"Conexiones.txt");
