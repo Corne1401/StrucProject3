@@ -6,6 +6,8 @@
 #include "insertions.h"
 #include "eliminations.h"
 #include "ui_menu.h"
+#include "mapgraph.h"
+#include "globalAdmin.h"
 
 Menu::Menu(QWidget *parent) :
     QMainWindow(parent),
@@ -45,6 +47,8 @@ void Menu::on_checkButton_clicked()
 
 void Menu::on_billingButton_clicked()
 {
+    QString req = "23";
+    emit adminSock.send(req.toUtf8());
     // emit code to generate files
 }
 
@@ -69,10 +73,12 @@ void Menu::on_deleteButton_clicked()
 
 void Menu::on_chainReports_clicked()
 {
-
+    mapGraph *map = new mapGraph;
+    map->show();
 }
 
 void Menu::on_checkInventory_clicked()
 {
-
+    QString req = "25";
+    emit adminSock.send(req.toUtf8());
 }

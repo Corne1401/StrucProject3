@@ -1,16 +1,16 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'deleteproduct.h'
+** Meta object code from reading C++ file 'generateall.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.5)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../Admin/eliminations/deleteproduct.h"
+#include "../../Admin/reports/generateall.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'deleteproduct.h' doesn't include <QObject>."
+#error "The header file 'generateall.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.12.5. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -20,28 +20,27 @@
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_DeleteProduct_t {
+struct qt_meta_stringdata_GenerateAll_t {
     QByteArrayData data[3];
-    char stringdata0[37];
+    char stringdata0[35];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_DeleteProduct_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_GenerateAll_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_DeleteProduct_t qt_meta_stringdata_DeleteProduct = {
+static const qt_meta_stringdata_GenerateAll_t qt_meta_stringdata_GenerateAll = {
     {
-QT_MOC_LITERAL(0, 0, 13), // "DeleteProduct"
-QT_MOC_LITERAL(1, 14, 21), // "on_pushButton_clicked"
-QT_MOC_LITERAL(2, 36, 0) // ""
+QT_MOC_LITERAL(0, 0, 11), // "GenerateAll"
+QT_MOC_LITERAL(1, 12, 21), // "on_pushButton_clicked"
+QT_MOC_LITERAL(2, 34, 0) // ""
 
     },
-    "DeleteProduct\0on_pushButton_clicked\0"
-    ""
+    "GenerateAll\0on_pushButton_clicked\0"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_DeleteProduct[] = {
+static const uint qt_meta_data_GenerateAll[] = {
 
  // content:
        8,       // revision
@@ -63,10 +62,10 @@ static const uint qt_meta_data_DeleteProduct[] = {
        0        // eod
 };
 
-void DeleteProduct::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void GenerateAll::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<DeleteProduct *>(_o);
+        auto *_t = static_cast<GenerateAll *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->on_pushButton_clicked(); break;
@@ -76,30 +75,30 @@ void DeleteProduct::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
     Q_UNUSED(_a);
 }
 
-QT_INIT_METAOBJECT const QMetaObject DeleteProduct::staticMetaObject = { {
+QT_INIT_METAOBJECT const QMetaObject GenerateAll::staticMetaObject = { {
     &QMainWindow::staticMetaObject,
-    qt_meta_stringdata_DeleteProduct.data,
-    qt_meta_data_DeleteProduct,
+    qt_meta_stringdata_GenerateAll.data,
+    qt_meta_data_GenerateAll,
     qt_static_metacall,
     nullptr,
     nullptr
 } };
 
 
-const QMetaObject *DeleteProduct::metaObject() const
+const QMetaObject *GenerateAll::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *DeleteProduct::qt_metacast(const char *_clname)
+void *GenerateAll::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_DeleteProduct.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_GenerateAll.stringdata0))
         return static_cast<void*>(this);
     return QMainWindow::qt_metacast(_clname);
 }
 
-int DeleteProduct::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int GenerateAll::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QMainWindow::qt_metacall(_c, _id, _a);
     if (_id < 0)

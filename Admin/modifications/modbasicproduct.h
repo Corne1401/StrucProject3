@@ -15,6 +15,9 @@ public:
     explicit modBasicProduct(QWidget *parent = nullptr);
     ~modBasicProduct();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::modBasicProduct *ui;
 };

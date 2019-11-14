@@ -18,6 +18,16 @@ public:
 private slots:
     void on_primBtn_clicked();
 
+    void on_kurskalBtn_clicked();
+
+    void on_dijkstraBtn_clicked();
+
+    void on_articulationBtn_clicked();
+
+    void on_DFSBtn_clicked();
+
+    void on_BFSBtn_clicked();
+
 private:
     Ui::mapGraph *ui;
 };

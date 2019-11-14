@@ -21,6 +21,11 @@ private slots:
     void on_modPrice_clicked();
 
 
+
+    void on_modtax_clicked();
+
+    void on_modProd_clicked();
+
 private:
     Ui::Modifications *ui;
 };

@@ -26,8 +26,8 @@ class Ui_ModTax
 {
 public:
     QWidget *centralwidget;
-    QRadioButton *radioButton;
-    QRadioButton *radioButton_2;
+    QRadioButton *isBasic;
+    QRadioButton *isNormal;
     QLineEdit *newTax;
     QLabel *label;
     QPushButton *confirmNewTax;
@@ -41,12 +41,12 @@ public:
         ModTax->resize(800, 600);
         centralwidget = new QWidget(ModTax);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        radioButton = new QRadioButton(centralwidget);
-        radioButton->setObjectName(QString::fromUtf8("radioButton"));
-        radioButton->setGeometry(QRect(230, 60, 84, 19));
-        radioButton_2 = new QRadioButton(centralwidget);
-        radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
-        radioButton_2->setGeometry(QRect(520, 60, 101, 19));
+        isBasic = new QRadioButton(centralwidget);
+        isBasic->setObjectName(QString::fromUtf8("isBasic"));
+        isBasic->setGeometry(QRect(230, 60, 84, 19));
+        isNormal = new QRadioButton(centralwidget);
+        isNormal->setObjectName(QString::fromUtf8("isNormal"));
+        isNormal->setGeometry(QRect(520, 60, 101, 19));
         newTax = new QLineEdit(centralwidget);
         newTax->setObjectName(QString::fromUtf8("newTax"));
         newTax->setGeometry(QRect(340, 180, 121, 21));
@@ -73,8 +73,8 @@ public:
     void retranslateUi(QMainWindow *ModTax)
     {
         ModTax->setWindowTitle(QApplication::translate("ModTax", "MainWindow", nullptr));
-        radioButton->setText(QApplication::translate("ModTax", "Basic product", nullptr));
-        radioButton_2->setText(QApplication::translate("ModTax", "Normal product", nullptr));
+        isBasic->setText(QApplication::translate("ModTax", "Basic product", nullptr));
+        isNormal->setText(QApplication::translate("ModTax", "Normal product", nullptr));
         label->setText(QApplication::translate("ModTax", "New tax", nullptr));
         confirmNewTax->setText(QApplication::translate("ModTax", "Confirm", nullptr));
     } // retranslateUi

@@ -16,9 +16,7 @@ int main(int argc, char *argv[])
     adminSock.connectSocket();
 
     MainWindow w;
-    mapGraph m;
-//    w.show();
-    m.show();
-    //y.show();
+    w.show();
+
     return a.exec();
 }

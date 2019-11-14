@@ -21,6 +21,7 @@ release/modtax.o
 release/pricemod.o
 release/reports.o
 release/brandlist.o
+release/generateall.o
 release/mostprodaisle.o
 release/prodlist.o
 release/restock.o
@@ -47,6 +48,7 @@ release/moc_modtax.o
 release/moc_pricemod.o
 release/moc_reports.o
 release/moc_brandlist.o
+release/moc_generateall.o
 release/moc_mostprodaisle.o
 release/moc_prodlist.o
 release/moc_restock.o

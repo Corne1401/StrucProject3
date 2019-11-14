@@ -15,6 +15,9 @@ public:
     explicit DeleteClient(QWidget *parent = nullptr);
     ~DeleteClient();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::DeleteClient *ui;
 };

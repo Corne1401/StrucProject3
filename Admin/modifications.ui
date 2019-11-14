@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="modPrice">
     <property name="geometry">
      <rect>
       <x>360</x>
@@ -27,7 +27,7 @@
      <string>Modify price</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="modtax">
     <property name="geometry">
      <rect>
       <x>360</x>
@@ -40,7 +40,7 @@
      <string>Modify tax</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="modProd">
     <property name="geometry">
      <rect>
       <x>360</x>

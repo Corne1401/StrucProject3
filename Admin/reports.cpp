@@ -5,6 +5,7 @@
 #include "reports/mostprodaisle.h"
 #include "reports/prodlist.h"
 #include "reports/brandlist.h"
+#include "reports/generateall.h"
 
 Reports::Reports(QWidget *parent) :
     QMainWindow(parent),
@@ -87,8 +88,9 @@ void Reports::on_reportsGenerate_clicked()
         emit adminSock.send(request.toUtf8());
     }
     else if(ui->selectReport->currentIndex()==13){
-        request = "49";
-        emit adminSock.send(request.toUtf8());
+
+        GenerateAll *genAll = new GenerateAll;
+        genAll->show();
     }
 
 }

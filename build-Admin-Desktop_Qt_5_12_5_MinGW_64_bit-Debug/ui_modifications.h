@@ -22,9 +22,9 @@ class Ui_Modifications
 {
 public:
     QWidget *centralwidget;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_3;
+    QPushButton *modPrice;
+    QPushButton *modtax;
+    QPushButton *modProd;
     QPushButton *backButton;
     QStatusBar *statusbar;
 
@@ -35,15 +35,15 @@ public:
         Modifications->resize(800, 600);
         centralwidget = new QWidget(Modifications);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(360, 70, 80, 21));
-        pushButton_2 = new QPushButton(centralwidget);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(360, 160, 80, 21));
-        pushButton_3 = new QPushButton(centralwidget);
-        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-        pushButton_3->setGeometry(QRect(360, 250, 80, 21));
+        modPrice = new QPushButton(centralwidget);
+        modPrice->setObjectName(QString::fromUtf8("modPrice"));
+        modPrice->setGeometry(QRect(360, 70, 80, 21));
+        modtax = new QPushButton(centralwidget);
+        modtax->setObjectName(QString::fromUtf8("modtax"));
+        modtax->setGeometry(QRect(360, 160, 80, 21));
+        modProd = new QPushButton(centralwidget);
+        modProd->setObjectName(QString::fromUtf8("modProd"));
+        modProd->setGeometry(QRect(360, 250, 80, 21));
         backButton = new QPushButton(centralwidget);
         backButton->setObjectName(QString::fromUtf8("backButton"));
         backButton->setGeometry(QRect(360, 330, 80, 21));
@@ -60,9 +60,9 @@ public:
     void retranslateUi(QMainWindow *Modifications)
     {
         Modifications->setWindowTitle(QApplication::translate("Modifications", "MainWindow", nullptr));
-        pushButton->setText(QApplication::translate("Modifications", "Modify price", nullptr));
-        pushButton_2->setText(QApplication::translate("Modifications", "Modify tax", nullptr));
-        pushButton_3->setText(QApplication::translate("Modifications", "Modify product", nullptr));
+        modPrice->setText(QApplication::translate("Modifications", "Modify price", nullptr));
+        modtax->setText(QApplication::translate("Modifications", "Modify tax", nullptr));
+        modProd->setText(QApplication::translate("Modifications", "Modify product", nullptr));
         backButton->setText(QApplication::translate("Modifications", "Back", nullptr));
     } // retranslateUi
 
