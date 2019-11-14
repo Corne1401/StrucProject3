@@ -1,5 +1,8 @@
 #include "clientSocket.h"
 #include "graphresults.h"
+#include "helpers/helpers.h"
+#include "unloggedMenu/unloggedmenu.h"
+#include "menu.h"
 #include <iostream>
 using namespace std;
 
@@ -25,11 +28,21 @@ void clientSocket::disconnected(){
 void clientSocket::readyRead(){
     QByteArray data = clientSock->readAll();
     string dataToString = data.toStdString();
-    cout<<dataToString<<endl;
+    vector<string> dataFromServer = helper::split(dataToString,";");
 
-    if(true){
-        GraphResults *g = new GraphResults(QString::fromStdString(dataToString));
-        g->show();
+
+    cout<<"<------DATA------>"<<endl;
+    cout<<dataToString<<endl;
+    cout<<">----------------<"<<endl;
+
+    if(dataFromServer[0]=="01"){
+        if(dataFromServer[1]=="1"){
+            Menu *menu = new Menu;
+            menu->show();
+        }else if(dataFromServer[1]=="0"){
+            UnloggedMenu *uMenu = new UnloggedMenu;
+            uMenu->show();
+        }
     }
 
 }
