@@ -7,6 +7,8 @@
 #include "helpers.h"
 #include "graphresults.h"
 
+#include <QMessageBox>
+
 
 using namespace std;
 
@@ -34,13 +36,37 @@ void adminSocket::readyRead(){
     string dataToString = data.toStdString();
     vector<string> dataFromServer =helper::split(dataToString,";");
 
-
     cout<<"<------DATA------>"<<endl;
     cout<<dataToString<<endl;
     cout<<">----------------<"<<endl;
+
     if(dataFromServer[0] == "01" && dataFromServer[1]=="1"){
         Menu *menu = new Menu;
         menu->show();
+    } else if(dataFromServer[0]=="20"){
+        QMessageBox answ;
+        string temp = dataFromServer[1];
+        QString qtemp = QString::fromUtf8(temp.c_str());
+        answ.setText(qtemp);
+        answ.exec();
+
+    } else if(dataFromServer[0]=="21"){
+        QMessageBox answ;
+        if(dataFromServer[1]=="1"){
+            answ.setText("Is Basic");
+        } else if(dataFromServer[1]=="0"){
+            answ.setText("Is Normal");
+        }
+        answ.exec();
+
+    } else if(dataFromServer[0]=="22"){
+
+        QMessageBox answ;
+        string temp = dataFromServer[1];
+        QString qtemp = QString::fromUtf8(temp.c_str());
+        answ.setText(qtemp);
+        answ.exec();
+
     } else if(dataFromServer[0]=="26"){
         graphResults *g = new graphResults(QString::fromStdString(dataFromServer[1]+"\n"+dataFromServer[2]));
         g->show();
@@ -51,7 +77,8 @@ void adminSocket::readyRead(){
         graphResults *g = new graphResults(QString::fromStdString(dataFromServer[1]+"\n"+dataFromServer[2]));
         g->show();
     } else if(dataFromServer[0]=="32"){
-        graphResults *g = new graphResults(QString::fromStdString(dataFromServer[1]+"\n"+dataFromServer[2]));
+        graphResults *g = new graphResults(QString::fromStdString(dataFromServer[1]));
+        g->show();
     }
 
 

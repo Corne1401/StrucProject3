@@ -17,26 +17,42 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    check/checkprice.cpp \
+    check/checkprod.cpp \
+    check/checktax.cpp \
     clientSocket.cpp \
     graphresults.cpp \
     main.cpp \
     mainwindow.cpp \
     mapgraph.cpp \
-    reports.cpp
+    menu.cpp \
+    reports.cpp \
+    unloggedMenu/unloggedmenu.cpp
 
 HEADERS += \
+    check/checkprice.h \
+    check/checkprod.h \
+    check/checktax.h \
     clientSocket.h \
     globalClient.h \
     graphresults.h \
+    helpers/helpers.h \
     mainwindow.h \
     mapgraph.h \
-    reports.h
+    menu.h \
+    reports.h \
+    unloggedMenu/unloggedmenu.h
 
 FORMS += \
+    check/checkprice.ui \
+    check/checkprod.ui \
+    check/checktax.ui \
     graphresults.ui \
     mainwindow.ui \
     mapgraph.ui \
-    reports.ui
+    menu.ui \
+    reports.ui \
+    unloggedMenu/unloggedmenu.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
