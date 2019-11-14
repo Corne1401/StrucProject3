@@ -24,8 +24,9 @@ SOURCES += \
     mainwindow.cpp \
     mapgraph.cpp \
     menu.cpp \
-    reports.cpp \
     reports/reports.cpp \
+    reports/showbrands.cpp \
+    reports/showprod.cpp \
     unloggedMenu/unloggedmenu.cpp
 
 HEADERS += \
@@ -37,8 +38,9 @@ HEADERS += \
     mainwindow.h \
     mapgraph.h \
     menu.h \
-    reports.h \
     reports/reports.h \
+    reports/showbrands.h \
+    reports/showprod.h \
     unloggedMenu/unloggedmenu.h
 
 FORMS += \
@@ -47,8 +49,9 @@ FORMS += \
     mainwindow.ui \
     mapgraph.ui \
     menu.ui \
-    reports.ui \
     reports/reports.ui \
+    reports/showbrands.ui \
+    reports/showprod.ui \
     unloggedMenu/unloggedmenu.ui
 
 # Default rules for deployment.

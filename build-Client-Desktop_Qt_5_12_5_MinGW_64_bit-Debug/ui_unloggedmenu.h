@@ -12,7 +12,6 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -22,8 +21,6 @@ class Ui_UnloggedMenu
 {
 public:
     QWidget *centralwidget;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *UnloggedMenu)
@@ -33,12 +30,6 @@ public:
         UnloggedMenu->resize(800, 600);
         centralwidget = new QWidget(UnloggedMenu);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(190, 110, 80, 21));
-        pushButton_2 = new QPushButton(centralwidget);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(520, 110, 80, 21));
         UnloggedMenu->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(UnloggedMenu);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -52,8 +43,6 @@ public:
     void retranslateUi(QMainWindow *UnloggedMenu)
     {
         UnloggedMenu->setWindowTitle(QApplication::translate("UnloggedMenu", "MainWindow", nullptr));
-        pushButton->setText(QApplication::translate("UnloggedMenu", "PushButton", nullptr));
-        pushButton_2->setText(QApplication::translate("UnloggedMenu", "PushButton", nullptr));
     } // retranslateUi
 
 };
