@@ -28,6 +28,7 @@ SOURCES += \
     eliminations/newbrand.cpp \
     eliminations/newclient.cpp \
     eliminations/newproduct.cpp \
+    graphresults.cpp \
     insertions.cpp \
     insertions/newaisle.cpp \
     insertions/newbrand.cpp \
@@ -35,6 +36,7 @@ SOURCES += \
     insertions/newproduct.cpp \
     main.cpp \
     mainwindow.cpp \
+    mapgraph.cpp \
     menu.cpp \
     modifications.cpp \
     modifications/modbasicproduct.cpp \
@@ -56,12 +58,14 @@ HEADERS += \
     eliminations/newclient.h \
     eliminations/newproduct.h \
     globalAdmin.h \
+    graphresults.h \
     insertions.h \
     insertions/newaisle.h \
     insertions/newbrand.h \
     insertions/newclient.h \
     insertions/newproduct.h \
     mainwindow.h \
+    mapgraph.h \
     menu.h \
     modifications.h \
     modifications/modbasicproduct.h \
@@ -81,12 +85,14 @@ FORMS += \
     eliminations/newbrand.ui \
     eliminations/newclient.ui \
     eliminations/newproduct.ui \
+    graphresults.ui \
     insertions.ui \
     insertions/newaisle.ui \
     insertions/newbrand.ui \
     insertions/newclient.ui \
     insertions/newproduct.ui \
     mainwindow.ui \
+    mapgraph.ui \
     menu.ui \
     modifications.ui \
     modifications/modbasicproduct.ui \

@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "globalAdmin.h"
+#include "mapgraph.h"
 #include <QApplication>
 using namespace std;
 
@@ -15,6 +16,8 @@ int main(int argc, char *argv[])
     adminSock.connectSocket();
 
     MainWindow w;
-    w.show();
+    MapGraph y;
+    //w.show();
+    y.show();
     return a.exec();
 }

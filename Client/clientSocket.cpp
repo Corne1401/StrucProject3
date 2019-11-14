@@ -1,4 +1,5 @@
 #include "clientSocket.h"
+#include "graphresults.h"
 #include <iostream>
 using namespace std;
 
@@ -26,7 +27,10 @@ void clientSocket::readyRead(){
     string dataToString = data.toStdString();
     cout<<dataToString<<endl;
 
-
+    if(true){
+        GraphResults *g = new GraphResults(QString::fromStdString(dataToString));
+        g->show();
+    }
 
 }
 void clientSocket::send(QByteArray data){
