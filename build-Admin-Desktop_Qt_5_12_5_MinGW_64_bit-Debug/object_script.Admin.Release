@@ -5,6 +5,7 @@ release/deleteaisle.o
 release/deletebrand.o
 release/deleteclient.o
 release/deleteproduct.o
+release/graphresults.o
 release/insertions.o
 release/newaisle.o
 release/newbrand.o
@@ -23,6 +24,7 @@ release/brandlist.o
 release/mostprodaisle.o
 release/prodlist.o
 release/restock.o
+release/qrc_Resources.o
 release/moc_adminSocket.o
 release/moc_check.o
 release/moc_eliminations.o
@@ -30,6 +32,7 @@ release/moc_deleteaisle.o
 release/moc_deletebrand.o
 release/moc_deleteclient.o
 release/moc_deleteproduct.o
+release/moc_graphresults.o
 release/moc_insertions.o
 release/moc_newaisle.o
 release/moc_newbrand.o

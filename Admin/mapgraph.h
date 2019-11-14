@@ -4,22 +4,22 @@
 #include <QMainWindow>
 
 namespace Ui {
-class MapGraph;
+class mapGraph;
 }
 
-class MapGraph : public QMainWindow
+class mapGraph : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit MapGraph(QWidget *parent = nullptr);
-    ~MapGraph();
+    explicit mapGraph(QWidget *parent = nullptr);
+    ~mapGraph();
 
 private slots:
     void on_primBtn_clicked();
 
 private:
-    Ui::MapGraph *ui;
+    Ui::mapGraph *ui;
 };
 
 #endif // MAPGRAPH_H

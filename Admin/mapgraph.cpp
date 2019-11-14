@@ -1,21 +1,20 @@
 #include "mapgraph.h"
-#include "graphresults.h"
-#include "ui_mapgraph.h"
 #include "globalAdmin.h"
+#include "ui_mapgraph.h"
 
-MapGraph::MapGraph(QWidget *parent) :
+mapGraph::mapGraph(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MapGraph)
+    ui(new Ui::mapGraph)
 {
     ui->setupUi(this);
 }
 
-MapGraph::~MapGraph()
+mapGraph::~mapGraph()
 {
     delete ui;
 }
 
-void MapGraph::on_primBtn_clicked()
+void mapGraph::on_primBtn_clicked()
 {
     QString req = "26";
     emit adminSock.send(req.toUtf8());

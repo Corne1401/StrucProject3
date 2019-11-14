@@ -4,20 +4,20 @@
 #include <QMainWindow>
 
 namespace Ui {
-class GraphResults;
+class graphResults;
 }
 
-class GraphResults : public QMainWindow
+class graphResults : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit GraphResults(QString data, QWidget *parent = nullptr);
-
-    ~GraphResults();
+    explicit graphResults(QString data, QWidget *parent = nullptr);
     QString data;
+    ~graphResults();
+
 private:
-    Ui::GraphResults *ui;
+    Ui::graphResults *ui;
 };
 
 #endif // GRAPHRESULTS_H
