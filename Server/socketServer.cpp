@@ -280,4 +280,98 @@ void socketServer::readyRead(){
             socket->write("0");
         }
     }
+    else if(holder[0]=="39"){ //mostSoldBrand
+        if(sales.generateMostSoldBrands(PATH_TO_REPORTS+"mostSoldBrand.txt")){
+            socket->write("1");
+        } else {
+            socket->write("0");
+        }
+    }
+    else if(holder[0]=="40"){ //mostExpensiveBill && ClientWhoBoughtTheMost
+        if(clients.generateMostExpensiveBill(PATH_TO_REPORTS+"mostExpensiveBill(ClientWhoBoughtTheMost).txt")){
+            socket->write("1");
+        } else {
+            socket->write("0");
+        }
+    }
+    else if(holder[0]=="41"){ //clientWhoBoughtTheLeast
+        if(clients.generateLeastExpensiveBill(PATH_TO_REPORTS+"clientWhoBoughtTheLeast.txt")){
+            socket->write("1");
+        } else {
+            socket->write("0");
+        }
+    }
+    else if(holder[0]=="42"){ //mostBilledClient
+        if(clients.generateMostBilledClient(PATH_TO_REPORTS+"mostBilledClient.txt")){
+            socket->write("1");
+        } else {
+            socket->write("0");
+        }
+    }
+    else if(holder[0]=="43"){ //mostBilledClient
+        if(clients.generateLeastBilledClient(PATH_TO_REPORTS+"leastBilledClient.txt")){
+            socket->write("1");
+        } else {
+            socket->write("0");
+        }
+    }
+    else if(holder[0]=="44"){ //aislesList
+        if(aisles.generateAisles(PATH_TO_REPORTS+"aislesList.txt")){
+            socket->write("1");
+        } else {
+            socket->write("0");
+        }
+    }
+    else if(holder[0]=="45"){ //productsList
+        //holder[1]==aisleCode
+        if(modules.generateProductsReport(PATH_TO_REPORTS+"productsList.txt", aisles, holder[1])){
+            socket->write("1");
+        } else {
+            socket->write("0");
+        }
+    }
+    else if(holder[0]=="46"){ //brandsList
+        //holder[1]==aisleCode
+        //holder[2]==prodCode
+        if(modules.generateBrandsReport(PATH_TO_REPORTS+"brandsList.txt", aisles, holder[1], holder[2])){
+            socket->write("1");
+        } else {
+            socket->write("0");
+        }
+    }
+    else if(holder[0]=="47"){ //clientsList
+        if(clients.generateClients(PATH_TO_REPORTS+"clientsList.txt")){
+            socket->write("1");
+        } else {
+            socket->write("0");
+        }
+    }
+    else if(holder[0]=="48"){ //inventoryList
+        if(inventory.generateInventory(PATH_TO_REPORTS+"clientsList.txt")){
+            socket->write("1");
+        } else {
+            socket->write("0");
+        }
+    }
+    else if(holder[0]=="49"){ //GENERATE ALL REPORTS
+        //holder[1]==aisleCode
+        //holder[2]==prodCode
+        if(aisles.generateMostVisitedAisleReport(PATH_TO_REPORTS+"mostVisitedAisle.txt")
+                && aisles.generateLeastVisitedAisleReport(PATH_TO_REPORTS+"leastVisitedAisle.txt")
+                && modules.mostProductPerAisle(PATH_TO_REPORTS+"mostProductsPerAisle.txt", aisles, holder[1])
+                && sales.generateMostSoldBrands(PATH_TO_REPORTS+"mostSoldBrand.txt")
+                && clients.generateMostExpensiveBill(PATH_TO_REPORTS+"mostExpensiveBill(ClientWhoBoughtTheMost).txt")
+                && clients.generateLeastExpensiveBill(PATH_TO_REPORTS+"clientWhoBoughtTheLeast.txt")
+                && clients.generateMostBilledClient(PATH_TO_REPORTS+"mostBilledClient.txt")
+                && clients.generateLeastBilledClient(PATH_TO_REPORTS+"leastBilledClient.txt")
+                && aisles.generateAisles(PATH_TO_REPORTS+"aislesList.txt")
+                && modules.generateProductsReport(PATH_TO_REPORTS+"productsList.txt", aisles, holder[1])
+                && modules.generateBrandsReport(PATH_TO_REPORTS+"brandsList.txt", aisles, holder[1], holder[2])
+                && clients.generateClients(PATH_TO_REPORTS+"clientsList.txt")
+                && inventory.generateInventory(PATH_TO_REPORTS+"clientsList.txt")){
+            socket->write("1");
+        } else {
+            socket->write("0");
+        }
+    }
 }

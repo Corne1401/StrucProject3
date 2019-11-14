@@ -26,29 +26,34 @@ public:
 
     }
 
-    void generateMostSoldBrands(const string& path) {
-        ofstream outfile (path);
-        outfile << "Most sold brands report. " << endl;
+    bool generateMostSoldBrands(const string& path) {
+        try {
+            ofstream outfile (path);
+            outfile << "Most sold brands report. " << endl;
 
-        aux = firstNode;
-        int highestSold = 0;
-        while (aux!= nullptr) {
-            if (aux->getAmountSold()>=highestSold) {
-                highestSold = aux->getAmountSold();
+            aux = firstNode;
+            int highestSold = 0;
+            while (aux!= nullptr) {
+                if (aux->getAmountSold()>=highestSold) {
+                    highestSold = aux->getAmountSold();
+                }
+                next();
             }
-            next();
-        }
 
-        aux = firstNode;
-        while (aux!= nullptr) {
-            if (aux->getAmountSold()==highestSold) {
-                outfile << "Aisle Code: " << aux->getAisleCode() << " Prod Code: " << aux->getProdCode() << " Brand Code: " << aux->getBrandCode() << "Amount sold: " << aux->getAmountSold() << endl;
+            aux = firstNode;
+            while (aux!= nullptr) {
+                if (aux->getAmountSold()==highestSold) {
+                    outfile << "Aisle Code: " << aux->getAisleCode() << " Prod Code: " << aux->getProdCode() << " Brand Code: " << aux->getBrandCode() << "Amount sold: " << aux->getAmountSold() << endl;
+                }
+                next();
             }
-            next();
+            outfile.flush();
+            outfile.close();
+            cout << "Report generated successfully..." << endl;
+            return true;
+        } catch (...) {
+            return false;
         }
-        outfile.flush();
-        outfile.close();
-        cout << "Report generated successfully..." << endl;
     }
 
     void next(){
