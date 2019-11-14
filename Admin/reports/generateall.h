@@ -15,18 +15,10 @@ public:
     explicit GenerateAll(QWidget *parent = nullptr);
     ~GenerateAll();
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
+
 private slots:
     void on_pushButton_clicked();
 
->>>>>>> Stashed changes
-=======
-private slots:
-    void on_pushButton_clicked();
-
->>>>>>> Stashed changes
 private:
     Ui::GenerateAll *ui;
 };
