@@ -3,6 +3,8 @@
 #include "helpers/helpers.h"
 #include "unloggedMenu/unloggedmenu.h"
 #include "menu.h"
+#include "purchase.h"
+#include "globalClient.h"
 #include <iostream>
 using namespace std;
 
@@ -43,6 +45,11 @@ void clientSocket::readyRead(){
             UnloggedMenu *uMenu = new UnloggedMenu;
             uMenu->show();
         }
+    }
+    else if(dataFromServer[0]=="03" && fromPurchase){
+        purchase p;
+        p.setAislesForComboBox(dataFromServer[1]);
+        p.show();
     }
 
 }

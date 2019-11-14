@@ -22,9 +22,10 @@ class Ui_Reports
 {
 public:
     QWidget *centralwidget;
-    QPushButton *aisles;
-    QPushButton *products;
-    QPushButton *brands;
+    QPushButton *checkAisles;
+    QPushButton *checkProd;
+    QPushButton *checkBrands;
+    QPushButton *backBtn;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *Reports)
@@ -34,15 +35,18 @@ public:
         Reports->resize(800, 600);
         centralwidget = new QWidget(Reports);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        aisles = new QPushButton(centralwidget);
-        aisles->setObjectName(QString::fromUtf8("aisles"));
-        aisles->setGeometry(QRect(330, 70, 80, 21));
-        products = new QPushButton(centralwidget);
-        products->setObjectName(QString::fromUtf8("products"));
-        products->setGeometry(QRect(330, 180, 80, 21));
-        brands = new QPushButton(centralwidget);
-        brands->setObjectName(QString::fromUtf8("brands"));
-        brands->setGeometry(QRect(330, 290, 80, 21));
+        checkAisles = new QPushButton(centralwidget);
+        checkAisles->setObjectName(QString::fromUtf8("checkAisles"));
+        checkAisles->setGeometry(QRect(130, 110, 80, 21));
+        checkProd = new QPushButton(centralwidget);
+        checkProd->setObjectName(QString::fromUtf8("checkProd"));
+        checkProd->setGeometry(QRect(570, 110, 80, 21));
+        checkBrands = new QPushButton(centralwidget);
+        checkBrands->setObjectName(QString::fromUtf8("checkBrands"));
+        checkBrands->setGeometry(QRect(360, 200, 80, 21));
+        backBtn = new QPushButton(centralwidget);
+        backBtn->setObjectName(QString::fromUtf8("backBtn"));
+        backBtn->setGeometry(QRect(360, 340, 80, 21));
         Reports->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(Reports);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -56,9 +60,10 @@ public:
     void retranslateUi(QMainWindow *Reports)
     {
         Reports->setWindowTitle(QApplication::translate("Reports", "MainWindow", nullptr));
-        aisles->setText(QApplication::translate("Reports", "Aisles", nullptr));
-        products->setText(QApplication::translate("Reports", "Products", nullptr));
-        brands->setText(QApplication::translate("Reports", "Brands", nullptr));
+        checkAisles->setText(QApplication::translate("Reports", "Check aisles", nullptr));
+        checkProd->setText(QApplication::translate("Reports", "Check products", nullptr));
+        checkBrands->setText(QApplication::translate("Reports", "Check brands", nullptr));
+        backBtn->setText(QApplication::translate("Reports", "Back", nullptr));
     } // retranslateUi
 
 };

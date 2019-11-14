@@ -22,8 +22,9 @@ class Ui_UnloggedMenu
 {
 public:
     QWidget *centralwidget;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
+    QPushButton *checkPrice;
+    QPushButton *checkProd;
+    QPushButton *checkTask;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *UnloggedMenu)
@@ -33,12 +34,15 @@ public:
         UnloggedMenu->resize(800, 600);
         centralwidget = new QWidget(UnloggedMenu);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(190, 110, 80, 21));
-        pushButton_2 = new QPushButton(centralwidget);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(520, 110, 80, 21));
+        checkPrice = new QPushButton(centralwidget);
+        checkPrice->setObjectName(QString::fromUtf8("checkPrice"));
+        checkPrice->setGeometry(QRect(360, 90, 80, 21));
+        checkProd = new QPushButton(centralwidget);
+        checkProd->setObjectName(QString::fromUtf8("checkProd"));
+        checkProd->setGeometry(QRect(360, 220, 80, 21));
+        checkTask = new QPushButton(centralwidget);
+        checkTask->setObjectName(QString::fromUtf8("checkTask"));
+        checkTask->setGeometry(QRect(360, 350, 80, 21));
         UnloggedMenu->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(UnloggedMenu);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -52,8 +56,9 @@ public:
     void retranslateUi(QMainWindow *UnloggedMenu)
     {
         UnloggedMenu->setWindowTitle(QApplication::translate("UnloggedMenu", "MainWindow", nullptr));
-        pushButton->setText(QApplication::translate("UnloggedMenu", "PushButton", nullptr));
-        pushButton_2->setText(QApplication::translate("UnloggedMenu", "PushButton", nullptr));
+        checkPrice->setText(QApplication::translate("UnloggedMenu", "Check price", nullptr));
+        checkProd->setText(QApplication::translate("UnloggedMenu", "Check product", nullptr));
+        checkTask->setText(QApplication::translate("UnloggedMenu", "Check Tax", nullptr));
     } // retranslateUi
 
 };

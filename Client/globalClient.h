@@ -7,4 +7,6 @@ using namespace std;
 extern clientSocket clientSock;
 extern string dataFromServer;
 
+extern bool fromPurchase;
+
 #endif // GLOBALCLIENT_H
