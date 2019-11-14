@@ -49,7 +49,6 @@ void clientSocket::readyRead(){
     } else if(dataFromServer[0]=="03"  && fromPurchase){
 
         purchase *p = new purchase;
-        p->setAislesForComboBox(dataFromServer[1]);
         p->show();
 
     } else if(dataFromServer[0]=="03"){

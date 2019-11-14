@@ -18,6 +18,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
     QString id = "02;" + ui->editId->text();
+    clientId = ui->editId->text();
     emit send(id.toUtf8());
 
 }

@@ -9,4 +9,7 @@ extern string dataFromServer;
 
 extern bool fromPurchase;
 
+extern QString overWriteQueue;
+extern QString clientId;
+
 #endif // GLOBALCLIENT_H

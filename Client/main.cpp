@@ -7,6 +7,8 @@ using namespace std;
 clientSocket clientSock;
 string dataFromServer;
 bool fromPurchase = false;
+QString overWriteQueue = "0";
+QString clientId;
 
 int main(int argc, char *argv[])
 {

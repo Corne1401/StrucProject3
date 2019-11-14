@@ -24,6 +24,7 @@ SOURCES += \
     mainwindow.cpp \
     mapgraph.cpp \
     menu.cpp \
+    popup.cpp \
     purchase.cpp \
     reports/reports.cpp \
     reports/showbrands.cpp \
@@ -39,6 +40,7 @@ HEADERS += \
     mainwindow.h \
     mapgraph.h \
     menu.h \
+    popup.h \
     purchase.h \
     reports/reports.h \
     reports/showbrands.h \
@@ -51,6 +53,7 @@ FORMS += \
     mainwindow.ui \
     mapgraph.ui \
     menu.ui \
+    popup.ui \
     purchase.ui \
     reports/reports.ui \
     reports/showbrands.ui \

@@ -1,6 +1,7 @@
 #include "purchase.h"
 #include "ui_purchase.h"
 #include "globalClient.h"
+#include "popup.h"
 #include <sstream>
 #include <iostream>
 
@@ -16,10 +17,26 @@ purchase::~purchase()
     delete ui;
 }
 
-void purchase::setAislesForComboBox(string productsForPurchase){
-    std::istringstream f(productsForPurchase);
-        std::string line;
-        while (std::getline(f, line)) {
-            ui->aisles->addItem(QString::fromStdString(line));
-        }
+
+
+void purchase::on_purchase_2_clicked()
+{
+    //pasillo
+    //prod
+    //marca
+    //cantidad
+    //id
+
+    QString req = "35;"+ui->aisles->text()+";"+
+            ui->products->text()+";"+
+            ui->brands->text()+";"+
+            ui->amount->text()+";"+
+            clientId+";"+overWriteQueue;
+    emit clientSock.send(req.toUtf8());
+
+    overWriteQueue = "1";
+
+    PopUp *popUp = new PopUp;
+    popUp->show();
+
 }
