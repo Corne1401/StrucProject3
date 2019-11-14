@@ -30,5 +30,21 @@ void Modifications::on_modPrice_clicked()
 {
     priceMod *modifyPrice = new priceMod;
     modifyPrice->show();
-    this->close();
+
+}
+
+
+
+void Modifications::on_modtax_clicked()
+{
+    ModTax *tax = new ModTax;
+    tax->show();
+
+}
+
+void Modifications::on_modProd_clicked()
+{
+    modBasicProduct *modProd = new modBasicProduct;
+    modProd->show();
+
 }

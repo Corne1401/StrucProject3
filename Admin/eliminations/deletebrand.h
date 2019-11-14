@@ -15,6 +15,9 @@ public:
     explicit DeleteBrand(QWidget *parent = nullptr);
     ~DeleteBrand();
 
+private slots:
+    void on_deleteBrand_clicked();
+
 private:
     Ui::DeleteBrand *ui;
 };

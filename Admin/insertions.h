@@ -18,6 +18,14 @@ public:
 private slots:
     void on_insertBack_clicked();
 
+    void on_insertBrand_clicked();
+
+    void on_insertAisle_clicked();
+
+    void on_insertProduct_clicked();
+
+    void on_insertClient_clicked();
+
 private:
     Ui::insertions *ui;
 };

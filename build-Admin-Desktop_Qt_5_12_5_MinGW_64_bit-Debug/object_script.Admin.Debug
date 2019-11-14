@@ -21,6 +21,7 @@ debug/modtax.o
 debug/pricemod.o
 debug/reports.o
 debug/brandlist.o
+debug/generateall.o
 debug/mostprodaisle.o
 debug/prodlist.o
 debug/restock.o
@@ -47,6 +48,7 @@ debug/moc_modtax.o
 debug/moc_pricemod.o
 debug/moc_reports.o
 debug/moc_brandlist.o
+debug/moc_generateall.o
 debug/moc_mostprodaisle.o
 debug/moc_prodlist.o
 debug/moc_restock.o

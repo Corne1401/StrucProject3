@@ -15,6 +15,9 @@ public:
     explicit newBrand(QWidget *parent = nullptr);
     ~newBrand();
 
+private slots:
+    void on_confirmNewBrand_clicked();
+
 private:
     Ui::newBrand *ui;
 };

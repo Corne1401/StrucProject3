@@ -15,6 +15,9 @@ public:
     explicit newClient(QWidget *parent = nullptr);
     ~newClient();
 
+private slots:
+    void on_confirmNewClient_clicked();
+
 private:
     Ui::newClient *ui;
 };

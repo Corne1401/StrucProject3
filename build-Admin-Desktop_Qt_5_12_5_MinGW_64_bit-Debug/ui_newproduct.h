@@ -30,7 +30,7 @@ public:
     QLabel *label_3;
     QLabel *label_2;
     QPushButton *newProductConfirm;
-    QLineEdit *newName_2;
+    QLineEdit *newName;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *newProduct)
@@ -58,9 +58,9 @@ public:
         newProductConfirm = new QPushButton(centralwidget);
         newProductConfirm->setObjectName(QString::fromUtf8("newProductConfirm"));
         newProductConfirm->setGeometry(QRect(340, 320, 91, 21));
-        newName_2 = new QLineEdit(centralwidget);
-        newName_2->setObjectName(QString::fromUtf8("newName_2"));
-        newName_2->setGeometry(QRect(320, 240, 131, 21));
+        newName = new QLineEdit(centralwidget);
+        newName->setObjectName(QString::fromUtf8("newName"));
+        newName->setGeometry(QRect(320, 240, 131, 21));
         newProduct->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(newProduct);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));

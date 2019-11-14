@@ -15,6 +15,9 @@ public:
     explicit deleteAisle(QWidget *parent = nullptr);
     ~deleteAisle();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::deleteAisle *ui;
 };

@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QRadioButton" name="radioButton">
+   <widget class="QRadioButton" name="isBasic">
     <property name="geometry">
      <rect>
       <x>230</x>
@@ -27,7 +27,7 @@
      <string>Basic product</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_2">
+   <widget class="QRadioButton" name="isNormal">
     <property name="geometry">
      <rect>
       <x>520</x>
