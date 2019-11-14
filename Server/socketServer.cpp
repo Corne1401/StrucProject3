@@ -385,4 +385,8 @@ void socketServer::readyRead(){
             socket->write(QByteArray::fromStdString(holder[0]+";0"));
         }
     }
+    else if (holder[0]=="50"){
+        //getClientCart(clientsQ, holder[1])
+        socket->write(QByteArray::fromStdString(holder[0]+";"+modules.getClientCart(clientsQ, holder[1])));
+    }
 }
