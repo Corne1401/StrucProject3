@@ -15,6 +15,9 @@ public:
     explicit newAisle(QWidget *parent = nullptr);
     ~newAisle();
 
+private slots:
+    void on_newAisleConfirm_clicked();
+
 private:
     Ui::newAisle *ui;
 };

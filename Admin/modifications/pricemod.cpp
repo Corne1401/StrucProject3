@@ -1,5 +1,6 @@
 #include "pricemod.h"
 #include "ui_modprice.h"
+#include "globalAdmin.h"
 
 priceMod::priceMod(QWidget *parent) :
     QMainWindow(parent),
@@ -11,4 +12,15 @@ priceMod::priceMod(QWidget *parent) :
 priceMod::~priceMod()
 {
     delete ui;
+}
+
+void priceMod::on_modPriceConfirm_clicked()
+{
+    QString req = "12;"+ui->aisleCode->text()+
+            ";"+ui->prodCode->text()+
+            ";"+ui->brandCode->text()+
+            ";"+ui->newPrice->text();
+
+    emit adminSock.send(req.toUtf8());
+    this->close();
 }

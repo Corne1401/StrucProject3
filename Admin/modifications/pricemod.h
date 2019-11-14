@@ -15,6 +15,9 @@ public:
     explicit priceMod(QWidget *parent = nullptr);
     ~priceMod();
 
+private slots:
+    void on_modPriceConfirm_clicked();
+
 private:
     Ui::priceMod *ui;
 };

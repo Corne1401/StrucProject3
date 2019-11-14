@@ -13,7 +13,7 @@ adminSocket::adminSocket(QObject *parent):QThread(parent){};
 
 void adminSocket::connectSocket(){
     adminSock = new QTcpSocket(this);
-    adminSock->connectToHost("localhost",8080);
+    adminSock->connectToHost("192.168.100.5",8080);
 
     if(adminSock->waitForConnected(3000)){
         connect(this->adminSock,SIGNAL(connected()), this,SLOT(connected()));
@@ -40,6 +40,21 @@ void adminSocket::readyRead(){
     if(dataFromServer[0] == "01" && dataFromServer[1]=="1"){
         Menu *menu = new Menu;
         menu->show();
+<<<<<<< Updated upstream
+=======
+    } else if(dataFromServer[0]=="26"){
+        graphResults *g = new graphResults(QString::fromStdString(dataFromServer[1]+"\n"+dataFromServer[2]));
+        g->show();
+    } else if(dataFromServer[0]=="28"){
+        graphResults *g = new graphResults(QString::fromStdString(dataFromServer[1]+"\n"+dataFromServer[2]));
+        g->show();
+    } else if(dataFromServer[0]=="30"){
+        graphResults *g = new graphResults(QString::fromStdString(dataFromServer[1]+"\n"+dataFromServer[2]));
+        g->show();
+    } else if(dataFromServer[0]=="32"){
+        graphResults *g = new graphResults(QString::fromStdString(dataFromServer[1]+"\n"+dataFromServer[2]));
+        g->show();
+>>>>>>> Stashed changes
     }
 
 

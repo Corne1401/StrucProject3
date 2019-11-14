@@ -16,5 +16,10 @@ int main(int argc, char *argv[])
 
     MainWindow w;
     w.show();
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
     return a.exec();
 }

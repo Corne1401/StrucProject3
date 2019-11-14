@@ -1,5 +1,6 @@
 #include "deleteproduct.h"
 #include "ui_deleteproduct.h"
+#include "globalAdmin.h"
 
 DeleteProduct::DeleteProduct(QWidget *parent) :
     QMainWindow(parent),
@@ -11,4 +12,13 @@ DeleteProduct::DeleteProduct(QWidget *parent) :
 DeleteProduct::~DeleteProduct()
 {
     delete ui;
+}
+
+void DeleteProduct::on_pushButton_clicked()
+{
+    QString req = "17;"+ui->aisleCode->text()+
+            ";"+ui->productCode->text();
+
+    emit adminSock.send(req.toUtf8());
+    this->close();
 }

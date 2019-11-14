@@ -15,6 +15,9 @@ public:
     explicit DeleteProduct(QWidget *parent = nullptr);
     ~DeleteProduct();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::DeleteProduct *ui;
 };

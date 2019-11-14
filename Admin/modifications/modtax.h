@@ -15,6 +15,9 @@ public:
     explicit ModTax(QWidget *parent = nullptr);
     ~ModTax();
 
+private slots:
+    void on_confirmNewTax_clicked();
+
 private:
     Ui::ModTax *ui;
 };

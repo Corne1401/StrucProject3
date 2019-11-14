@@ -15,6 +15,9 @@ public:
     explicit newProduct(QWidget *parent = nullptr);
     ~newProduct();
 
+private slots:
+    void on_newProductConfirm_clicked();
+
 private:
     Ui::newProduct *ui;
 };

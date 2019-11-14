@@ -43,7 +43,7 @@
    <widget class="QPushButton" name="insertAisle">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>170</x>
       <y>50</y>
       <width>80</width>
       <height>21</height>
@@ -56,7 +56,7 @@
    <widget class="QPushButton" name="insertBrand">
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>540</x>
       <y>50</y>
       <width>80</width>
       <height>21</height>

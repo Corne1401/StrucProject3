@@ -38,6 +38,7 @@ SOURCES += \
     modifications/pricemod.cpp \
     reports.cpp \
     reports/brandlist.cpp \
+    reports/generateall.cpp \
     reports/mostprodaisle.cpp \
     reports/prodlist.cpp \
     restock/restock.cpp
@@ -65,6 +66,7 @@ HEADERS += \
     modifications/pricemod.h \
     reports.h \
     reports/brandlist.h \
+    reports/generateall.h \
     reports/mostprodaisle.h \
     reports/prodlist.h \
     restock/restock.h
@@ -89,6 +91,7 @@ FORMS += \
     modifications/modtax.ui \
     reports.ui \
     reports/brandlist.ui \
+    reports/generateall.ui \
     reports/mostprodaisle.ui \
     reports/prodlist.ui \
     restock/restock.ui

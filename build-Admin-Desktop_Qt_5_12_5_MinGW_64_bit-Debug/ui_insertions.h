@@ -44,10 +44,10 @@ public:
         insertProduct->setGeometry(QRect(170, 160, 80, 21));
         insertAisle = new QPushButton(centralwidget);
         insertAisle->setObjectName(QString::fromUtf8("insertAisle"));
-        insertAisle->setGeometry(QRect(540, 50, 80, 21));
+        insertAisle->setGeometry(QRect(170, 50, 80, 21));
         insertBrand = new QPushButton(centralwidget);
         insertBrand->setObjectName(QString::fromUtf8("insertBrand"));
-        insertBrand->setGeometry(QRect(170, 50, 80, 21));
+        insertBrand->setGeometry(QRect(540, 50, 80, 21));
         insertBack = new QPushButton(centralwidget);
         insertBack->setObjectName(QString::fromUtf8("insertBack"));
         insertBack->setGeometry(QRect(360, 240, 80, 21));
