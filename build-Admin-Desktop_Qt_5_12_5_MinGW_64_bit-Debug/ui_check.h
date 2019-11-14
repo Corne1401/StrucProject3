@@ -25,7 +25,7 @@ class Ui_Check
 {
 public:
     QWidget *centralwidget;
-    QComboBox *comboBox;
+    QComboBox *selectCheck;
     QLineEdit *aisleCode;
     QLineEdit *prodCode;
     QLineEdit *brandCode;
@@ -43,12 +43,12 @@ public:
         Check->resize(800, 600);
         centralwidget = new QWidget(Check);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        comboBox = new QComboBox(centralwidget);
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->setObjectName(QString::fromUtf8("comboBox"));
-        comboBox->setGeometry(QRect(320, 50, 151, 22));
+        selectCheck = new QComboBox(centralwidget);
+        selectCheck->addItem(QString());
+        selectCheck->addItem(QString());
+        selectCheck->addItem(QString());
+        selectCheck->setObjectName(QString::fromUtf8("selectCheck"));
+        selectCheck->setGeometry(QRect(320, 50, 151, 22));
         aisleCode = new QLineEdit(centralwidget);
         aisleCode->setObjectName(QString::fromUtf8("aisleCode"));
         aisleCode->setGeometry(QRect(330, 111, 121, 20));
@@ -86,9 +86,9 @@ public:
     void retranslateUi(QMainWindow *Check)
     {
         Check->setWindowTitle(QApplication::translate("Check", "MainWindow", nullptr));
-        comboBox->setItemText(0, QApplication::translate("Check", "Check price", nullptr));
-        comboBox->setItemText(1, QApplication::translate("Check", "Check basic product", nullptr));
-        comboBox->setItemText(2, QApplication::translate("Check", "Check tax of a product", nullptr));
+        selectCheck->setItemText(0, QApplication::translate("Check", "Check price", nullptr));
+        selectCheck->setItemText(1, QApplication::translate("Check", "Check basic product", nullptr));
+        selectCheck->setItemText(2, QApplication::translate("Check", "Check tax of a product", nullptr));
 
         label->setText(QApplication::translate("Check", "Aisle code", nullptr));
         label_2->setText(QApplication::translate("Check", "Product code", nullptr));

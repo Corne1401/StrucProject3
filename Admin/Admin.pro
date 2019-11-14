@@ -24,11 +24,6 @@ SOURCES += \
     eliminations/deletebrand.cpp \
     eliminations/deleteclient.cpp \
     eliminations/deleteproduct.cpp \
-    eliminations/newaisle.cpp \
-    eliminations/newbrand.cpp \
-    eliminations/newclient.cpp \
-    eliminations/newproduct.cpp \
-    graphresults.cpp \
     insertions.cpp \
     insertions/newaisle.cpp \
     insertions/newbrand.cpp \
@@ -43,6 +38,9 @@ SOURCES += \
     modifications/modtax.cpp \
     modifications/pricemod.cpp \
     reports.cpp \
+    reports/brandlist.cpp \
+    reports/mostprodaisle.cpp \
+    reports/prodlist.cpp \
     restock/restock.cpp
 
 HEADERS += \
@@ -53,12 +51,9 @@ HEADERS += \
     eliminations/deletebrand.h \
     eliminations/deleteclient.h \
     eliminations/deleteproduct.h \
-    eliminations/newaisle.h \
-    eliminations/newbrand.h \
-    eliminations/newclient.h \
-    eliminations/newproduct.h \
     globalAdmin.h \
     graphresults.h \
+    helpers/helpers.h \
     insertions.h \
     insertions/newaisle.h \
     insertions/newbrand.h \
@@ -72,20 +67,18 @@ HEADERS += \
     modifications/modtax.h \
     modifications/pricemod.h \
     reports.h \
+    reports/brandlist.h \
+    reports/mostprodaisle.h \
+    reports/prodlist.h \
     restock/restock.h
 
 FORMS += \
     check/check.ui \
     eliminations.ui \
     eliminations/deleteaisle.ui \
-    eliminations/deleteaisle.ui \
     eliminations/deletebrand.ui \
     eliminations/deleteclient.ui \
     eliminations/deleteproduct.ui \
-    eliminations/newbrand.ui \
-    eliminations/newclient.ui \
-    eliminations/newproduct.ui \
-    graphresults.ui \
     insertions.ui \
     insertions/newaisle.ui \
     insertions/newbrand.ui \
@@ -99,6 +92,9 @@ FORMS += \
     modifications/modprice.ui \
     modifications/modtax.ui \
     reports.ui \
+    reports/brandlist.ui \
+    reports/mostprodaisle.ui \
+    reports/prodlist.ui \
     restock/restock.ui
 
 # Default rules for deployment.
