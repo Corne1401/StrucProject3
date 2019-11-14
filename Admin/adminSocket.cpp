@@ -5,6 +5,7 @@
 #include "mainwindow.h"
 #include "menu.h"
 #include "helpers.h"
+#include "graphresults.h"
 
 
 using namespace std;
@@ -40,6 +41,9 @@ void adminSocket::readyRead(){
     if(dataFromServer[0] == "01" && dataFromServer[1]=="1"){
         Menu *menu = new Menu;
         menu->show();
+    } else if(dataFromServer[0]=="26"){
+        graphResults *g = new graphResults(QString::fromStdString(dataFromServer[1]));
+        g->show();
     }
 
 

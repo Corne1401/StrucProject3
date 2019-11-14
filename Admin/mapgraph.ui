@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MapGraph</class>
- <widget class="QMainWindow" name="MapGraph">
+ <class>mapGraph</class>
+ <widget class="QMainWindow" name="mapGraph">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>982</width>
-    <height>654</height>
+    <width>869</width>
+    <height>678</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,39 +17,60 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>-30</y>
+      <x>10</x>
+      <y>0</y>
       <width>611</width>
       <height>591</height>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/image/Graph.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/images/Graph.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QPushButton" name="DFSBtn">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>10</y>
-      <width>81</width>
-      <height>31</height>
+      <x>430</x>
+      <y>600</y>
+      <width>80</width>
+      <height>25</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
+    <property name="text">
+     <string>Depth FS</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="kurskalBtn">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>600</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
     </property>
     <property name="text">
-     <string>Legend</string>
+     <string>Kurskal</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="articulationBtn">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>600</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Articulation</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>40</y>
+      <x>630</x>
+      <y>80</y>
       <width>181</width>
       <height>421</height>
      </rect>
@@ -79,11 +100,42 @@
 16 : Bodega</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>50</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Legend</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BFSBtn">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>600</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Breadth FS</string>
+    </property>
+   </widget>
    <widget class="QPushButton" name="primBtn">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>560</y>
+      <x>30</x>
+      <y>600</y>
       <width>80</width>
       <height>25</height>
      </rect>
@@ -92,69 +144,17 @@
      <string>Prim</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="kurskalBtn">
-    <property name="geometry">
-     <rect>
-      <x>120</x>
-      <y>560</y>
-      <width>80</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Kurskal</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="dijkstraBtn">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>560</y>
+      <x>230</x>
+      <y>600</y>
       <width>80</width>
       <height>25</height>
      </rect>
     </property>
     <property name="text">
      <string>Dijkstra</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="articulationBtn">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>560</y>
-      <width>80</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Articulation</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="DFSBtn">
-    <property name="geometry">
-     <rect>
-      <x>420</x>
-      <y>560</y>
-      <width>80</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Depth FS</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="BFSBtn">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>560</y>
-      <width>80</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Breadth FS</string>
     </property>
    </widget>
   </widget>

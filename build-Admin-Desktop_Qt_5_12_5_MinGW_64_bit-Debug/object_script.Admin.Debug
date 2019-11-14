@@ -5,6 +5,7 @@ debug/deleteaisle.o
 debug/deletebrand.o
 debug/deleteclient.o
 debug/deleteproduct.o
+debug/graphresults.o
 debug/insertions.o
 debug/newaisle.o
 debug/newbrand.o
@@ -23,6 +24,7 @@ debug/brandlist.o
 debug/mostprodaisle.o
 debug/prodlist.o
 debug/restock.o
+debug/qrc_Resources.o
 debug/moc_adminSocket.o
 debug/moc_check.o
 debug/moc_eliminations.o
@@ -30,6 +32,7 @@ debug/moc_deleteaisle.o
 debug/moc_deletebrand.o
 debug/moc_deleteclient.o
 debug/moc_deleteproduct.o
+debug/moc_graphresults.o
 debug/moc_insertions.o
 debug/moc_newaisle.o
 debug/moc_newbrand.o
