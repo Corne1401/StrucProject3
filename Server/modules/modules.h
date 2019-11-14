@@ -1713,6 +1713,28 @@ public:
         }
     }
 
+    string getClientCart(clientQueue clientsQ, string clientId){
+        try {
+            string concat;
+            if(clientsQ.isClientIdInList(clientId)){
+                if(clientsQ.getClientById(clientId)->getFirstClientProd()== nullptr){
+                    clientProductStackNode *aux = clientsQ.getClientById(clientId)->getFirstClientProd();
+                    while (aux->getNextNode() != nullptr){
+                        concat += "Aisle Code: "+aux->getAisleCode() + "; Prod Code: " + aux->getProdCode() + "; Brand Code: " + aux->getBrandCode() + "; Amount: " + to_string(aux->getAmount()) + "\n";
+                        aux = aux->getNextNode();
+                    }
+                    return concat;
+                } else {
+                    return "Empty";
+                }
+            } else {
+                return "Empty";
+            }
+        } catch (...) {
+            return "Error";
+        }
+    }
+
     static string getAisles(BinarySearchTree &aisles) {
         return aisles.getAislesForClient();
     }
