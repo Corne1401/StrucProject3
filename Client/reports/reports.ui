@@ -14,11 +14,11 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="checkAisles">
+   <widget class="QPushButton" name="aislesBtn">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>110</y>
+      <x>190</x>
+      <y>90</y>
       <width>80</width>
       <height>21</height>
      </rect>
@@ -27,11 +27,11 @@
      <string>Check aisles</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="checkProd">
+   <widget class="QPushButton" name="prodBtn">
     <property name="geometry">
      <rect>
-      <x>570</x>
-      <y>110</y>
+      <x>550</x>
+      <y>90</y>
       <width>80</width>
       <height>21</height>
      </rect>
@@ -40,11 +40,11 @@
      <string>Check products</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="checkBrands">
+   <widget class="QPushButton" name="brandsBtn">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>200</y>
+      <x>370</x>
+      <y>220</y>
       <width>80</width>
       <height>21</height>
      </rect>
@@ -56,7 +56,7 @@
    <widget class="QPushButton" name="backBtn">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>370</x>
       <y>340</y>
       <width>80</width>
       <height>21</height>

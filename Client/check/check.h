@@ -15,6 +15,11 @@ public:
     explicit Check(QWidget *parent = nullptr);
     ~Check();
 
+private slots:
+    void on_checkButton_clicked();
+
+    void on_backButton_clicked();
+
 private:
     Ui::Check *ui;
 };
