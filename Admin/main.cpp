@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "globalAdmin.h"
+#include "mapgraph.h"
 #include <QApplication>
 using namespace std;
 
@@ -16,15 +17,6 @@ int main(int argc, char *argv[])
 
     MainWindow w;
     w.show();
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 
-
->>>>>>> Stashed changes
-=======
-
-
->>>>>>> Stashed changes
     return a.exec();
 }

@@ -12,9 +12,10 @@ class GraphResults : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit GraphResults(QWidget *parent = nullptr);
-    ~GraphResults();
+    explicit GraphResults(QString data, QWidget *parent = nullptr);
 
+    ~GraphResults();
+    QString data;
 private:
     Ui::GraphResults *ui;
 };

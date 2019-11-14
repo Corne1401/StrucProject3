@@ -15,6 +15,9 @@ public:
     explicit MapGraph(QWidget *parent = nullptr);
     ~MapGraph();
 
+private slots:
+    void on_primBtn_clicked();
+
 private:
     Ui::MapGraph *ui;
 };

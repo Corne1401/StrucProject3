@@ -32,12 +32,129 @@
      <rect>
       <x>620</x>
       <y>10</y>
-      <width>55</width>
-      <height>16</height>
+      <width>81</width>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Legend</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>40</y>
+      <width>181</width>
+      <height>421</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>0 : Supermercado
+1 : Liberia
+2 : Tilaran
+3 : Bagaces
+4 : Pital
+5 : San Jose
+6 : Samara
+7 : Parrita
+8 : Jaco
+9 :  Buenos Aires
+10 : Heredia
+11 : Cartago
+12 : Puerto Viejo
+13 : Siquirres
+14 : Matina
+15 : Telire
+16 : Bodega</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="primBtn">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>560</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Prim</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="kurskalBtn">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>560</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Kurskal</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="dijkstraBtn">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>560</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Dijkstra</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="articulationBtn">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>560</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Articulation</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="DFSBtn">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>560</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Depth FS</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BFSBtn">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>560</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Breadth FS</string>
     </property>
    </widget>
   </widget>

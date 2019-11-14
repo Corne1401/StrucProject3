@@ -1,5 +1,7 @@
 #include "mapgraph.h"
+#include "graphresults.h"
 #include "ui_mapgraph.h"
+#include "globalClient.h"
 
 MapGraph::MapGraph(QWidget *parent) :
     QMainWindow(parent),
@@ -11,4 +13,10 @@ MapGraph::MapGraph(QWidget *parent) :
 MapGraph::~MapGraph()
 {
     delete ui;
+}
+
+void MapGraph::on_primBtn_clicked()
+{
+    QString req = "26";
+    emit clientSock.send(req.toUtf8());
 }

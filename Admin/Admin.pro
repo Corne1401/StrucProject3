@@ -24,6 +24,7 @@ SOURCES += \
     eliminations/deletebrand.cpp \
     eliminations/deleteclient.cpp \
     eliminations/deleteproduct.cpp \
+    graphresults.cpp \
     insertions.cpp \
     insertions/newaisle.cpp \
     insertions/newbrand.cpp \
@@ -31,6 +32,7 @@ SOURCES += \
     insertions/newproduct.cpp \
     main.cpp \
     mainwindow.cpp \
+    mapgraph.cpp \
     menu.cpp \
     modifications.cpp \
     modifications/modbasicproduct.cpp \
@@ -52,6 +54,7 @@ HEADERS += \
     eliminations/deleteclient.h \
     eliminations/deleteproduct.h \
     globalAdmin.h \
+    graphresults.h \
     helpers/helpers.h \
     insertions.h \
     insertions/newaisle.h \
@@ -59,6 +62,7 @@ HEADERS += \
     insertions/newclient.h \
     insertions/newproduct.h \
     mainwindow.h \
+    mapgraph.h \
     menu.h \
     modifications.h \
     modifications/modbasicproduct.h \
@@ -78,12 +82,14 @@ FORMS += \
     eliminations/deletebrand.ui \
     eliminations/deleteclient.ui \
     eliminations/deleteproduct.ui \
+    graphresults.ui \
     insertions.ui \
     insertions/newaisle.ui \
     insertions/newbrand.ui \
     insertions/newclient.ui \
     insertions/newproduct.ui \
     mainwindow.ui \
+    mapgraph.ui \
     menu.ui \
     modifications.ui \
     modifications/modbasicproduct.ui \
@@ -100,3 +106,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Resources.qrc

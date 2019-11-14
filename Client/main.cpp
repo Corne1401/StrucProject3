@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "globalClient.h"
+#include "mapgraph.h"
 #include <QApplication>
 using namespace std;
 
@@ -13,6 +14,8 @@ int main(int argc, char *argv[])
     clientSock.connectSocket();
 
     MainWindow w;
-    w.show();
+    MapGraph r;
+    //w.show();
+    r.show();
     return a.exec();
 }
