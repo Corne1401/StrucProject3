@@ -18,6 +18,9 @@ public:
 private slots:
     void on_backButton_clicked();
 
+    void on_modPrice_clicked();
+
+
 private:
     Ui::Modifications *ui;
 };

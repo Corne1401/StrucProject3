@@ -1,5 +1,5 @@
 #include "pricemod.h"
-#include "ui_pricemod.h"
+#include "ui_modprice.h"
 
 priceMod::priceMod(QWidget *parent) :
     QMainWindow(parent),
