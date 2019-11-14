@@ -11,7 +11,6 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QComboBox>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
@@ -25,15 +24,15 @@ class Ui_purchase
 {
 public:
     QWidget *centralwidget;
-    QComboBox *aisles;
-    QComboBox *products;
-    QComboBox *brands;
     QLineEdit *amount;
     QPushButton *purchase_2;
     QLabel *label;
     QLabel *label_2;
     QLabel *label_3;
     QLabel *label_4;
+    QLineEdit *products;
+    QLineEdit *aisles;
+    QLineEdit *brands;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *purchase)
@@ -43,35 +42,33 @@ public:
         purchase->resize(800, 600);
         centralwidget = new QWidget(purchase);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        aisles = new QComboBox(centralwidget);
-        aisles->setObjectName(QString::fromUtf8("aisles"));
-        aisles->setGeometry(QRect(30, 90, 161, 24));
-        products = new QComboBox(centralwidget);
-        products->setObjectName(QString::fromUtf8("products"));
-        products->setEnabled(false);
-        products->setGeometry(QRect(220, 90, 161, 24));
-        brands = new QComboBox(centralwidget);
-        brands->setObjectName(QString::fromUtf8("brands"));
-        brands->setEnabled(false);
-        brands->setGeometry(QRect(410, 90, 161, 24));
         amount = new QLineEdit(centralwidget);
         amount->setObjectName(QString::fromUtf8("amount"));
-        amount->setGeometry(QRect(30, 190, 151, 21));
+        amount->setGeometry(QRect(30, 450, 151, 21));
         purchase_2 = new QPushButton(centralwidget);
         purchase_2->setObjectName(QString::fromUtf8("purchase_2"));
-        purchase_2->setGeometry(QRect(230, 190, 131, 25));
+        purchase_2->setGeometry(QRect(240, 450, 131, 25));
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(90, 60, 55, 16));
+        label->setGeometry(QRect(40, 50, 55, 16));
         label_2 = new QLabel(centralwidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(270, 60, 55, 16));
+        label_2->setGeometry(QRect(40, 170, 55, 16));
         label_3 = new QLabel(centralwidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(460, 60, 55, 16));
+        label_3->setGeometry(QRect(40, 280, 55, 16));
         label_4 = new QLabel(centralwidget);
         label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(80, 160, 55, 16));
+        label_4->setGeometry(QRect(80, 420, 55, 16));
+        products = new QLineEdit(centralwidget);
+        products->setObjectName(QString::fromUtf8("products"));
+        products->setGeometry(QRect(30, 200, 151, 21));
+        aisles = new QLineEdit(centralwidget);
+        aisles->setObjectName(QString::fromUtf8("aisles"));
+        aisles->setGeometry(QRect(30, 80, 151, 21));
+        brands = new QLineEdit(centralwidget);
+        brands->setObjectName(QString::fromUtf8("brands"));
+        brands->setGeometry(QRect(30, 310, 151, 21));
         purchase->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(purchase);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));

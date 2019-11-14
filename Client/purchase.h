@@ -18,7 +18,9 @@ public:
     explicit purchase(QWidget *parent = nullptr);
     ~purchase();
 
-    void setAislesForComboBox(string productsForPurchase);
+private slots:
+    void on_purchase_2_clicked();
+
 private:
     Ui::purchase *ui;
 };
