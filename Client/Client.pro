@@ -27,6 +27,8 @@ SOURCES += \
     purchase.cpp \
     reports.cpp \
     reports/reports.cpp \
+    reports/showbrands.cpp \
+    reports/showprod.cpp \
     unloggedMenu/unloggedmenu.cpp
 
 HEADERS += \
@@ -41,6 +43,8 @@ HEADERS += \
     purchase.h \
     reports.h \
     reports/reports.h \
+    reports/showbrands.h \
+    reports/showprod.h \
     unloggedMenu/unloggedmenu.h
 
 FORMS += \
@@ -52,6 +56,8 @@ FORMS += \
     purchase.ui \
     reports.ui \
     reports/reports.ui \
+    reports/showbrands.ui \
+    reports/showprod.ui \
     unloggedMenu/unloggedmenu.ui
 
 # Default rules for deployment.

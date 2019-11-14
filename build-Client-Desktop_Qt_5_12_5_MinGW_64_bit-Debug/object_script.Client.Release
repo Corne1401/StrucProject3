@@ -8,6 +8,8 @@ release/menu.o
 release/purchase.o
 release/reports.o
 release/reports.o
+release/showbrands.o
+release/showprod.o
 release/unloggedmenu.o
 release/qrc_Test.o
 release/moc_check.o
@@ -18,4 +20,6 @@ release/moc_mapgraph.o
 release/moc_menu.o
 release/moc_purchase.o
 release/moc_reports.o
+release/moc_showbrands.o
+release/moc_showprod.o
 release/moc_unloggedmenu.o

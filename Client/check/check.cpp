@@ -1,5 +1,7 @@
 #include "check.h"
 #include "ui_check.h"
+#include "globalClient.h"
+#include "menu.h"
 
 Check::Check(QWidget *parent) :
     QMainWindow(parent),
@@ -11,4 +13,29 @@ Check::Check(QWidget *parent) :
 Check::~Check()
 {
     delete ui;
+}
+
+void Check::on_checkButton_clicked()
+{
+    QString request;
+
+    if(ui->selectCheck->currentIndex()==0){
+        request = "20;"+ui->aisleCode->text()+";"+ui->prodCode->text()+";"+ui->brandCode->text();
+        emit clientSock.send(request.toUtf8());
+    }
+    else if(ui->selectCheck->currentIndex() == 1){
+        request = "21;"+ui->aisleCode->text()+";"+ui->prodCode->text()+";"+ui->brandCode->text();
+        emit clientSock.send(request.toUtf8());
+    }
+    else if(ui->selectCheck->currentIndex() == 2){
+        request = "22;"+ui->aisleCode->text()+";"+ui->prodCode->text()+";"+ui->brandCode->text();
+        emit clientSock.send(request.toUtf8());
+    }
+}
+
+void Check::on_backButton_clicked()
+{
+    Menu *menu = new Menu;
+    menu->show();
+    this->close();
 }
