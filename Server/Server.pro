@@ -36,6 +36,7 @@ HEADERS += \ \
     globalTrees.h \
     helpers/ArticulationPoints.h \
     helpers/BFSGraph.h \
+    helpers/DFSGraph.h \
     helpers/Dijkstra.h \
     helpers/Kruskal.h \
     helpers/Neighbor.h \

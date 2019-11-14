@@ -1611,10 +1611,13 @@ public:
 
 
 
-    static bool executePurchase(BTreeClients &clients, clientQueue &clientsQ, BinarySearchTree &aisleList, const string& aisleCode, const string& prodCode, const string& brandCode, const string& amountToBuy, const string &clientId) {
+    static bool executePurchase(BTreeClients &clients, clientQueue &clientsQ, BinarySearchTree &aisleList, const string& aisleCode, const string& prodCode, const string& brandCode, const string& amountToBuy, const string &clientId, const string overrideClientQString) {
 
         try {
-            if(!clientsQ.isClientIdInList(clientId)){
+            bool overrideClientQueue = (overrideClientQString=="1");
+
+
+            if(!clientsQ.isClientIdInList(clientId) || overrideClientQueue){
                 auto client = clients.searchClient(stoi(clientId));
                 int chosenAisle;
                 chosenAisle = stoi(aisleCode);

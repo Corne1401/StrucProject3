@@ -254,10 +254,16 @@ void socketServer::readyRead(){
         socket->write(QByteArray::fromStdString(holder[0]+";"+bfsGraph.getBfsTraversal()));
     }
     else if(holder[0]=="34"){ //Get Breadth First Search (anchura)
-        //TODO
+        socket->write(QByteArray::fromStdString(holder[0]+";"+dfsGraph.getDfsTraversalString()));
     }
     else if(holder[0]=="35"){ //Execute Purchase
-        if(modules.executePurchase(clients, clientsQ, aisles, holder[1], holder[2], holder[3], holder[4], holder[5])){
+        //holder[1]==aisleCode
+        //holder[2]==prodCode
+        //holder[3]==brandCode
+        //holder[4]==amountToBuy
+        //holder[5]==cliendId
+        //holder[6]==overrideClientQ
+        if(modules.executePurchase(clients, clientsQ, aisles, holder[1], holder[2], holder[3], holder[4], holder[5], holder[6])){
             socket->write(QByteArray::fromStdString(holder[0]+";1"));
         } else {
             socket->write(QByteArray::fromStdString(holder[0]+";0"));

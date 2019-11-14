@@ -22,6 +22,7 @@ helper helpers;
 salesList sales;
 clientQueue clientsQ;
 BFSGraphs bfsGraph;
+DFSGraph dfsGraph;
 class modules modules;
 string PATH_TO_REPORTS = "C:\\GitHub_Projects\\StrucProject3\\Server\\reports\\";
 
@@ -51,11 +52,12 @@ int main(int argc, char *argv[])
     pGraph = primGraph.createGraph(numberOfEdges);
     kruskalGraph.setEdgesCount(numberOfEdges);
     bfsGraph.setEdgesCount(numberOfEdges);
+    dfsGraph.setEdgesCount(numberOfEdges);
     articulationPointGraph.setEdgesCount(numberOfEdgesArticulationPoint);
 
 
 
-    helpers.initGraph(cities, pGraph, primGraph, connectionsList, kruskalGraph, dijkstraAdjList, bfsGraph);
+    helpers.initGraph(cities, pGraph, primGraph, connectionsList, kruskalGraph, dijkstraAdjList, bfsGraph, dfsGraph);
     helpers.initArticulationPoints(cities, articulationPointHelperList, articulationPointGraph);
 
 
@@ -63,6 +65,7 @@ int main(int argc, char *argv[])
     primGraph.PrimMST(pGraph);
     kruskalGraph.kruskalMST();
     bfsGraph.BFS(0);
+    dfsGraph.DFS(0);
     articulationPointGraph.AP();
     modules.getDijkstraGraph(dijkstraGraph, dijkstraAdjList, "0", "16");
 
