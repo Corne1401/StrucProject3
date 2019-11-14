@@ -25,7 +25,6 @@ SOURCES += \
     mapgraph.cpp \
     menu.cpp \
     purchase.cpp \
-    reports.cpp \
     reports/reports.cpp \
     reports/showbrands.cpp \
     reports/showprod.cpp \
@@ -41,7 +40,6 @@ HEADERS += \
     mapgraph.h \
     menu.h \
     purchase.h \
-    reports.h \
     reports/reports.h \
     reports/showbrands.h \
     reports/showprod.h \
@@ -54,7 +52,6 @@ FORMS += \
     mapgraph.ui \
     menu.ui \
     purchase.ui \
-    reports.ui \
     reports/reports.ui \
     reports/showbrands.ui \
     reports/showprod.ui \

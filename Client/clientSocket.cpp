@@ -46,6 +46,12 @@ void clientSocket::readyRead(){
             Check *check = new Check;
             check->show();
         }
+    } else if(dataFromServer[0]=="03"  && fromPurchase){
+
+        purchase *p = new purchase;
+        p->setAislesForComboBox(dataFromServer[1]);
+        p->show();
+
     } else if(dataFromServer[0]=="03"){
         GraphResults *g = new GraphResults(QString::fromStdString(dataFromServer[1]));
         g->show();
@@ -81,11 +87,7 @@ void clientSocket::readyRead(){
         answ.exec();
 
     }
-    else if(dataFromServer[0]=="03" && fromPurchase){
-        purchase p;
-        p.setAislesForComboBox(dataFromServer[1]);
-        p.show();
-    }
+
 
 }
 void clientSocket::send(QByteArray data){
