@@ -1,5 +1,7 @@
 #include "menu.h"
 #include "ui_menu.h"
+#include "purchase.h"
+#include "globalClient.h"
 #include "check/check.h"
 #include "reports/reports.h"
 
@@ -13,6 +15,12 @@ Menu::Menu(QWidget *parent) :
 Menu::~Menu()
 {
     delete ui;
+}
+
+void Menu::on_pushButton_3_clicked()
+{
+    fromPurchase = true;
+    emit clientSock.send("03");
 }
 
 void Menu::on_checkBtn_clicked()

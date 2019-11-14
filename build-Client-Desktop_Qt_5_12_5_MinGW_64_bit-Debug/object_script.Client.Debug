@@ -5,6 +5,8 @@ debug/main.o
 debug/mainwindow.o
 debug/mapgraph.o
 debug/menu.o
+debug/purchase.o
+debug/reports.o
 debug/reports.o
 debug/showbrands.o
 debug/showprod.o
@@ -16,6 +18,7 @@ debug/moc_graphresults.o
 debug/moc_mainwindow.o
 debug/moc_mapgraph.o
 debug/moc_menu.o
+debug/moc_purchase.o
 debug/moc_reports.o
 debug/moc_showbrands.o
 debug/moc_showprod.o

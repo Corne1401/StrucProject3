@@ -6,6 +6,7 @@ using namespace std;
 
 clientSocket clientSock;
 string dataFromServer;
+bool fromPurchase = false;
 
 int main(int argc, char *argv[])
 {

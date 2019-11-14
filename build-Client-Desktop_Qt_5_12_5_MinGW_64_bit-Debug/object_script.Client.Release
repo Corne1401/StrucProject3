@@ -5,6 +5,8 @@ release/main.o
 release/mainwindow.o
 release/mapgraph.o
 release/menu.o
+release/purchase.o
+release/reports.o
 release/reports.o
 release/showbrands.o
 release/showprod.o
@@ -16,6 +18,7 @@ release/moc_graphresults.o
 release/moc_mainwindow.o
 release/moc_mapgraph.o
 release/moc_menu.o
+release/moc_purchase.o
 release/moc_reports.o
 release/moc_showbrands.o
 release/moc_showprod.o

@@ -3,6 +3,8 @@
 #include "helpers/helpers.h"
 #include "check/check.h"
 #include "menu.h"
+#include "purchase.h"
+#include "globalClient.h"
 #include <iostream>
 #include <QMessageBox>
 using namespace std;
@@ -78,6 +80,11 @@ void clientSocket::readyRead(){
         answ.setText(qtemp);
         answ.exec();
 
+    }
+    else if(dataFromServer[0]=="03" && fromPurchase){
+        purchase p;
+        p.setAislesForComboBox(dataFromServer[1]);
+        p.show();
     }
 
 }
