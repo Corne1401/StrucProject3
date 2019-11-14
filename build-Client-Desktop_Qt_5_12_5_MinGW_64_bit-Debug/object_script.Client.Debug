@@ -7,7 +7,6 @@ debug/mapgraph.o
 debug/menu.o
 debug/purchase.o
 debug/reports.o
-debug/reports.o
 debug/showbrands.o
 debug/showprod.o
 debug/unloggedmenu.o

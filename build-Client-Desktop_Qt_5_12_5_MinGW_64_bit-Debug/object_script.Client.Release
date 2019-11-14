@@ -7,7 +7,6 @@ release/mapgraph.o
 release/menu.o
 release/purchase.o
 release/reports.o
-release/reports.o
 release/showbrands.o
 release/showprod.o
 release/unloggedmenu.o
