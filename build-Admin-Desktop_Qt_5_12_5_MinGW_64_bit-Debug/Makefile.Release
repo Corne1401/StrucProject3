@@ -3255,7 +3255,8 @@ release/adminSocket.o: ../Admin/adminSocket.cpp ../Admin/adminSocket.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdialog.h \
 		../Admin/menu.h \
 		../Admin/reports.h \
-		../Admin/helpers.h
+		../Admin/helpers.h \
+		../Admin/graphresults.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\adminSocket.o ..\Admin\adminSocket.cpp
 
 release/check.o: ../Admin/check/check.cpp ../Admin/check/check.h \
@@ -3366,6 +3367,42 @@ release/check.o: ../Admin/check/check.cpp ../Admin/check/check.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qicon.h \
 		ui_check.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QComboBox \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qcombobox.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qvalidator.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qregularexpression.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qslider.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstyle.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qrubberband.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLabel \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlabel.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLineEdit \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextcursor.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextformat.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qpen.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextoption.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QWidget \
 		../Admin/menu.h \
 		../Admin/reports.h \
 		../Admin/globalAdmin.h \
@@ -3489,6 +3526,20 @@ release/eliminations.o: ../Admin/eliminations.cpp ../Admin/eliminations.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qicon.h \
 		ui_eliminations.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QWidget \
 		../Admin/menu.h \
 		../Admin/reports.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\eliminations.o ..\Admin\eliminations.cpp
@@ -3600,7 +3651,30 @@ release/deleteaisle.o: ../Admin/eliminations/deleteaisle.cpp ../Admin/eliminatio
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtouchdevice.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qicon.h \
-		ui_deleteaisle.h
+		ui_deleteaisle.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLabel \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlabel.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLineEdit \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextcursor.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextformat.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qpen.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextoption.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\deleteaisle.o ..\Admin\eliminations\deleteaisle.cpp
 
 release/deletebrand.o: ../Admin/eliminations/deletebrand.cpp ../Admin/eliminations/deletebrand.h \
@@ -3710,7 +3784,30 @@ release/deletebrand.o: ../Admin/eliminations/deletebrand.cpp ../Admin/eliminatio
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtouchdevice.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qicon.h \
-		ui_deletebrand.h
+		ui_deletebrand.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLabel \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlabel.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLineEdit \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextcursor.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextformat.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qpen.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextoption.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\deletebrand.o ..\Admin\eliminations\deletebrand.cpp
 
 release/deleteclient.o: ../Admin/eliminations/deleteclient.cpp ../Admin/eliminations/deleteclient.h \
@@ -3820,7 +3917,30 @@ release/deleteclient.o: ../Admin/eliminations/deleteclient.cpp ../Admin/eliminat
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtouchdevice.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qicon.h \
-		ui_deleteclient.h
+		ui_deleteclient.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLabel \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlabel.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLineEdit \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextcursor.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextformat.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qpen.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextoption.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\deleteclient.o ..\Admin\eliminations\deleteclient.cpp
 
 release/deleteproduct.o: ../Admin/eliminations/deleteproduct.cpp ../Admin/eliminations/deleteproduct.h \
@@ -3930,7 +4050,30 @@ release/deleteproduct.o: ../Admin/eliminations/deleteproduct.cpp ../Admin/elimin
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtouchdevice.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qicon.h \
-		ui_deleteproduct.h
+		ui_deleteproduct.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLabel \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlabel.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLineEdit \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextcursor.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextformat.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qpen.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextoption.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\deleteproduct.o ..\Admin\eliminations\deleteproduct.cpp
 
 release/graphresults.o: ../Admin/graphresults.cpp ../Admin/graphresults.h \
@@ -4040,7 +4183,32 @@ release/graphresults.o: ../Admin/graphresults.cpp ../Admin/graphresults.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtouchdevice.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qicon.h \
-		ui_graphresults.h
+		ui_graphresults.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QMenuBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qmenubar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qmenu.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qaction.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QTextEdit \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtextedit.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextdocument.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextoption.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextcursor.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextformat.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qpen.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\graphresults.o ..\Admin\graphresults.cpp
 
 release/insertions.o: ../Admin/insertions.cpp ../Admin/insertions.h \
@@ -4151,6 +4319,20 @@ release/insertions.o: ../Admin/insertions.cpp ../Admin/insertions.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qicon.h \
 		ui_insertions.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QWidget \
 		../Admin/menu.h \
 		../Admin/reports.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\insertions.o ..\Admin\insertions.cpp
@@ -4262,7 +4444,30 @@ release/newaisle.o: ../Admin/insertions/newaisle.cpp ../Admin/insertions/newaisl
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtouchdevice.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qicon.h \
-		ui_newaisle.h
+		ui_newaisle.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLabel \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlabel.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLineEdit \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextcursor.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextformat.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qpen.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextoption.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\newaisle.o ..\Admin\insertions\newaisle.cpp
 
 release/newbrand.o: ../Admin/insertions/newbrand.cpp ../Admin/insertions/newbrand.h \
@@ -4372,7 +4577,30 @@ release/newbrand.o: ../Admin/insertions/newbrand.cpp ../Admin/insertions/newbran
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtouchdevice.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qicon.h \
-		ui_newbrand.h
+		ui_newbrand.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLabel \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlabel.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLineEdit \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextcursor.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextformat.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qpen.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextoption.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\newbrand.o ..\Admin\insertions\newbrand.cpp
 
 release/newclient.o: ../Admin/insertions/newclient.cpp ../Admin/insertions/newclient.h \
@@ -4482,7 +4710,30 @@ release/newclient.o: ../Admin/insertions/newclient.cpp ../Admin/insertions/newcl
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtouchdevice.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qicon.h \
-		ui_newclient.h
+		ui_newclient.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLabel \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlabel.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLineEdit \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextcursor.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextformat.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qpen.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextoption.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\newclient.o ..\Admin\insertions\newclient.cpp
 
 release/newproduct.o: ../Admin/insertions/newproduct.cpp ../Admin/insertions/newproduct.h \
@@ -4592,7 +4843,30 @@ release/newproduct.o: ../Admin/insertions/newproduct.cpp ../Admin/insertions/new
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtouchdevice.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qicon.h \
-		ui_newproduct.h
+		ui_newproduct.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLabel \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlabel.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLineEdit \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextcursor.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextformat.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qpen.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextoption.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\newproduct.o ..\Admin\insertions\newproduct.cpp
 
 release/main.o: ../Admin/main.cpp ../Admin/mainwindow.h \
@@ -4718,6 +4992,7 @@ release/main.o: ../Admin/main.cpp ../Admin/mainwindow.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtCore/QDebug \
 		../../../Qt/5.12.5/mingw73_64/include/QtCore/QThread \
 		../../../Qt/5.12.5/mingw73_64/include/QtCore/qthread.h \
+		../Admin/mapgraph.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
@@ -4850,7 +5125,30 @@ release/mainwindow.o: ../Admin/mainwindow.cpp ../Admin/mainwindow.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtCore/QDebug \
 		../../../Qt/5.12.5/mingw73_64/include/QtCore/QThread \
 		../../../Qt/5.12.5/mingw73_64/include/QtCore/qthread.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLabel \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlabel.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLineEdit \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextcursor.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextformat.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qpen.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextoption.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\Admin\mainwindow.cpp
 
 release/mapgraph.o: ../Admin/mapgraph.cpp ../Admin/mapgraph.h \
@@ -4960,7 +5258,35 @@ release/mapgraph.o: ../Admin/mapgraph.cpp ../Admin/mapgraph.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtouchdevice.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qicon.h \
-		ui_mapgraph.h
+		../Admin/globalAdmin.h \
+		../Admin/adminSocket.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QObject \
+		../../../Qt/5.12.5/mingw73_64/include/QtNetwork/QTcpSocket \
+		../../../Qt/5.12.5/mingw73_64/include/QtNetwork/qtcpsocket.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtNetwork/qtnetworkglobal.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtNetwork/qtnetwork-config.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtNetwork/qabstractsocket.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QDebug \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QThread \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qthread.h \
+		ui_mapgraph.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLabel \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlabel.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mapgraph.o ..\Admin\mapgraph.cpp
 
 release/menu.o: ../Admin/menu.cpp ../Admin/menu.h \
@@ -5076,7 +5402,21 @@ release/menu.o: ../Admin/menu.cpp ../Admin/menu.h \
 		../Admin/restock/restock.h \
 		../Admin/insertions.h \
 		../Admin/eliminations.h \
-		ui_menu.h
+		ui_menu.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\menu.o ..\Admin\menu.cpp
 
 release/modifications.o: ../Admin/modifications.cpp ../Admin/modifications.h \
@@ -5187,6 +5527,20 @@ release/modifications.o: ../Admin/modifications.cpp ../Admin/modifications.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qicon.h \
 		ui_modifications.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QWidget \
 		../Admin/menu.h \
 		../Admin/reports.h \
 		../Admin/modifications/pricemod.h \
@@ -5301,7 +5655,32 @@ release/modbasicproduct.o: ../Admin/modifications/modbasicproduct.cpp ../Admin/m
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtouchdevice.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qicon.h \
-		ui_modbasicproduct.h
+		ui_modbasicproduct.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QCheckBox \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qcheckbox.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLabel \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlabel.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLineEdit \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextcursor.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextformat.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qpen.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextoption.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\modbasicproduct.o ..\Admin\modifications\modbasicproduct.cpp
 
 release/modtax.o: ../Admin/modifications/modtax.cpp ../Admin/modifications/modtax.h \
@@ -5411,7 +5790,37 @@ release/modtax.o: ../Admin/modifications/modtax.cpp ../Admin/modifications/modta
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtouchdevice.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qicon.h \
-		ui_modtax.h
+		ui_modtax.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLabel \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlabel.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLineEdit \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextcursor.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextformat.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qpen.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextoption.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QMenuBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qmenubar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qmenu.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qaction.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qactiongroup.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QRadioButton \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qradiobutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\modtax.o ..\Admin\modifications\modtax.cpp
 
 release/pricemod.o: ../Admin/modifications/pricemod.cpp ../Admin/modifications/pricemod.h \
@@ -5521,7 +5930,30 @@ release/pricemod.o: ../Admin/modifications/pricemod.cpp ../Admin/modifications/p
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtouchdevice.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qicon.h \
-		ui_modprice.h
+		ui_modprice.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLabel \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlabel.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLineEdit \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextcursor.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextformat.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qpen.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextoption.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\pricemod.o ..\Admin\modifications\pricemod.cpp
 
 release/reports.o: ../Admin/reports.cpp ../Admin/reports.h \
@@ -5632,6 +6064,34 @@ release/reports.o: ../Admin/reports.cpp ../Admin/reports.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qicon.h \
 		ui_reports.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QComboBox \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qcombobox.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qvalidator.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qregularexpression.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qslider.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstyle.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qrubberband.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QWidget \
 		../Admin/menu.h \
 		../Admin/globalAdmin.h \
 		../Admin/adminSocket.h \
@@ -5757,6 +6217,29 @@ release/brandlist.o: ../Admin/reports/brandlist.cpp ../Admin/reports/brandlist.h
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qicon.h \
 		ui_brandlist.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLabel \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlabel.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLineEdit \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextcursor.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextformat.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qpen.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextoption.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QWidget \
 		../Admin/globalAdmin.h \
 		../Admin/adminSocket.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtCore/QObject \
@@ -5878,6 +6361,29 @@ release/mostprodaisle.o: ../Admin/reports/mostprodaisle.cpp ../Admin/reports/mos
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qicon.h \
 		ui_mostprodaisle.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLabel \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlabel.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLineEdit \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextcursor.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextformat.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qpen.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextoption.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QWidget \
 		../Admin/globalAdmin.h \
 		../Admin/adminSocket.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtCore/QObject \
@@ -5999,6 +6505,29 @@ release/prodlist.o: ../Admin/reports/prodlist.cpp ../Admin/reports/prodlist.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qicon.h \
 		ui_prodlist.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLabel \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlabel.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLineEdit \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextcursor.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextformat.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qpen.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextoption.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QWidget \
 		../Admin/globalAdmin.h \
 		../Admin/adminSocket.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtCore/QObject \
@@ -6120,6 +6649,29 @@ release/restock.o: ../Admin/restock/restock.cpp ../Admin/restock/restock.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qicon.h \
 		ui_restock.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLabel \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlabel.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qframe.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QLineEdit \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextcursor.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextformat.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qpen.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtextoption.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QPushButton \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QStatusBar \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qstatusbar.h \
+		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QWidget \
 		../Admin/menu.h \
 		../Admin/reports.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\restock.o ..\Admin\restock\restock.cpp

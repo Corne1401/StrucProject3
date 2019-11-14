@@ -35,6 +35,7 @@ HEADERS += \ \
     TreesHandlers/NewRBTree.h \
     globalTrees.h \
     helpers/ArticulationPoints.h \
+    helpers/BFSGraph.h \
     helpers/Dijkstra.h \
     helpers/Kruskal.h \
     helpers/Neighbor.h \

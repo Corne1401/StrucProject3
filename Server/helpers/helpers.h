@@ -10,6 +10,7 @@
 #include "Kruskal.h"
 #include "Dijkstra.h"
 #include "ArticulationPoints.h"
+#include "BFSGraph.h"
 
 
 using namespace std;
@@ -730,7 +731,7 @@ public:
      * Initializes a list with values from file
      * @param citiesList is the clientList value to check for IDs
      * **/
-    void initGraph(citiesList &citiesList, PrimGraph::Graph* &graph, PrimGraph &primGraph, class citiesList &connectionsList, struct KruskalGraph &g, vector<vector<neighbor>> &dijkstraAdjList){
+    void initGraph(citiesList &citiesList, PrimGraph::Graph* &graph, PrimGraph &primGraph, class citiesList &connectionsList, struct KruskalGraph &g, vector<vector<neighbor>> &dijkstraAdjList, BFSGraphs &bfsGraph){
         map<int, int> citiesMap;
         map<int, int> indexToCity;
         class citiesList list2;
@@ -747,9 +748,9 @@ public:
         //cout << "Cities Map: " << endl;
         //cout << indexToCity.at(16) << endl;
         //cout << citiesMap.size() << endl;
-        for(int i =0; i<indexToCity.size(); i++){
-            cout << indexToCity.at(i) << endl;
-        }
+//        for(int i =0; i<indexToCity.size(); i++){
+//            cout << indexToCity.at(i) << endl;
+//        }
 
 
         string line;
@@ -807,6 +808,7 @@ public:
                                 // remember to insert edges both ways for an undirected graph dijkstra
                                 dijkstraAdjList[citiesMap.at(stoi(data1))].push_back(neighbor(citiesMap.at(stoi(data2)), stoi(data3)));
                                 dijkstraAdjList[citiesMap.at(stoi(data2))].push_back(neighbor(citiesMap.at(stoi(data1)), stoi(data3)));
+                                bfsGraph.addEdge(citiesMap.at(stoi(data1)), citiesMap.at(stoi(data2)));
                                 list2.appendAtEnd(new citiesNode(data1, data2));
                             }
                         }
@@ -818,13 +820,14 @@ public:
                             // remember to insert edges both ways for an undirected graph dijkstra
                             dijkstraAdjList[citiesMap.at(stoi(data1))].push_back(neighbor(citiesMap.at(stoi(data2)), stoi(data3)));
                             dijkstraAdjList[citiesMap.at(stoi(data2))].push_back(neighbor(citiesMap.at(stoi(data1)), stoi(data3)));
+                            bfsGraph.addEdge(citiesMap.at(stoi(data1)), citiesMap.at(stoi(data2)));
                             list2.appendAtEnd(new citiesNode(data1, data2));
                         }
                     }
 
 
-                } catch (invalid_argument &e){
-                    cout << e.what() << endl;
+                } catch (...){
+                    cout << "Fatal Error" << endl;
                 }
             }
         }
@@ -852,6 +855,7 @@ public:
         }
         //cout << "Cities Map: " << endl;
         //cout << indexToCity.at(16) << endl;
+        cout << citiesMap.size() << endl;
 
         string line;
         ifstream arch1(PATH_TO_FILES+"Ptos de articulacion.txt");

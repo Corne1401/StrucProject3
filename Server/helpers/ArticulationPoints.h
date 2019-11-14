@@ -11,6 +11,12 @@ class ArticulationPointGraph {
 
 public:
 
+    string articulationPointsString;
+
+    string getArticulationPointsString(){
+        return this->articulationPointsString;
+    }
+
     ArticulationPointGraph() {
         this->n = 0;
     } //constructor
@@ -47,6 +53,7 @@ public:
             if (ap[i] == true)
                 concat += to_string(i) + " ";
 
+        this->articulationPointsString = concat;
         return concat;
     }
     void APT(int w, bool visited[], int dis[], int low[], int par[], bool ap[]) {

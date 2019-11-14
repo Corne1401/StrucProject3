@@ -18,6 +18,10 @@ public:
 private slots:
     void on_primBtn_clicked();
 
+    void on_kurskalBtn_clicked();
+
+    void on_dijkstraBtn_clicked();
+
 private:
     Ui::mapGraph *ui;
 };

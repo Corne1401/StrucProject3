@@ -71,6 +71,7 @@ void socketServer::readyRead(){
         //holder[1]==newAisleCode
         //holder[2]==newAisleName
         if(modules.insertAisle(aisles, holder[1], holder[2])){
+            //cout << aisles.getAislesForClient() <<endl;
             socket->write(QByteArray::fromStdString(holder[0]+";1"));
         } else {
             socket->write(QByteArray::fromStdString(holder[0]+";0"));
@@ -222,22 +223,26 @@ void socketServer::readyRead(){
         }
     }
     else if(holder[0]=="25"){ //Check Inventory
-        modules.reloadInventory(inventory,helpers);
+        if(modules.reloadInventory(inventory,helpers)){
+            socket->write(QByteArray::fromStdString(holder[0]+";1"));
+        } else {
+            socket->write(QByteArray::fromStdString(holder[0]+";0"));
+        }
     }
     else if(holder[0]=="26"){ //Prim Graph
-        socket->write(QByteArray::fromStdString(holder[0]+";"+modules.getPrimAlgorithm(primGraph, pGraph)));
+        socket->write(QByteArray::fromStdString(holder[0]+";"+modules.getPrimAlgorithm(primGraph)+";"+modules.getPrimWeight(primGraph)));
     }
     else if(holder[0]=="27"){ //Prim Weight
         socket->write(QByteArray::fromStdString(holder[0]+";"+modules.getPrimWeight(primGraph)));
     }
     else if(holder[0]=="28"){ //Kusrkal Graph
-        socket->write(QByteArray::fromStdString(holder[0]+";"+modules.getKurskalGraph(kruskalGraph)));
+        socket->write(QByteArray::fromStdString(holder[0]+";"+modules.getKurskalGraph(kruskalGraph)+";"+modules.getKurskalWeight(kruskalGraph)));
     }
     else if(holder[0]=="29"){ //Kusrkal Weight
         socket->write(QByteArray::fromStdString(holder[0]+";"+modules.getKurskalWeight(kruskalGraph)));
     }
     else if(holder[0]=="30"){ //Dijktra Graph
-        socket->write(QByteArray::fromStdString(holder[0]+";"+modules.getDijkstraGraph(dijkstraGraph, dijkstraAdjList, holder[1], holder[2])));
+        socket->write(QByteArray::fromStdString(holder[0]+";"+dijkstraGraph.getDijkstraGraph()+";"+modules.getDijkstraDistance(dijkstraGraph)));
     }
     else if(holder[0]=="31"){ //Dijktra Distance
         socket->write(QByteArray::fromStdString(holder[0]+";"+modules.getDijkstraDistance(dijkstraGraph)));
@@ -246,7 +251,7 @@ void socketServer::readyRead(){
         socket->write(QByteArray::fromStdString(holder[0]+";"+modules.getArticulationPoints(articulationPointGraph)));
     }
     else if(holder[0]=="33"){ //Get Depth First Search (profundidad)
-        //TODO
+        socket->write(QByteArray::fromStdString(holder[0]+";"+bfsGraph.getBfsTraversal()));
     }
     else if(holder[0]=="34"){ //Get Breadth First Search (anchura)
         //TODO

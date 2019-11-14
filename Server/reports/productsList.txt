@@ -1,0 +1,4 @@
+Products List for aisle: 1
+Prod Code: 1 Prod Name: Arroz Times bought: 0
+Prod Code: 3 Prod Name: Frijoles Times bought: 0
+Prod Code: 6 Prod Name: Sal Times bought: 0

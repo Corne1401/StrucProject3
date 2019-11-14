@@ -50,4 +50,6 @@ extern salesList sales;
 
 extern clientQueue clientsQ;
 
+extern BFSGraphs bfsGraph;
+
 #endif // GLOBALTREES_H
