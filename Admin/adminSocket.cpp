@@ -79,6 +79,12 @@ void adminSocket::readyRead(){
     } else if(dataFromServer[0]=="32"){
         graphResults *g = new graphResults(QString::fromStdString(dataFromServer[1]));
         g->show();
+    } else if(dataFromServer[0]=="33"){
+        graphResults *g = new graphResults(QString::fromStdString(dataFromServer[1]));
+        g->show();
+    } else if(dataFromServer[0]=="34"){
+        graphResults *g = new graphResults(QString::fromStdString(dataFromServer[1]));
+        g->show();
     }
 
 
