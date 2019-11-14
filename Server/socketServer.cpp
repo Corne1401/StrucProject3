@@ -248,7 +248,7 @@ void socketServer::readyRead(){
         socket->write(QByteArray::fromStdString(holder[0]+";"+modules.getDijkstraDistance(dijkstraGraph)));
     }
     else if(holder[0]=="32"){ //Get Articulation Points
-        socket->write(QByteArray::fromStdString(holder[0]+";"+modules.getArticulationPoints(articulationPointGraph)));
+        socket->write(QByteArray::fromStdString(holder[0]+";"+articulationPointGraph.getArticulationPointsString()));
     }
     else if(holder[0]=="33"){ //Get Depth First Search (profundidad)
         socket->write(QByteArray::fromStdString(holder[0]+";"+bfsGraph.getBfsTraversal()));
