@@ -18,21 +18,30 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     clientSocket.cpp \
+    graphresults.cpp \
     main.cpp \
     mainwindow.cpp \
+    mapgraph.cpp \
     reports.cpp
 
 HEADERS += \
     clientSocket.h \
     globalClient.h \
+    graphresults.h \
     mainwindow.h \
+    mapgraph.h \
     reports.h
 
 FORMS += \
+    graphresults.ui \
     mainwindow.ui \
+    mapgraph.ui \
     reports.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Test.qrc

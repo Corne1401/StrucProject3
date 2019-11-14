@@ -68,11 +68,12 @@ int main(int argc, char *argv[])
 //    print(path);
 
 //    admins.traverse();
+    //cout << kruskalGraph.kruskalMST() << endl;
 
       //cout << modules.getClients(clients) << endl;
     //clients.traverse();
 
-    inventory.print();
+    //inventory.print();
 
     Server Server;
     Server.StartServer();
