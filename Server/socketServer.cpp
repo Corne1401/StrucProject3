@@ -308,7 +308,7 @@ void socketServer::readyRead(){
             socket->write("0");
         }
     }
-    else if(holder[0]=="43"){ //mostBilledClient
+    else if(holder[0]=="43"){ //leastBilledClient
         if(clients.generateLeastBilledClient(PATH_TO_REPORTS+"leastBilledClient.txt")){
             socket->write("1");
         } else {

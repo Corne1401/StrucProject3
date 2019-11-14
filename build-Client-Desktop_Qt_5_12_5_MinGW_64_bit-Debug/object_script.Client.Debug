@@ -1,0 +1,10 @@
+debug/clientSocket.o
+debug/main.o
+debug/mainwindow.o
+debug/mapgraph.o
+debug/reports.o
+debug/qrc_Test.o
+debug/moc_clientSocket.o
+debug/moc_mainwindow.o
+debug/moc_mapgraph.o
+debug/moc_reports.o
