@@ -44,6 +44,18 @@ void adminSocket::readyRead(){
 =======
     } else if(dataFromServer[0]=="26"){
         graphResults *g = new graphResults(QString::fromStdString(dataFromServer[1]+"\n"+dataFromServer[2]));
+<<<<<<< Updated upstream
+=======
+        g->show();
+    } else if(dataFromServer[0]=="28"){
+        graphResults *g = new graphResults(QString::fromStdString(dataFromServer[1]+"\n"+dataFromServer[2]));
+        g->show();
+    } else if(dataFromServer[0]=="30"){
+        graphResults *g = new graphResults(QString::fromStdString(dataFromServer[1]+"\n"+dataFromServer[2]));
+        g->show();
+    } else if(dataFromServer[0]=="32"){
+        graphResults *g = new graphResults(QString::fromStdString(dataFromServer[1]+"\n"+dataFromServer[2]));
+>>>>>>> Stashed changes
         g->show();
     } else if(dataFromServer[0]=="28"){
         graphResults *g = new graphResults(QString::fromStdString(dataFromServer[1]+"\n"+dataFromServer[2]));

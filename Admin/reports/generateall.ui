@@ -1,8 +1,13 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <ui version="4.0">
  <author/>
  <comment/>
  <exportmacro/>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+>>>>>>> Stashed changes
 =======
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
@@ -21,12 +26,15 @@
    <string>MainWindow</string>
   </property>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   <widget class="QMenuBar" name="menubar"/>
   <widget class="QWidget" name="centralwidget"/>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <pixmapfunction/>
 =======
+=======
+>>>>>>> Stashed changes
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
@@ -91,6 +99,9 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
  <connections/>
 </ui>

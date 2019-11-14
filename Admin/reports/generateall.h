@@ -16,6 +16,12 @@ public:
     ~GenerateAll();
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+private slots:
+    void on_pushButton_clicked();
+
+>>>>>>> Stashed changes
 =======
 private slots:
     void on_pushButton_clicked();
