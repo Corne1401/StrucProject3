@@ -19,6 +19,8 @@ public:
 private slots:
     void on_reportsBack_clicked();
 
+    void on_reportsGenerate_clicked();
+
 private:
     Ui::Reports *ui;
 };

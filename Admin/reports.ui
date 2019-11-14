@@ -45,11 +45,6 @@
     </item>
     <item>
      <property name="text">
-      <string>Most expensive bill</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
       <string>Client who bougth the most</string>
      </property>
     </item>

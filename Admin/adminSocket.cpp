@@ -4,6 +4,7 @@
 
 #include "mainwindow.h"
 #include "menu.h"
+#include "helpers.h"
 
 
 using namespace std;
@@ -30,15 +31,15 @@ void adminSocket::disconnected(){
 void adminSocket::readyRead(){
     QByteArray data = adminSock->readAll();
     string dataToString = data.toStdString();
-    dataFromServer = dataToString;
+    vector<string> dataFromServer =helper::split(dataToString,";");
+
 
     cout<<"<------DATA------>"<<endl;
-    cout<<dataFromServer<<endl;
+    cout<<dataToString<<endl;
     cout<<">----------------<"<<endl;
-    if(dataFromServer == "1"){
+    if(dataFromServer[0] == "01" && dataFromServer[1]=="1"){
         Menu *menu = new Menu;
         menu->show();
-
     }
 
 

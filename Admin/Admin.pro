@@ -37,6 +37,9 @@ SOURCES += \
     modifications/modtax.cpp \
     modifications/pricemod.cpp \
     reports.cpp \
+    reports/brandlist.cpp \
+    reports/mostprodaisle.cpp \
+    reports/prodlist.cpp \
     restock/restock.cpp
 
 HEADERS += \
@@ -48,6 +51,7 @@ HEADERS += \
     eliminations/deleteclient.h \
     eliminations/deleteproduct.h \
     globalAdmin.h \
+    helpers/helpers.h \
     insertions.h \
     insertions/newaisle.h \
     insertions/newbrand.h \
@@ -60,6 +64,9 @@ HEADERS += \
     modifications/modtax.h \
     modifications/pricemod.h \
     reports.h \
+    reports/brandlist.h \
+    reports/mostprodaisle.h \
+    reports/prodlist.h \
     restock/restock.h
 
 FORMS += \
@@ -81,6 +88,9 @@ FORMS += \
     modifications/modprice.ui \
     modifications/modtax.ui \
     reports.ui \
+    reports/brandlist.ui \
+    reports/mostprodaisle.ui \
+    reports/prodlist.ui \
     restock/restock.ui
 
 # Default rules for deployment.

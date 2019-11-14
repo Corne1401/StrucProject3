@@ -50,7 +50,6 @@ public:
         selectReport->addItem(QString());
         selectReport->addItem(QString());
         selectReport->addItem(QString());
-        selectReport->addItem(QString());
         selectReport->setObjectName(QString::fromUtf8("selectReport"));
         selectReport->setGeometry(QRect(310, 70, 171, 22));
         reportsBack = new QPushButton(centralwidget);
@@ -76,17 +75,16 @@ public:
         selectReport->setItemText(1, QApplication::translate("Reports", "Least visited aisle", nullptr));
         selectReport->setItemText(2, QApplication::translate("Reports", "Most sold product per aisle", nullptr));
         selectReport->setItemText(3, QApplication::translate("Reports", "Most sold brand", nullptr));
-        selectReport->setItemText(4, QApplication::translate("Reports", "Most expensive bill", nullptr));
-        selectReport->setItemText(5, QApplication::translate("Reports", "Client who bougth the most", nullptr));
-        selectReport->setItemText(6, QApplication::translate("Reports", "Client who bougth the least", nullptr));
-        selectReport->setItemText(7, QApplication::translate("Reports", "Client who billed most times", nullptr));
-        selectReport->setItemText(8, QApplication::translate("Reports", "Client who billed least times", nullptr));
-        selectReport->setItemText(9, QApplication::translate("Reports", "Check aisles", nullptr));
-        selectReport->setItemText(10, QApplication::translate("Reports", "Check products", nullptr));
-        selectReport->setItemText(11, QApplication::translate("Reports", "Check brands", nullptr));
-        selectReport->setItemText(12, QApplication::translate("Reports", "Check clients", nullptr));
-        selectReport->setItemText(13, QApplication::translate("Reports", "Check inventory", nullptr));
-        selectReport->setItemText(14, QApplication::translate("Reports", "Generate all", nullptr));
+        selectReport->setItemText(4, QApplication::translate("Reports", "Client who bougth the most", nullptr));
+        selectReport->setItemText(5, QApplication::translate("Reports", "Client who bougth the least", nullptr));
+        selectReport->setItemText(6, QApplication::translate("Reports", "Client who billed most times", nullptr));
+        selectReport->setItemText(7, QApplication::translate("Reports", "Client who billed least times", nullptr));
+        selectReport->setItemText(8, QApplication::translate("Reports", "Check aisles", nullptr));
+        selectReport->setItemText(9, QApplication::translate("Reports", "Check products", nullptr));
+        selectReport->setItemText(10, QApplication::translate("Reports", "Check brands", nullptr));
+        selectReport->setItemText(11, QApplication::translate("Reports", "Check clients", nullptr));
+        selectReport->setItemText(12, QApplication::translate("Reports", "Check inventory", nullptr));
+        selectReport->setItemText(13, QApplication::translate("Reports", "Generate all", nullptr));
 
         reportsBack->setText(QApplication::translate("Reports", "Back", nullptr));
         reportsGenerate->setText(QApplication::translate("Reports", "Generate", nullptr));
