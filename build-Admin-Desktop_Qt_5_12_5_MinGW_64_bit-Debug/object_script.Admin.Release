@@ -12,6 +12,7 @@ release/newclient.o
 release/newproduct.o
 release/main.o
 release/mainwindow.o
+release/mapgraph.o
 release/menu.o
 release/modifications.o
 release/modbasicproduct.o
@@ -35,6 +36,7 @@ release/moc_newbrand.o
 release/moc_newclient.o
 release/moc_newproduct.o
 release/moc_mainwindow.o
+release/moc_mapgraph.o
 release/moc_menu.o
 release/moc_modifications.o
 release/moc_modbasicproduct.o

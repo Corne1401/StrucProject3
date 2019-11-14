@@ -1,10 +1,12 @@
 release/clientSocket.o
+release/graphresults.o
 release/main.o
 release/mainwindow.o
 release/mapgraph.o
 release/reports.o
 release/qrc_Test.o
 release/moc_clientSocket.o
+release/moc_graphresults.o
 release/moc_mainwindow.o
 release/moc_mapgraph.o
 release/moc_reports.o

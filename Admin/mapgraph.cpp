@@ -1,7 +1,7 @@
 #include "mapgraph.h"
 #include "graphresults.h"
 #include "ui_mapgraph.h"
-#include "globalClient.h"
+#include "globalAdmin.h"
 
 MapGraph::MapGraph(QWidget *parent) :
     QMainWindow(parent),
@@ -18,5 +18,5 @@ MapGraph::~MapGraph()
 void MapGraph::on_primBtn_clicked()
 {
     QString req = "26";
-    emit clientSock.send(req.toUtf8());
+    emit adminSock.send(req.toUtf8());
 }
