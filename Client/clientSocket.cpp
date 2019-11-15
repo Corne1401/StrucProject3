@@ -38,7 +38,13 @@ void clientSocket::readyRead(){
     cout<<dataToString<<endl;
     cout<<">----------------<"<<endl;
 
-    if(dataFromServer[0]=="02"){
+    if(dataFromServer[0]=="00"){
+
+        QMessageBox block;
+        block.setText("Server is blocked, please try again later");
+        block.exec();
+
+    } else if(dataFromServer[0]=="02"){
         if(dataFromServer[1]=="1"){
             Menu *menu = new Menu;
             menu->show();

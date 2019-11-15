@@ -17,8 +17,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
+
     QString id = "01;";
     id = id + ui->lineEdit->text();
+    adminID = ui->lineEdit->text();
     emit send(id.toUtf8());
 
 }

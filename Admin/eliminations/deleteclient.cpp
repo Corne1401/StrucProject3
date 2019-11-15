@@ -16,7 +16,7 @@ DeleteClient::~DeleteClient()
 
 void DeleteClient::on_pushButton_clicked()
 {
-    QString req = "19;"+ui->clientID->text();
+    QString req = "19;"+ui->clientID->text()+";"+adminID;
 
     emit adminSock.send(req.toUtf8());
     this->close();

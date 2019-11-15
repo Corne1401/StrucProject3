@@ -17,7 +17,7 @@ ProdList::~ProdList()
 void ProdList::on_generate_clicked()
 {
     QString request;
-    request = "45;"+ui->aisleCode->text();
+    request = "45;"+ui->aisleCode->text()+";"+adminID;
     emit adminSock.send(request.toUtf8());
     this->close();
 }
