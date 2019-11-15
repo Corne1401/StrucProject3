@@ -47,10 +47,10 @@ void socketServer::readyRead(){
     if(access){
         if(holder[0]=="01"){ //validate Admin
             if(modules.validateAdmin(admins, holder[1])){
-                adminID=holder[1];
+                //adminID=holder[1];
                 socket->write(QByteArray::fromStdString(holder[0]+";1"));
             } else {
-                adminID="0";
+                //adminID="0";
                 socket->write(QByteArray::fromStdString(holder[0]+";0"));
             }
 
@@ -402,7 +402,7 @@ void socketServer::readyRead(){
             //getClientCart(clientsQ, holder[1])
             socket->write(QByteArray::fromStdString(holder[0]+";"+modules.getClientCart(clientsQ, holder[1])));
         }
-        else if (holder[0]=="10"){
+        else if (holder[0]=="51"){
             //Free server
             adminID = "0";
         }
