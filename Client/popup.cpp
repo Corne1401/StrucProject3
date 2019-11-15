@@ -1,6 +1,7 @@
 #include "popup.h"
 #include "ui_popup.h"
 #include "globalClient.h"
+#include "purchase.h"
 
 PopUp::PopUp(QWidget *parent) :
     QMainWindow(parent),
@@ -17,6 +18,8 @@ PopUp::~PopUp()
 void PopUp::on_yesBtn_clicked()
 {
     overWriteQueue = "1";
+    purchase *pur = new purchase;
+    pur->show();
     this->close();
 }
 
