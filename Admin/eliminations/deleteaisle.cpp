@@ -16,7 +16,7 @@ deleteAisle::~deleteAisle()
 
 void deleteAisle::on_pushButton_clicked()
 {
-    QString req = "16;"+ui->aisleToDelete->text();
+    QString req = "16;"+ui->aisleToDelete->text()+";"+adminID;
     emit adminSock.send(req.toUtf8());
     this->close();
 }

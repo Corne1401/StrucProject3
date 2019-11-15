@@ -17,7 +17,7 @@ DeleteProduct::~DeleteProduct()
 void DeleteProduct::on_pushButton_clicked()
 {
     QString req = "17;"+ui->aisleCode->text()+
-            ";"+ui->productCode->text();
+            ";"+ui->productCode->text()+";"+adminID;
 
     emit adminSock.send(req.toUtf8());
     this->close();
