@@ -8,6 +8,7 @@ extern clientSocket clientSock;
 extern string dataFromServer;
 
 extern bool fromPurchase;
+extern bool isLogged;
 
 extern QString overWriteQueue;
 extern QString clientId;

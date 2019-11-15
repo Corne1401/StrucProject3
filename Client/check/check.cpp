@@ -3,6 +3,8 @@
 #include "globalClient.h"
 #include "menu.h"
 
+#include <mainwindow.h>
+
 Check::Check(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Check)
@@ -35,7 +37,15 @@ void Check::on_checkButton_clicked()
 
 void Check::on_backButton_clicked()
 {
-    Menu *menu = new Menu;
-    menu->show();
-    this->close();
+    if(isLogged){
+        Menu *menu = new Menu;
+        menu->show();
+        this->close();
+    } else {
+        MainWindow *m = new MainWindow;
+        m->show();
+        this->close();
+    }
+
+
 }

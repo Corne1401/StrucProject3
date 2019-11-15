@@ -34,16 +34,12 @@ void socketServer::readyRead(){
     vector<string> holder = helpers.split(dataToStr, ";");
     std::vector<string>::size_type  holderLasIndex = holder.size()-1;
 
-    cout << holderLasIndex << endl;
-    cout << holder[holderLasIndex] <<endl;
 
     if(adminID == "0"){
         access = true;
     }
 
     if(!access){
-        cout << holder[holderLasIndex] <<endl;
-        cout << adminID << endl;
         if(holder[holderLasIndex]==adminID){
             access = true;
         }
@@ -53,8 +49,6 @@ void socketServer::readyRead(){
 
         if(holder[0]=="01"){ //validate Admin
             if(modules.validateAdmin(admins, holder[1])){
-                cout << holder[holderLasIndex] << endl;
-                adminID=holder[1];
                 socket->write(QByteArray::fromStdString(holder[0]+";1"));
             } else {
                 adminID="0";
@@ -284,9 +278,9 @@ void socketServer::readyRead(){
             //holder[5]==cliendId
             //holder[6]==overrideClientQ
             if(modules.executePurchase(clients, clientsQ, aisles, holder[1], holder[2], holder[3], holder[4], holder[5], holder[6])){
-                socket->write(QByteArray::fromStdString(holder[0]+";1"));
+                socket->write(QByteArray::fromStdString(holder[0]+";1;"+to_string(modules.getPurchasePrice())));
             } else {
-                socket->write(QByteArray::fromStdString(holder[0]+";0"));
+                socket->write(QByteArray::fromStdString(holder[0]+";0;"+to_string(modules.getPurchasePrice())));
             }
         }
         else if(holder[0]=="36"){ //mostVisitedAisle

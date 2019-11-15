@@ -5,6 +5,7 @@
 #include "menu.h"
 #include "purchase.h"
 #include "globalClient.h"
+#include "popup.h"
 #include <iostream>
 #include <QMessageBox>
 using namespace std;
@@ -46,6 +47,7 @@ void clientSocket::readyRead(){
 
     } else if(dataFromServer[0]=="02"){
         if(dataFromServer[1]=="1"){
+            isLogged = true;
             Menu *menu = new Menu;
             menu->show();
         }else if(dataFromServer[1]=="0"){
@@ -53,7 +55,7 @@ void clientSocket::readyRead(){
             check->show();
         }
     } else if(dataFromServer[0]=="03"  && fromPurchase){
-
+        fromPurchase = false;
         purchase *p = new purchase;
         p->show();
 
@@ -90,6 +92,28 @@ void clientSocket::readyRead(){
         QString qtemp = QString::fromUtf8(temp.c_str());
         answ.setText(qtemp);
         answ.exec();
+
+    }
+    else if(dataFromServer[0]=="50"){
+        GraphResults *g = new GraphResults(QString::fromStdString(dataFromServer[1]));
+        g->show();
+    } else if(dataFromServer[0]=="35"){
+
+        if(dataFromServer[1]=="1"){
+            QMessageBox block;
+            block.setText("Total: "+QString::fromStdString(dataFromServer[2]));
+            block.exec();
+
+            PopUp *popUp = new PopUp;
+            popUp->show();
+        } else {
+            QMessageBox block;
+            block.setText("Could not complete purchase");
+            block.exec();
+
+            PopUp *popUp = new PopUp;
+            popUp->show();
+        }
 
     }
 

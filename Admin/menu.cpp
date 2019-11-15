@@ -4,6 +4,7 @@
 #include "check/check.h"
 #include "restock/restock.h"
 #include "insertions.h"
+
 #include "eliminations.h"
 #include "ui_menu.h"
 #include "mapgraph.h"

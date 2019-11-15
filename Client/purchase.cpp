@@ -40,7 +40,6 @@ void purchase::on_purchase_2_clicked()
 
     overWriteQueue = "1";
 
-    PopUp *popUp = new PopUp;
-    popUp->show();
+    this->close();
 
 }

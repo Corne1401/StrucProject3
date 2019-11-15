@@ -16,7 +16,6 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-
 signals:
     void send(QByteArray data);
 

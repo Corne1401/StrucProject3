@@ -16,6 +16,11 @@ public:
 
     string lasBilledClientName;
     string lastBilledClientId;
+    int purchasePrice;
+
+    int getPurchasePrice(){
+        return this->purchasePrice;
+    }
 
     static bool checkEndOption(const string& endOp){
         return endOp == "Y" || endOp =="y" || endOp=="n" || endOp=="N";
@@ -676,12 +681,11 @@ public:
                     if(invAmount >= stoi(reStock)){
                         inventoryItem->setStockAmount(invAmount-stoi(reStock));
                         prodToRestore->setAmount(prodToRestore->getAmount()+stoi(reStock));
-                        result = true;
                     } else {
                         cout << "There is not enough stock in inventory for re stock for: " << inventory.getNodeByAisleProdBrandCode(aux->getAisleCode()+aux->getProdCode()+aux->getBrandCode())->getName() << endl;
-                        result = false;
                     }
                 }
+                result = true;
             } catch (class elementNotFound& e) {
                 cout << e.what() << endl;
             }
@@ -1476,7 +1480,7 @@ public:
 
 
 
-    static bool executePurchase(BTreeClients &clients, clientQueue &clientsQ, BinarySearchTree &aisleList, const string& aisleCode, const string& prodCode, const string& brandCode, const string& amountToBuy, const string &clientId, const string overrideClientQString) {
+    bool executePurchase(BTreeClients &clients, clientQueue &clientsQ, BinarySearchTree &aisleList, const string& aisleCode, const string& prodCode, const string& brandCode, const string& amountToBuy, const string &clientId, const string overrideClientQString) {
 
         try {
             bool overrideClientQueue = (overrideClientQString=="1");
@@ -1533,6 +1537,7 @@ public:
                                             //Adds amounts to reporting usage
                                             selectedProd->setTimesSold(selectedProd->getTimesSold()+intAmountToBuy);
                                             cout << "Purchase succesful" << endl;
+                                            this->purchasePrice = stoi(amountToBuy)*selectedBrand->getPrice();
                                             return true;
                                         } else {
                                             cout << "Not enough amount to buy. Try again" << endl;
@@ -1578,10 +1583,11 @@ public:
         try {
             string concat;
             if(clientsQ.isClientIdInList(clientId)){
-                if(clientsQ.getClientById(clientId)->getFirstClientProd()== nullptr){
+                //cout << "Client is in queue" << endl;
+                if(clientsQ.getClientById(clientId)->getFirstClientProd() != nullptr){
                     clientProductStackNode *aux = clientsQ.getClientById(clientId)->getFirstClientProd();
-                    while (aux->getNextNode() != nullptr){
-                        concat += "Aisle Code: "+aux->getAisleCode() + "; Prod Code: " + aux->getProdCode() + "; Brand Code: " + aux->getBrandCode() + "; Amount: " + to_string(aux->getAmount()) + "\n";
+                    while (aux != nullptr){
+                        concat += "Aisle Code: "+aux->getAisleCode() + ", Prod Code: " + aux->getProdCode() + ", Brand Code: " + aux->getBrandCode() + ", Amount: " + to_string(aux->getAmount()) + "\n";
                         aux = aux->getNextNode();
                     }
                     return concat;
