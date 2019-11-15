@@ -24,7 +24,7 @@ void ReStock::on_backButton_clicked()
 
 void ReStock::on_restockButton_clicked()
 {
-    QString req = "24;"+ui->restockAmount->text();
+    QString req = "24;"+ui->restockAmount->text()+";"+adminID;
     emit adminSock.send(req.toUtf8());
 
     Menu *menu = new Menu;

@@ -32,25 +32,32 @@ void socketServer::readyRead(){
     string dataToStr = data.toStdString();
     bool access = false;
     vector<string> holder = helpers.split(dataToStr, ";");
-    int holderLasIndex = holder.size();
+    std::vector<string>::size_type  holderLasIndex = holder.size()-1;
+
+    cout << holderLasIndex << endl;
+    cout << holder[holderLasIndex] <<endl;
 
     if(adminID == "0"){
         access = true;
     }
 
     if(!access){
+        cout << holder[holderLasIndex] <<endl;
+        cout << adminID << endl;
         if(holder[holderLasIndex]==adminID){
             access = true;
         }
     }
 
     if(access){
+
         if(holder[0]=="01"){ //validate Admin
             if(modules.validateAdmin(admins, holder[1])){
-                //adminID=holder[1];
+                cout << holder[holderLasIndex] << endl;
+                adminID=holder[1];
                 socket->write(QByteArray::fromStdString(holder[0]+";1"));
             } else {
-                //adminID="0";
+                adminID="0";
                 socket->write(QByteArray::fromStdString(holder[0]+";0"));
             }
 
@@ -405,9 +412,14 @@ void socketServer::readyRead(){
         else if (holder[0]=="51"){
             //Free server
             adminID = "0";
+            cout << "Server is free" << endl;
+            cout << adminID << endl;
+            socket->write(QByteArray::fromStdString("1"));
         }
     } else {
         //SERVER BLOCKED
+        cout << adminID << endl;
+        cout <<holder[holderLasIndex] << endl;
         socket->write(QByteArray::fromStdString("00"));
     }
 
