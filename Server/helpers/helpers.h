@@ -858,7 +858,7 @@ public:
         }
         //cout << "Cities Map: " << endl;
         //cout << indexToCity.at(16) << endl;
-        cout << citiesMap.size() << endl;
+        //cout << citiesMap.size() << endl;
 
         string line;
         ifstream arch1(PATH_TO_FILES+"Ptos de articulacion.txt");
@@ -909,14 +909,14 @@ public:
                     if(list2.isElementInList(data1)){
                         if(list2.getElementInList(data1)->getCityName()!=data2){
                             if(citiesList.isElementInList(data1) && citiesList.isElementInList(data2)){
-                                cout << citiesMap.at(stoi(data1)) << ", " << citiesMap.at(stoi(data2)) << ", " << data3 << endl;
+                                //cout << citiesMap.at(stoi(data1)) << ", " << citiesMap.at(stoi(data2)) << ", " << data3 << endl;
                                 g1.addEd(citiesMap.at(stoi(data1)), citiesMap.at(stoi(data2)));
                                 list2.appendAtEnd(new citiesNode(data1, data2));
                             }
                         }
                     } else {
                         if(citiesList.isElementInList(data1) && citiesList.isElementInList(data2)){
-                            cout << citiesMap.at(stoi(data1)) << ", " << citiesMap.at(stoi(data2)) << ", " << data3 << endl;
+                            //cout << citiesMap.at(stoi(data1)) << ", " << citiesMap.at(stoi(data2)) << ", " << data3 << endl;
                             g1.addEd(citiesMap.at(stoi(data1)), citiesMap.at(stoi(data2)));
                             list2.appendAtEnd(new citiesNode(data1, data2));
                         }

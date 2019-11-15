@@ -1626,7 +1626,6 @@ public:
                     auto *selectedAisle = aisleList.getNodeByAisleCode(chosenAisle);
 
                     if (selectedAisle->getProductAisleTreePointer() != nullptr) {
-                        selectedAisle->getProductAisleTreePointer()->printProductsForPurchaseHelper(selectedAisle->getProductAisleTreePointer()->getAVLRoot());
 
                         int chosenProd;
                         chosenProd = stoi(prodCode);
@@ -1635,13 +1634,9 @@ public:
                             auto *selectedProd = selectedAisle->getProductAisleTreePointer()->getNodeByProdCode(chosenProd);
 
                             if (selectedProd->getProductAisleBrandTreePointer() != nullptr) {
-                                selectedProd->getProductAisleBrandTreePointer()->printBrandsForPurchase();
 
-                                string brandCodeString;
                                 int chosenBrand;
-
-                                cin >> brandCodeString;
-                                chosenBrand = stoi(brandCodeString);
+                                chosenBrand = stoi(brandCode);
 
                                 if (selectedProd->getProductAisleBrandTreePointer()->isBrandCodeOnList(chosenBrand)) {
                                     auto *selectedBrand = selectedProd->getProductAisleBrandTreePointer()->getNodeByBrandCode(chosenBrand);
@@ -1672,6 +1667,7 @@ public:
 
                                             //Adds amounts to reporting usage
                                             selectedProd->setTimesSold(selectedProd->getTimesSold()+intAmountToBuy);
+                                            cout << "Purchase succesful" << endl;
                                             return true;
                                         } else {
                                             cout << "Not enough amount to buy. Try again" << endl;
