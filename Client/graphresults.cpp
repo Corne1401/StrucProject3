@@ -1,4 +1,5 @@
 #include "graphresults.h"
+#include "menu.h"
 #include "ui_graphresults.h"
 
 GraphResults::GraphResults(QString data, QWidget *parent) :
@@ -13,4 +14,11 @@ GraphResults::GraphResults(QString data, QWidget *parent) :
 GraphResults::~GraphResults()
 {
     delete ui;
+}
+
+void GraphResults::on_returnBtn_clicked()
+{
+    Menu *m = new Menu;
+    m->show();
+    this->close();
 }

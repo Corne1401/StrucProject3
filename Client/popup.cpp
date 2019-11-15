@@ -2,6 +2,7 @@
 #include "ui_popup.h"
 #include "globalClient.h"
 #include "purchase.h"
+#include "menu.h"
 
 PopUp::PopUp(QWidget *parent) :
     QMainWindow(parent),
@@ -25,6 +26,8 @@ void PopUp::on_yesBtn_clicked()
 
 void PopUp::on_noBtn_clicked()
 {
+    Menu *m = new Menu;
     overWriteQueue = "0";
     this->close();
+    m->show();
 }

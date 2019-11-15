@@ -16,6 +16,9 @@ public:
 
     ~GraphResults();
     QString data;
+private slots:
+    void on_returnBtn_clicked();
+
 private:
     Ui::GraphResults *ui;
 };

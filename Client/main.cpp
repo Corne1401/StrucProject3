@@ -9,6 +9,7 @@ string dataFromServer;
 bool fromPurchase = false;
 QString overWriteQueue = "0";
 QString clientId;
+bool isLogged = false;
 
 int main(int argc, char *argv[])
 {
