@@ -42,5 +42,6 @@ void purchase::on_purchase_2_clicked()
 
     PopUp *popUp = new PopUp;
     popUp->show();
+    this->close();
 
 }
