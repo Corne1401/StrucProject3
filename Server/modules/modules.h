@@ -14,6 +14,9 @@ using namespace std;
 class modules {
 public:
 
+    string lasBilledClientName;
+    string lastBilledClientId;
+
     static bool checkEndOption(const string& endOp){
         return endOp == "Y" || endOp =="y" || endOp=="n" || endOp=="N";
     }
@@ -1208,6 +1211,10 @@ public:
             clientName = currentClient.getName();
             clientPhone = currentClient.getPhoneNumber();
             clientEmail = currentClient.getEmail();
+
+            this->lasBilledClientName = clientName;
+            this->lastBilledClientId = clientId;
+
 
             //PERFORM QUICK SORT ON ITEMS
             while (firstInLine->getFirstClientProd()!= nullptr){

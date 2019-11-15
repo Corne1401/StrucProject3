@@ -63,10 +63,29 @@ void adminSocket::readyRead(){
 
         QMessageBox answ;
         string temp = dataFromServer[1];
+
         QString qtemp = QString::fromUtf8(temp.c_str());
         answ.setText(qtemp);
         answ.exec();
+    } else if(dataFromServer[0]=="23"){
+        QMessageBox answ;
+        string temp = dataFromServer[1];
 
+        if(temp=="1"){
+            string clientName = dataFromServer[2];
+            string clientID = dataFromServer[3];
+            string showMsg = "Billed Client ID: "+clientID+", name: "+clientName;
+
+            QString qtemp = QString::fromUtf8(showMsg.c_str());
+            answ.setText(qtemp);
+            answ.exec();
+
+        }else{
+            string showMsg = "Could not complete billing.";
+            QString qtemp = QString::fromUtf8(showMsg.c_str());
+            answ.setText(qtemp);
+            answ.exec();
+        }
     } else if(dataFromServer[0]=="26"){
         graphResults *g = new graphResults(QString::fromStdString(dataFromServer[1]+"\n"+dataFromServer[2]));
         g->show();

@@ -222,7 +222,7 @@ void socketServer::readyRead(){
         }
         else if(holder[0]=="23"){ //Bill
             if(modules.bill(aisles, clientsQ,clients,inventory,sales)){
-                socket->write(QByteArray::fromStdString(holder[0]+";1"));
+                socket->write(QByteArray::fromStdString(holder[0]+";1;"+modules.lastBilledClientId+";"+modules.lasBilledClientName));
             } else {
                 socket->write(QByteArray::fromStdString(holder[0]+";0"));
             }
