@@ -20,7 +20,7 @@ MostProdAisle::~MostProdAisle()
 void MostProdAisle::on_generateButton_clicked()
 {
     QString request;
-    request = "38;"+ui->aisleCode->text();
+    request = "38;"+ui->aisleCode->text()+";"+adminID;
     emit adminSock.send(request.toUtf8());
     this->close();
 }

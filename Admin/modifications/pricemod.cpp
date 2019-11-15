@@ -19,7 +19,7 @@ void priceMod::on_modPriceConfirm_clicked()
     QString req = "12;"+ui->aisleCode->text()+
             ";"+ui->prodCode->text()+
             ";"+ui->brandCode->text()+
-            ";"+ui->newPrice->text();
+            ";"+ui->newPrice->text()+";"+adminID;
 
     emit adminSock.send(req.toUtf8());
     this->close();

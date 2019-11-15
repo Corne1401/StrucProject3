@@ -18,7 +18,7 @@ void newProduct::on_newProductConfirm_clicked()
 {
     QString req = "09;"+ui->aisleCode->text()+
             ";"+ui->newProdCode->text()+
-            ";"+ui->newName->text();
+            ";"+ui->newName->text()+";"+adminID;
 
     emit adminSock.send(req.toUtf8());
     this->close();

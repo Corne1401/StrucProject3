@@ -19,10 +19,10 @@ void ModTax::on_confirmNewTax_clicked()
     QString req;
 
     if(ui->isBasic->isChecked()){
-        req = "13;"+ui->newTax->text();
+        req = "13;"+ui->newTax->text()+";"+adminID;
         emit adminSock.send(req.toUtf8());
     } else if(ui->isNormal->isChecked()){
-        req = "14;"+ui->newTax->text();
+        req = "14;"+ui->newTax->text()+";"+adminID;
         emit adminSock.send(req.toUtf8());
     }
 

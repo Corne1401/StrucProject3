@@ -17,7 +17,7 @@ GenerateAll::~GenerateAll()
 
 void GenerateAll::on_pushButton_clicked()
 {
-    QString req = "49;"+ui->aisleCode->text()+";"+ui->prodCode->text();
+    QString req = "49;"+ui->aisleCode->text()+";"+ui->prodCode->text()+";"+adminID;
     emit adminSock.send(req.toUtf8());
     this->close();
 }

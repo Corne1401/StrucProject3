@@ -24,6 +24,8 @@ Menu::~Menu()
 
 void Menu::on_menuBack_clicked()
 {
+    QString req = "51";
+    emit adminSock.send(req.toUtf8());
     this->close();
 }
 void Menu::on_modifyButton_clicked()
@@ -47,7 +49,7 @@ void Menu::on_checkButton_clicked()
 
 void Menu::on_billingButton_clicked()
 {
-    QString req = "23";
+    QString req = "23;"+adminID;
     emit adminSock.send(req.toUtf8());
     // emit code to generate files
 }
@@ -79,6 +81,6 @@ void Menu::on_chainReports_clicked()
 
 void Menu::on_checkInventory_clicked()
 {
-    QString req = "25";
+    QString req = "25;"+adminID;
     emit adminSock.send(req.toUtf8());
 }

@@ -21,13 +21,13 @@ void modBasicProduct::on_pushButton_clicked()
     if(ui->checkBox->isChecked()){
         req = "15;"+ui->aisleCode->text()+
                 ";"+ui->prodCode->text()+
-                ";"+ui->brandCode->text()+";1";
+                ";"+ui->brandCode->text()+";1;"+adminID;
         emit adminSock.send(req.toUtf8());
 
     } else {
         req = "15;"+ui->aisleCode->text()+
                 ";"+ui->prodCode->text()+
-                ";"+ui->brandCode->text()+";0";
+                ";"+ui->brandCode->text()+";0;"+adminID;
         emit adminSock.send(req.toUtf8());
     }
 

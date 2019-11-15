@@ -17,7 +17,7 @@ BrandList::~BrandList()
 void BrandList::on_generate_clicked()
 {
     QString request;
-    request = "46;"+ui->aisleCode->text()+";"+ui->prodCode->text();
+    request = "46;"+ui->aisleCode->text()+";"+ui->prodCode->text()+";"+adminID;
     emit adminSock.send(request.toUtf8());
     this->close();
 }
