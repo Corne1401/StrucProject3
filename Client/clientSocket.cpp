@@ -13,7 +13,7 @@ clientSocket::clientSocket(QObject *parent):QThread(parent){};
 
 void clientSocket::connectSocket(){
     clientSock = new QTcpSocket(this);
-    clientSock->connectToHost("192.168.100.5",8080);
+    clientSock->connectToHost("192.168.86.196",8080);
 
     if(clientSock->waitForConnected(3000)){
         connect(this->clientSock,SIGNAL(connected()), this,SLOT(connected()));

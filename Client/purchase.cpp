@@ -4,7 +4,9 @@
 #include "popup.h"
 #include <sstream>
 #include <iostream>
+#include <ostream>
 
+using namespace std;
 purchase::purchase(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::purchase)
@@ -32,7 +34,9 @@ void purchase::on_purchase_2_clicked()
             ui->brands->text()+";"+
             ui->amount->text()+";"+
             clientId+";"+overWriteQueue;
+    cout << req.toStdString() << endl;
     emit clientSock.send(req.toUtf8());
+
 
     overWriteQueue = "1";
 

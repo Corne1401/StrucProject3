@@ -17,9 +17,12 @@
 #include <TreesHandlers/BTreeClients.h>
 #include <string>
 
+
+extern string adminID;
+
 extern int numberOfEdges;
 extern int numberOfEdgesArticulationPoint;
-extern std::string PATH_TO_REPORTS;
+extern string PATH_TO_REPORTS;
 
 extern helper helpers;
 

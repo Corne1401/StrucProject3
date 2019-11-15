@@ -2,7 +2,7 @@
 #include "server.h"
 #include "globalTrees.h"
 
-
+string adminID = "0";
 BinarySearchTree aisles;
 citiesList cities;
 citiesList connectionsList;
