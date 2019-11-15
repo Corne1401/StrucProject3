@@ -17,7 +17,7 @@ newAisle::~newAisle()
 void newAisle::on_newAisleConfirm_clicked()
 {
     QString req = "08;"+ui->newCode->text()+
-            ";"+ui->newName->text();
+            ";"+ui->newName->text()+";"+adminID;
     emit adminSock.send(req.toUtf8());
     this->close();
 }

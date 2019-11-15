@@ -18,7 +18,7 @@ void DeleteBrand::on_deleteBrand_clicked()
 {
     QString req = "18;"+ui->aisleCode->text()+
             ";"+ui->productCode->text()+
-            ";"+ui->brandCode->text();
+            ";"+ui->brandCode->text()+";"+adminID;
 
     emit adminSock.send(req.toUtf8());
     this->close();

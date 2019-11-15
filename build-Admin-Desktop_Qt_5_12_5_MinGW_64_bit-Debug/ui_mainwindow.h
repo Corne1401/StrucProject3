@@ -27,6 +27,7 @@ public:
     QLineEdit *lineEdit;
     QLabel *label;
     QPushButton *pushButton;
+    QLabel *label_2;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -45,6 +46,9 @@ public:
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(350, 180, 91, 21));
+        label_2 = new QLabel(centralwidget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(30, 30, 55, 16));
         MainWindow->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -60,6 +64,7 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
         label->setText(QApplication::translate("MainWindow", "Input ID", nullptr));
         pushButton->setText(QApplication::translate("MainWindow", "Continue", nullptr));
+        label_2->setText(QApplication::translate("MainWindow", "Admin", nullptr));
     } // retranslateUi
 
 };

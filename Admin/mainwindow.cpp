@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "adminSocket.h"
 #include "globalAdmin.h"
+#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow)
 {
@@ -17,10 +18,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-
     QString id = "01;";
     id = id + ui->lineEdit->text();
     adminID = ui->lineEdit->text();
+    id+=";"+adminID;
+    std::cout << id.toStdString() << endl;
     emit send(id.toUtf8());
 
 }

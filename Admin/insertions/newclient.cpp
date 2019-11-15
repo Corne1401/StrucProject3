@@ -20,7 +20,7 @@ void newClient::on_confirmNewClient_clicked()
             ";"+ui->newClientName->text()+
             ";"+ui->newEmail->text()+
             ";"+ui->newClientCity->text()+
-            ";"+ui->newPhone->text();
+            ";"+ui->newPhone->text()+";"+adminID;
 
     emit adminSock.send(req.toUtf8());
     this->close();

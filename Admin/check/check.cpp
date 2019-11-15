@@ -29,15 +29,15 @@ void Check::on_checkButton_clicked()
     QString request;
 
     if(ui->selectCheck->currentIndex()==0){
-        request = "20;"+ui->aisleCode->text()+";"+ui->prodCode->text()+";"+ui->brandCode->text();
+        request = "20;"+ui->aisleCode->text()+";"+ui->prodCode->text()+";"+ui->brandCode->text()+";"+adminID;
         emit adminSock.send(request.toUtf8());
     }
     else if(ui->selectCheck->currentIndex() == 1){
-        request = "21;"+ui->aisleCode->text()+";"+ui->prodCode->text()+";"+ui->brandCode->text();
+        request = "21;"+ui->aisleCode->text()+";"+ui->prodCode->text()+";"+ui->brandCode->text()+";"+adminID;
         emit adminSock.send(request.toUtf8());
     }
     else if(ui->selectCheck->currentIndex() == 2){
-        request = "22;"+ui->aisleCode->text()+";"+ui->prodCode->text()+";"+ui->brandCode->text();
+        request = "22;"+ui->aisleCode->text()+";"+ui->prodCode->text()+";"+ui->brandCode->text()+";"+adminID;
         emit adminSock.send(request.toUtf8());
     }
 

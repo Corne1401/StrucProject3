@@ -32,11 +32,11 @@ void Reports::on_reportsGenerate_clicked()
     QString request;
 
     if(ui->selectReport->currentIndex()==0){
-        request = "36";
+        request = "36;"+adminID;
         emit adminSock.send(request.toUtf8());
     }
     else if(ui->selectReport->currentIndex()==1){
-        request = "37";
+        request = "37;"+adminID;
         emit adminSock.send(request.toUtf8());
     }
     else if(ui->selectReport->currentIndex()==2){
@@ -46,27 +46,27 @@ void Reports::on_reportsGenerate_clicked()
 
     }
     else if(ui->selectReport->currentIndex()==3){
-        request = "39";
+        request = "39;"+adminID;
         emit adminSock.send(request.toUtf8());
     }
     else if(ui->selectReport->currentIndex()==4){
-        request = "40";
+        request = "40;"+adminID;
         emit adminSock.send(request.toUtf8());
     }
     else if(ui->selectReport->currentIndex()==5){
-        request = "41";
+        request = "41;"+adminID;
         emit adminSock.send(request.toUtf8());
     }
     else if(ui->selectReport->currentIndex()==6){
-        request = "42";
+        request = "42;"+adminID;
         emit adminSock.send(request.toUtf8());
     }
     else if(ui->selectReport->currentIndex()==7){
-        request = "43";
+        request = "43;"+adminID;
         emit adminSock.send(request.toUtf8());
     }
     else if(ui->selectReport->currentIndex()==8){
-        request = "44";
+        request = "44;"+adminID;
         emit adminSock.send(request.toUtf8());
     }
     else if(ui->selectReport->currentIndex()==9){
@@ -80,11 +80,11 @@ void Reports::on_reportsGenerate_clicked()
 
     }
     else if(ui->selectReport->currentIndex()==11){
-        request = "47";
+        request = "47;"+adminID;
         emit adminSock.send(request.toUtf8());
     }
     else if(ui->selectReport->currentIndex()==12){
-        request = "48";
+        request = "48;"+adminID;
         emit adminSock.send(request.toUtf8());
     }
     else if(ui->selectReport->currentIndex()==13){

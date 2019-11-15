@@ -28,6 +28,7 @@ public:
     QLabel *label;
     QPushButton *pushButton;
     QLineEdit *editId;
+    QLabel *label_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -47,10 +48,13 @@ public:
         editId = new QLineEdit(centralwidget);
         editId->setObjectName(QString::fromUtf8("editId"));
         editId->setGeometry(QRect(330, 120, 121, 21));
+        label_2 = new QLabel(centralwidget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(30, 20, 55, 16));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 20));
+        menubar->setGeometry(QRect(0, 0, 800, 25));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -66,6 +70,7 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
         label->setText(QApplication::translate("MainWindow", "Input ID", nullptr));
         pushButton->setText(QApplication::translate("MainWindow", "Continue", nullptr));
+        label_2->setText(QApplication::translate("MainWindow", "Client", nullptr));
     } // retranslateUi
 
 };
