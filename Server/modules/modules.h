@@ -832,148 +832,6 @@ public:
         }
     }
 
-    void billingModule(BinarySearchTree &aisles, clientQueue &clientsQ, BTreeClients &clients, AATree &inventory, salesList &sales) {
-
-
-
-        bool billingMenuExit = false;
-        string aisleCode;
-        string prodCode;
-        string brandCode;
-        int amount;
-        QuickSort quickSort;
-        Node *a;
-
-        string clientId;
-        string clientName;
-        string clientPhone;
-        string clientEmail;
-
-        while (!billingMenuExit){
-            try {
-                cout << "Welcome to billing menu. Please select an option: " << endl;
-                cout << "1) Bill first client in line" << endl;
-                cout << "2) Return" << endl;
-
-                string op;
-                cin >> op;
-
-                if(op=="1"){
-
-                    if(!clientsQ.isEmpty()){
-                        clientQueueNode *firstInLine = clientsQ.getLastElement();
-                        //clientNode *currentClient = clients.getClientByClientId(firstInLine->getClientId());
-                        ClientData currentClient = clients.searchClient(stoi(firstInLine->getClientId()));
-                        cout << "Currently billing: " << currentClient.getName() << endl;
-                        clientId = firstInLine->getClientId();
-                        clientName = currentClient.getName();
-                        clientPhone = currentClient.getPhoneNumber();
-                        clientEmail = currentClient.getEmail();
-
-                        //PERFORM QUICK SORT ON ITEMS
-                        while (firstInLine->getFirstClientProd()!= nullptr){
-
-                            clientProductStackNode *cartProducts = firstInLine->getFirstClientProd();
-
-                            //Deletes tops element of stack
-                            if(cartProducts->getNextNode() == nullptr){
-                                aisleCode = cartProducts->getAisleCode();
-                                prodCode = cartProducts->getProdCode();
-                                brandCode = cartProducts->getBrandCode();
-                                amount = cartProducts->getAmount();
-                                quickSort.push(&a, amount, aisleCode, prodCode, brandCode);
-                                firstInLine->setFirstClientProd(nullptr);
-                                delete cartProducts;
-
-                            } else {
-                                while (cartProducts->getNextNode()->getNextNode() != nullptr){
-                                    cartProducts = cartProducts->getNextNode();
-                                }
-                                aisleCode = cartProducts->getNextNode()->getAisleCode();
-                                prodCode = cartProducts->getNextNode()->getProdCode();
-                                brandCode = cartProducts->getNextNode()->getBrandCode();
-                                amount = cartProducts->getNextNode()->getAmount();
-                                quickSort.push(&a, amount, aisleCode, prodCode, brandCode);
-                                clientProductStackNode *temp = cartProducts->getNextNode();
-                                cartProducts->setNextNode(nullptr);
-                                delete temp;
-                            }
-
-                        }
-                        //Actual quicksort excution
-                        quickSort.quickSort(&a);
-
-                        Node *tmp = a;
-
-                        //Billing loop
-                        float finalPrice = 0;
-                        float priceWithTax = 0;
-                        int productPrice = 0;
-                        float taxRate;
-
-                        //Outfile prep work
-                        ofstream outfile ("../bills/"+clientId+"_Bill.txt");
-                        outfile << "Client ID: " << clientId << endl;
-                        outfile << "Name: " << clientName << endl;
-                        outfile << "Phone Number: " << clientPhone << endl;
-                        outfile << "Email: " << clientEmail << endl;
-                        outfile << endl;
-
-
-                        while (tmp!=nullptr){
-
-                            productPrice = aisles.getNodeByAisleCode(stoi(tmp->aisleCode))->getProductAisleTreePointer()->getNodeByProdCode(stoi(tmp->prodCode))->getProductAisleBrandTreePointer()->getNodeByBrandCode(stoi(tmp->brandCode))->getPrice();
-                            //productPrice = aisleList.getNodeByAisleCode(tmp->aisleCode)->getProductAisleListPointer()->getNodeByProdCode(tmp->prodCode)->getAisleProductBrandListPointer()->getNodeByBrandCode(tmp->brandCode)->getPrice();
-                            if(inventory.isBasicProduct(tmp->aisleCode+tmp->prodCode+tmp->brandCode)){
-                                taxRate = this->basicProd;
-
-                            } else {
-                                taxRate = this->nonBasicProd;
-                            }
-                            priceWithTax = ((float)productPrice*taxRate)+(float)productPrice;
-                            finalPrice += priceWithTax;
-
-
-                            //Updates elements in sales list
-                            if(!sales.isElementInList(tmp->aisleCode, tmp->prodCode, tmp->brandCode)){
-                                sales.appendAtEnd(new salesNode(tmp->aisleCode, tmp->prodCode, tmp->brandCode, tmp->amount));
-                            } else {
-                                sales.updateElementInList(tmp->aisleCode, tmp->prodCode, tmp->brandCode, tmp->amount);
-                            }
-
-                            cout << "Sales list: " << endl;
-                            sales.printList();
-
-                            outfile << "Amount: " << tmp->amount << "; ProdCode: " << tmp->prodCode << "; Name: " << aisles.getNodeByAisleCode(stoi(tmp->aisleCode))->getProductAisleTreePointer()->getNodeByProdCode(stoi(tmp->prodCode))->getName() << "; Price: " << productPrice << "; Tax Rate: " << taxRate << "; Total: " << priceWithTax << endl;
-
-                            tmp = tmp->next;
-                        }
-                        outfile << "Total Final Price: " << finalPrice << endl;
-                        outfile << flush;
-                        outfile.flush();
-                        outfile.close();
-
-                        //Adds spent amount for reports
-                        currentClient.setAmountSpent(currentClient.getAmountSpent()+finalPrice);
-                        currentClient.incBillingCount();
-
-                        //Delete las client in queue and delete struct helper
-                        clientsQ.deleteAtEnd();
-                        quickSort.deleteList(&a);
-                    } else {
-                        cout << "There is no one in line to be billed" << endl;
-                    }
-
-                } else if(op=="2"){
-                    billingMenuExit = true;
-                }
-            } catch (class elementNotFound& e){
-                cout << "Element nof found error" << endl;
-            }
-
-        }
-   }
-
 
    void modifyModule(BinarySearchTree &aisles, AATree &inventory) {
         string op;
@@ -1334,7 +1192,7 @@ public:
         string brandCode;
         int amount;
         QuickSort quickSort;
-        Node *a;
+        struct QuickSort::Node *a = nullptr;
 
         string clientId;
         string clientName;
@@ -1384,7 +1242,7 @@ public:
             //Actual quicksort excution
             quickSort.quickSort(&a);
 
-            Node *tmp = a;
+            QuickSort::Node *tmp = a;
 
             //Billing loop
             double finalPrice = 0;

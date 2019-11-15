@@ -6,18 +6,19 @@
 using namespace std;
 
 /* a node of the singly linked list */
-class Node{
-public:
-
-    string aisleCode;
-    string prodCode;
-    string brandCode;
-    int amount;
-    Node *next;
-};
 
 class QuickSort {
 public:
+
+    struct Node
+    {
+        string aisleCode;
+        string prodCode;
+        string brandCode;
+        int amount;
+        struct Node *next;
+    };
+
     void deleteList(Node** head_ref)
     {
 
@@ -38,10 +39,10 @@ public:
     }
 
     /* A utility function to insert a node at the beginning of linked list */
-    void push(Node** head_ref, int new_data, string newAisleCode, string newProdCode, string newBrandCode)
+    void push(struct Node** head_ref, int new_data, string newAisleCode, string newProdCode, string newBrandCode)
     {
         /* allocate node */
-        Node* new_node = new Node;
+        struct Node* new_node = new Node;
 
         /* put in the data  */
         new_node->amount  = new_data;
@@ -57,7 +58,7 @@ public:
     }
 
     /* A utility function to print linked list */
-    void printList(Node *node)
+    void printList(struct Node *node)
     {
         while (node != nullptr)
         {
@@ -69,7 +70,7 @@ public:
     }
 
     // Returns the last node of the list
-    Node *getTail(Node *cur)
+    struct Node *getTail(struct Node *cur)
     {
         while (cur != nullptr && cur->next != nullptr)
             cur = cur->next;
@@ -77,11 +78,11 @@ public:
     }
 
     // Partitions the list taking the last element as the pivot
-    Node *partition(Node *head, Node *end,
-                           Node **newHead, Node **newEnd)
+    struct Node *partition(struct Node *head, struct Node *end,
+                           struct Node **newHead, struct Node **newEnd)
     {
-        Node *pivot = end;
-        Node *prev = nullptr, *cur = head, *tail = pivot;
+        struct Node *pivot = end;
+        struct Node *prev = nullptr, *cur = head, *tail = pivot;
 
         // During partition, both the head and end of the list might change
         // which is updated in the newHead and newEnd variables
@@ -102,7 +103,7 @@ public:
                 // Move cur node to next of tail, and change tail
                 if (prev)
                     prev->next = cur->next;
-                Node *tmp = cur->next;
+                struct Node *tmp = cur->next;
                 cur->next = nullptr;
                 tail->next = cur;
                 tail = cur;
@@ -124,7 +125,7 @@ public:
 
 
     //here the sorting happens exclusive of the end node
-    Node *quickSortRecur(Node *head, Node *end)
+    struct Node *quickSortRecur(Node *head, Node *end)
     {
         // base condition
         if (!head || head == end)
@@ -134,14 +135,14 @@ public:
 
         // Partition the list, newHead and newEnd will be updated
         // by the partition function
-        Node *pivot = partition(head, end, &newHead, &newEnd);
+        struct Node *pivot = partition(head, end, &newHead, &newEnd);
 
         // If pivot is the smallest element - no need to recur for
         // the left part.
         if (newHead != pivot)
         {
             // Set the node before the pivot node as NULL
-            Node *tmp = newHead;
+            struct Node *tmp = newHead;
             while (tmp->next != pivot)
                 tmp = tmp->next;
             tmp->next = nullptr;
@@ -162,7 +163,7 @@ public:
 
     // The main function for quick sort. This is a wrapper over recursive
     // function quickSortRecur()
-    void quickSort(Node **headRef)
+    void quickSort(struct Node **headRef)
     {
         (*headRef) = quickSortRecur(*headRef, getTail(*headRef));
         return;
