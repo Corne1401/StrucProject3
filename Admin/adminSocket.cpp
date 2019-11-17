@@ -16,7 +16,7 @@ adminSocket::adminSocket(QObject *parent):QThread(parent){};
 
 void adminSocket::connectSocket(){
     adminSock = new QTcpSocket(this);
-    adminSock->connectToHost("192.168.86.196",8080);
+    adminSock->connectToHost("192.168.43.109",8080);
 
     if(adminSock->waitForConnected(3000)){
         connect(this->adminSock,SIGNAL(connected()), this,SLOT(connected()));
@@ -43,6 +43,21 @@ void adminSocket::readyRead(){
     if(dataFromServer[0] == "01" && dataFromServer[1]=="1"){
         Menu *menu = new Menu;
         menu->show();
+    } else if (dataFromServer[0]=="03"){
+
+        graphResults *g = new graphResults(QString::fromStdString(dataFromServer[1]));
+        g->show();
+
+    } else if (dataFromServer[0]=="04"){
+
+        graphResults *g = new graphResults(QString::fromStdString(dataFromServer[1]));
+        g->show();
+
+    } else if (dataFromServer[0]=="05"){
+
+        graphResults *g = new graphResults(QString::fromStdString(dataFromServer[1]));
+        g->show();
+
     } else if(dataFromServer[0]=="20"){
         QMessageBox answ;
         string temp = dataFromServer[1];

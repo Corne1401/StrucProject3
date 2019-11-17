@@ -66,8 +66,7 @@ void clientSocket::readyRead(){
     } else if(dataFromServer[0]=="05"){
         GraphResults *g = new GraphResults(QString::fromStdString(dataFromServer[1]));
         g->show();
-    }
-    else if(dataFromServer[0]=="20"){
+    } else if(dataFromServer[0]=="20"){
         QMessageBox answ;
         string temp = dataFromServer[1];
         QString qtemp = QString::fromUtf8(temp.c_str());

@@ -7,6 +7,7 @@
 #include "eliminations.h"
 #include "ui_menu.h"
 #include "mapgraph.h"
+#include "dataBase/checkdatabase.h"
 #include "globalAdmin.h"
 
 Menu::Menu(QWidget *parent) :
@@ -83,4 +84,11 @@ void Menu::on_checkInventory_clicked()
 {
     QString req = "25;"+adminID;
     emit adminSock.send(req.toUtf8());
+}
+
+void Menu::on_pushButton_clicked()
+{
+    checkDataBase *db = new checkDataBase;
+    db->show();
+    this->close();
 }
