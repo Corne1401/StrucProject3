@@ -65,9 +65,14 @@ void Reports::on_reportsGenerate_clicked()
         request = "43;"+adminID;
         emit adminSock.send(request.toUtf8());
     }
+
+    //
     else if(ui->selectReport->currentIndex()==8){
         request = "44;"+adminID;
+
+
         emit adminSock.send(request.toUtf8());
+
     }
     else if(ui->selectReport->currentIndex()==9){
         ProdList *prodList = new ProdList;
@@ -79,6 +84,8 @@ void Reports::on_reportsGenerate_clicked()
         brandList->show();
 
     }
+
+    //
     else if(ui->selectReport->currentIndex()==11){
         request = "47;"+adminID;
         emit adminSock.send(request.toUtf8());

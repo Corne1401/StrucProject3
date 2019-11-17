@@ -17,7 +17,12 @@ ProdList::~ProdList()
 void ProdList::on_generate_clicked()
 {
     QString request;
+    QString req2;
     request = "45;"+ui->aisleCode->text()+";"+adminID;
+    req2 = "04;"+ui->aisleCode->text()+";"+adminID;
+
     emit adminSock.send(request.toUtf8());
+    this->thread()->sleep(1);
+    emit adminSock.send(req2.toUtf8());
     this->close();
 }
