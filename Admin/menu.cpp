@@ -4,12 +4,15 @@
 #include "check/check.h"
 #include "restock/restock.h"
 #include "insertions.h"
+
 #include "eliminations.h"
 #include "ui_menu.h"
 #include "mapgraph.h"
 #include "dataBase/checkdatabase.h"
 #include "globalAdmin.h"
+#include <iostream>
 
+using namespace std;
 Menu::Menu(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Menu)
@@ -25,7 +28,8 @@ Menu::~Menu()
 
 void Menu::on_menuBack_clicked()
 {
-    QString req = "51";
+    QString req = "51;"+adminID;
+    cout << adminID.toStdString() << endl;
     emit adminSock.send(req.toUtf8());
     this->close();
 }
@@ -83,6 +87,7 @@ void Menu::on_chainReports_clicked()
 void Menu::on_checkInventory_clicked()
 {
     QString req = "25;"+adminID;
+    cout << adminID.toStdString() << endl;
     emit adminSock.send(req.toUtf8());
 }
 

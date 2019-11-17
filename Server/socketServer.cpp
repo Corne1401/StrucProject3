@@ -32,7 +32,8 @@ void socketServer::readyRead(){
     string dataToStr = data.toStdString();
     bool access = false;
     vector<string> holder = helpers.split(dataToStr, ";");
-    int holderLasIndex = holder.size();
+    std::vector<string>::size_type  holderLasIndex = holder.size()-1;
+
 
     if(adminID == "0"){
         access = true;
@@ -45,12 +46,12 @@ void socketServer::readyRead(){
     }
 
     if(access){
+
         if(holder[0]=="01"){ //validate Admin
             if(modules.validateAdmin(admins, holder[1])){
-                //adminID=holder[1];
                 socket->write(QByteArray::fromStdString(holder[0]+";1"));
             } else {
-                //adminID="0";
+                adminID="0";
                 socket->write(QByteArray::fromStdString(holder[0]+";0"));
             }
 
@@ -277,9 +278,9 @@ void socketServer::readyRead(){
             //holder[5]==cliendId
             //holder[6]==overrideClientQ
             if(modules.executePurchase(clients, clientsQ, aisles, holder[1], holder[2], holder[3], holder[4], holder[5], holder[6])){
-                socket->write(QByteArray::fromStdString(holder[0]+";1"));
+                socket->write(QByteArray::fromStdString(holder[0]+";1;"+to_string(modules.getPurchasePrice())));
             } else {
-                socket->write(QByteArray::fromStdString(holder[0]+";0"));
+                socket->write(QByteArray::fromStdString(holder[0]+";0;"+to_string(modules.getPurchasePrice())));
             }
         }
         else if(holder[0]=="36"){ //mostVisitedAisle
@@ -405,9 +406,14 @@ void socketServer::readyRead(){
         else if (holder[0]=="51"){
             //Free server
             adminID = "0";
+            cout << "Server is free" << endl;
+            cout << adminID << endl;
+            socket->write(QByteArray::fromStdString("1"));
         }
     } else {
         //SERVER BLOCKED
+        cout << adminID << endl;
+        cout <<holder[holderLasIndex] << endl;
         socket->write(QByteArray::fromStdString("00"));
     }
 

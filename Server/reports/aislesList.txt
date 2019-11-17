@@ -1,0 +1,23 @@
+Aisles List. 
+Aisle Code: 1 Aisle Name: Abarrotes Visits: 0
+Aisle Code: 2 Aisle Name: Vegetales Visits: 0
+Aisle Code: 8 Aisle Name: Alcohol Visits: 0
+Aisle Code: 9 Aisle Name: Mascotas Visits: 0
+Aisle Code: 11 Aisle Name: Snacks Visits: 0
+Aisle Code: 12 Aisle Name: Electodomesticos Visits: 0
+Aisle Code: 13 Aisle Name: Hogar Visits: 0
+Aisle Code: 14 Aisle Name: Jardin Visits: 0
+Aisle Code: 15 Aisle Name: Bebidas Visits: 0
+Aisle Code: 16 Aisle Name: Camping Visits: 0
+Aisle Code: 20 Aisle Name: Limpieza Visits: 0
+Aisle Code: 22 Aisle Name: Bebes Visits: 0
+Aisle Code: 30 Aisle Name: Muebles Visits: 0
+Aisle Code: 33 Aisle Name: Medicinas Visits: 0
+Aisle Code: 40 Aisle Name: Carnes Visits: 0
+Aisle Code: 44 Aisle Name: Maquillajes Visits: 0
+Aisle Code: 50 Aisle Name: Dulces Visits: 0
+Aisle Code: 55 Aisle Name: Lacteos Visits: 0
+Aisle Code: 66 Aisle Name: Congelados Visits: 0
+Aisle Code: 77 Aisle Name: Desayunos Visits: 0
+Aisle Code: 88 Aisle Name: Ropa Visits: 0
+Aisle Code: 99 Aisle Name: Libreria Visits: 0

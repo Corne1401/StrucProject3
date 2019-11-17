@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
@@ -24,6 +25,7 @@ class Ui_GraphResults
 public:
     QWidget *centralwidget;
     QTextEdit *textEdit;
+    QPushButton *returnBtn;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -36,8 +38,11 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         textEdit = new QTextEdit(centralwidget);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));
-        textEdit->setGeometry(QRect(20, 20, 751, 531));
+        textEdit->setGeometry(QRect(20, 20, 751, 481));
         textEdit->setReadOnly(true);
+        returnBtn = new QPushButton(centralwidget);
+        returnBtn->setObjectName(QString::fromUtf8("returnBtn"));
+        returnBtn->setGeometry(QRect(350, 510, 80, 25));
         GraphResults->setCentralWidget(centralwidget);
         menubar = new QMenuBar(GraphResults);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -55,6 +60,7 @@ public:
     void retranslateUi(QMainWindow *GraphResults)
     {
         GraphResults->setWindowTitle(QApplication::translate("GraphResults", "MainWindow", nullptr));
+        returnBtn->setText(QApplication::translate("GraphResults", "Return", nullptr));
     } // retranslateUi
 
 };

@@ -4,6 +4,7 @@
 #include "adminSocket.h"
 using namespace std;
 
+extern QString adminID;
 extern adminSocket adminSock;
 extern string dataFromServer;
 

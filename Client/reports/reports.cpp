@@ -39,6 +39,7 @@ void Reports::on_brandsBtn_clicked()
 void Reports::on_backBtn_clicked()
 {
     Menu *menu = new Menu;
-    menu->show();
     this->close();
+    menu->show();
+
 }

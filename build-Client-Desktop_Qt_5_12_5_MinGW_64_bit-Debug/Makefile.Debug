@@ -1673,7 +1673,8 @@ debug/check.o: ../Client/check/check.cpp ../Client/check/check.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtCore/QDebug \
 		../../../Qt/5.12.5/mingw73_64/include/QtCore/QThread \
 		../../../Qt/5.12.5/mingw73_64/include/QtCore/qthread.h \
-		../Client/menu.h
+		../Client/menu.h \
+		../Client/mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\check.o ..\Client\check\check.cpp
 
 debug/clientSocket.o: ../Client/clientSocket.cpp ../Client/clientSocket.h \
@@ -2526,7 +2527,9 @@ debug/popup.o: ../Client/popup.cpp ../Client/popup.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtNetwork/qabstractsocket.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtCore/QDebug \
 		../../../Qt/5.12.5/mingw73_64/include/QtCore/QThread \
-		../../../Qt/5.12.5/mingw73_64/include/QtCore/qthread.h
+		../../../Qt/5.12.5/mingw73_64/include/QtCore/qthread.h \
+		../Client/purchase.h \
+		../Client/menu.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\popup.o ..\Client\popup.cpp
 
 debug/purchase.o: ../Client/purchase.cpp ../Client/purchase.h \
