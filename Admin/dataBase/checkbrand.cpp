@@ -22,3 +22,5 @@ void CheckBrand::on_pushButton_clicked()
 
     emit adminSock.send(req.toUtf8());
 }
+
+
