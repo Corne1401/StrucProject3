@@ -1,5 +1,8 @@
 debug/adminSocket.o
 debug/check.o
+debug/checkbrand.o
+debug/checkdatabase.o
+debug/checkprod.o
 debug/eliminations.o
 debug/deleteaisle.o
 debug/deletebrand.o
@@ -24,10 +27,14 @@ debug/brandlist.o
 debug/generateall.o
 debug/mostprodaisle.o
 debug/prodlist.o
+debug/showbrands.o
 debug/restock.o
 debug/qrc_Resources.o
 debug/moc_adminSocket.o
 debug/moc_check.o
+debug/moc_checkbrand.o
+debug/moc_checkdatabase.o
+debug/moc_checkprod.o
 debug/moc_eliminations.o
 debug/moc_deleteaisle.o
 debug/moc_deletebrand.o
@@ -51,4 +58,5 @@ debug/moc_brandlist.o
 debug/moc_generateall.o
 debug/moc_mostprodaisle.o
 debug/moc_prodlist.o
+debug/moc_showbrands.o
 debug/moc_restock.o

@@ -1,5 +1,6 @@
 #include "checkprod.h"
 #include "ui_checkprod.h"
+#include "adminSocket.h"
 #include "globalAdmin.h"
 
 CheckProd::CheckProd(QWidget *parent) :
