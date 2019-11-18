@@ -372,7 +372,7 @@ void socketServer::readyRead(){
             }
         }
         else if(holder[0]=="48"){ //inventoryList
-            if(inventory.generateInventory(PATH_TO_REPORTS+"clientsList.txt")){
+            if(inventory.generateInventory(PATH_TO_REPORTS+"inventoryList.txt")){
                 socket->write(QByteArray::fromStdString(holder[0]+";1"));
             } else {
                 socket->write(QByteArray::fromStdString(holder[0]+";0"));
@@ -393,7 +393,7 @@ void socketServer::readyRead(){
                     && modules.generateProductsReport(PATH_TO_REPORTS+"productsList.txt", aisles, holder[1])
                     && modules.generateBrandsReport(PATH_TO_REPORTS+"brandsList.txt", aisles, holder[1], holder[2])
                     && clients.generateClients(PATH_TO_REPORTS+"clientsList.txt")
-                    && inventory.generateInventory(PATH_TO_REPORTS+"clientsList.txt")){
+                    && inventory.generateInventory(PATH_TO_REPORTS+"inventoryList.txt")){
                 socket->write(QByteArray::fromStdString(holder[0]+";1"));
             } else {
                 socket->write(QByteArray::fromStdString(holder[0]+";0"));

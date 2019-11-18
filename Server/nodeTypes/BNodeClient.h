@@ -617,7 +617,7 @@ public:
             // If this is not leaf, then before printing key[i],
             // traverse the subtree rooted with child C[i].
             if (!leaf)
-                C[i]->traverse();
+                C[i]->getHighestBoughtValue(highestBoughtValue);
             //cout << " " << keys[i];
             auto tmpClient = searchClient(keys[i]);
             if(tmpClient.getAmountSpent()>=highestBoughtValue){
@@ -627,7 +627,7 @@ public:
 
         // Print the subtree rooted with last child
         if (!leaf)
-            C[i]->traverse();
+            C[i]->getHighestBoughtValue(highestBoughtValue);
     }
     void getMostBoughtValue(int &mostBoughtValue) {
         // There are n keys and n+1 children, travers through n keys
@@ -638,7 +638,7 @@ public:
             // If this is not leaf, then before printing key[i],
             // traverse the subtree rooted with child C[i].
             if (!leaf)
-                C[i]->traverse();
+                C[i]->getMostBoughtValue(mostBoughtValue);
             auto tmpClient = searchClient(keys[i]);
             if(tmpClient.getBillingCount() >= mostBoughtValue){
                 mostBoughtValue = tmpClient.getBillingCount();
@@ -647,7 +647,7 @@ public:
 
         // Print the subtree rooted with last child
         if (!leaf)
-            C[i]->traverse();
+            C[i]->getMostBoughtValue(mostBoughtValue);
     }
     void getLowestBoughtValue(float &leastBoughtValue) {
         // There are n keys and n+1 children, travers through n keys
@@ -658,7 +658,7 @@ public:
             // If this is not leaf, then before printing key[i],
             // traverse the subtree rooted with child C[i].
             if (!leaf)
-                C[i]->traverse();
+                C[i]->getLowestBoughtValue(leastBoughtValue);
             auto tmpClient = searchClient(keys[i]);
             if(tmpClient.getAmountSpent() <= leastBoughtValue){
                 leastBoughtValue = tmpClient.getAmountSpent();
@@ -667,7 +667,7 @@ public:
 
         // Print the subtree rooted with last child
         if (!leaf)
-            C[i]->traverse();
+            C[i]->getLowestBoughtValue(leastBoughtValue);
     }
     void getLeastBoughtValue(int &fewestBoughtValue) {
         // There are n keys and n+1 children, travers through n keys
@@ -678,7 +678,7 @@ public:
             // If this is not leaf, then before printing key[i],
             // traverse the subtree rooted with child C[i].
             if (!leaf)
-                C[i]->traverse();
+                C[i]->getLeastBoughtValue(fewestBoughtValue);
             auto tmpClient = searchClient(keys[i]);
             if(tmpClient.getBillingCount() <= fewestBoughtValue){
                 fewestBoughtValue = tmpClient.getBillingCount();
@@ -687,7 +687,7 @@ public:
 
         // Print the subtree rooted with last child
         if (!leaf)
-            C[i]->traverse();
+            C[i]->getLeastBoughtValue(fewestBoughtValue);
     }
     void generateMostExpensiveBill(float &highestBoughtValue, ofstream &outfile) {
         // There are n keys and n+1 children, travers through n keys
@@ -698,7 +698,7 @@ public:
             // If this is not leaf, then before printing key[i],
             // traverse the subtree rooted with child C[i].
             if (!leaf)
-                C[i]->traverse();
+                C[i]->generateMostExpensiveBill(highestBoughtValue, outfile);
             auto tmpClient = searchClient(keys[i]);
             if(tmpClient.getAmountSpent()>=highestBoughtValue){
                 outfile << "Client Id: " << keys[i] << " Client Name: " << tmpClient.getName() << " Amount spent: " << tmpClient.getAmountSpent() << endl;
@@ -707,7 +707,7 @@ public:
 
         // Print the subtree rooted with last child
         if (!leaf)
-            C[i]->traverse();
+            C[i]->generateMostExpensiveBill(highestBoughtValue, outfile);
     }
     void generateMostBilledClient(int &mostBoughtValue, ofstream &outfile) {
         // There are n keys and n+1 children, travers through n keys
@@ -718,7 +718,7 @@ public:
             // If this is not leaf, then before printing key[i],
             // traverse the subtree rooted with child C[i].
             if (!leaf)
-                C[i]->traverse();
+                C[i]->generateMostBilledClient(mostBoughtValue, outfile);
             auto tmpClient = searchClient(keys[i]);
             if(tmpClient.getBillingCount() >= mostBoughtValue){
                 outfile << "Client Id: " << keys[i] << " Client Name: " << tmpClient.getName() << " Billing count: " << tmpClient.getBillingCount() << endl;
@@ -727,7 +727,7 @@ public:
 
         // Print the subtree rooted with last child
         if (!leaf)
-            C[i]->traverse();
+            C[i]->generateMostBilledClient(mostBoughtValue, outfile);
     }
     void generateLeastExpensiveBill(float &leastBoughtValue, ofstream &outfile) {
         // There are n keys and n+1 children, travers through n keys
@@ -738,7 +738,7 @@ public:
             // If this is not leaf, then before printing key[i],
             // traverse the subtree rooted with child C[i].
             if (!leaf)
-                C[i]->traverse();
+                C[i]->generateLeastExpensiveBill(leastBoughtValue, outfile);
             auto tmpClient = searchClient(keys[i]);
             if(tmpClient.getAmountSpent()<=leastBoughtValue){
                 outfile << "Client Id: " << keys[i] << " Client Name: " << tmpClient.getName() << " Amount spent: " << tmpClient.getAmountSpent() << endl;
@@ -747,7 +747,7 @@ public:
 
         // Print the subtree rooted with last child
         if (!leaf)
-            C[i]->traverse();
+            C[i]->generateLeastExpensiveBill(leastBoughtValue, outfile);
     }
     void generateLeastBilledClient(int &fewestBoughtValue, ofstream &outfile) {
         // There are n keys and n+1 children, travers through n keys
@@ -758,7 +758,7 @@ public:
             // If this is not leaf, then before printing key[i],
             // traverse the subtree rooted with child C[i].
             if (!leaf)
-                C[i]->traverse();
+                C[i]->generateLeastBilledClient(fewestBoughtValue, outfile);
             auto tmpClient = searchClient(keys[i]);
             if(tmpClient.getAmountSpent()<=fewestBoughtValue){
                 outfile << "Client Id: " << keys[i] << " Client Name: " << tmpClient.getName() << " Amount spent: " << tmpClient.getAmountSpent() << endl;
@@ -767,7 +767,7 @@ public:
 
         // Print the subtree rooted with last child
         if (!leaf)
-            C[i]->traverse();
+            C[i]->generateLeastBilledClient(fewestBoughtValue, outfile);
     }
     void generateClients(ofstream &outfile) {
         // There are n keys and n+1 children, travers through n keys
