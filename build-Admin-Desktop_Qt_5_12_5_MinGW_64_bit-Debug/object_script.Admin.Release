@@ -1,5 +1,8 @@
 release/adminSocket.o
 release/check.o
+release/checkbrand.o
+release/checkdatabase.o
+release/checkprod.o
 release/eliminations.o
 release/deleteaisle.o
 release/deletebrand.o
@@ -24,10 +27,14 @@ release/brandlist.o
 release/generateall.o
 release/mostprodaisle.o
 release/prodlist.o
+release/showbrands.o
 release/restock.o
 release/qrc_Resources.o
 release/moc_adminSocket.o
 release/moc_check.o
+release/moc_checkbrand.o
+release/moc_checkdatabase.o
+release/moc_checkprod.o
 release/moc_eliminations.o
 release/moc_deleteaisle.o
 release/moc_deletebrand.o
@@ -51,4 +58,5 @@ release/moc_brandlist.o
 release/moc_generateall.o
 release/moc_mostprodaisle.o
 release/moc_prodlist.o
+release/moc_showbrands.o
 release/moc_restock.o

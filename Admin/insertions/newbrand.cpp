@@ -19,7 +19,9 @@ void newBrand::on_confirmNewBrand_clicked()
     QString req = "10;"+ui->aisleCode_2->text()+
             ";"+ui->productCode->text()+
             ";"+ui->newBrandCode->text()+
-            ";"+ui->newBrandName->text()+";"+adminID;
+            ";"+ui->newBrandName->text()+
+            ";"+ui->amount->text()+
+            ";"+ui->price->text()+adminID;
     emit adminSock.send(req.toUtf8());
     this->close();
 }

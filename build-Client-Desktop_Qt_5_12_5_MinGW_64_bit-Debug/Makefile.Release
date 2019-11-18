@@ -1799,6 +1799,7 @@ release/clientSocket.o: ../Client/clientSocket.cpp ../Client/clientSocket.h \
 		../Client/menu.h \
 		../Client/purchase.h \
 		../Client/globalClient.h \
+		../Client/popup.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/QMessageBox \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qmessagebox.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qdialog.h
@@ -1911,6 +1912,7 @@ release/graphresults.o: ../Client/graphresults.cpp ../Client/graphresults.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qtouchdevice.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtGui/qicon.h \
+		../Client/menu.h \
 		ui_graphresults.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\graphresults.o ..\Client\graphresults.cpp
 
@@ -2406,7 +2408,8 @@ release/menu.o: ../Client/menu.cpp ../Client/menu.h \
 		../../../Qt/5.12.5/mingw73_64/include/QtCore/QThread \
 		../../../Qt/5.12.5/mingw73_64/include/QtCore/qthread.h \
 		../Client/check/check.h \
-		../Client/reports/reports.h
+		../Client/reports/reports.h \
+		../Client/graphresults.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\menu.o ..\Client\menu.cpp
 
 release/popup.o: ../Client/popup.cpp ../Client/popup.h \
