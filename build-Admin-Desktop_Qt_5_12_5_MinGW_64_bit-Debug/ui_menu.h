@@ -49,7 +49,7 @@ public:
         reportButton->setGeometry(QRect(90, 180, 80, 20));
         menuBack = new QPushButton(centralwidget);
         menuBack->setObjectName(QString::fromUtf8("menuBack"));
-        menuBack->setGeometry(QRect(340, 380, 80, 20));
+        menuBack->setGeometry(QRect(340, 370, 80, 20));
         chainReports = new QPushButton(centralwidget);
         chainReports->setObjectName(QString::fromUtf8("chainReports"));
         chainReports->setGeometry(QRect(570, 270, 80, 20));

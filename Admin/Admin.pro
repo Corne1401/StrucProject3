@@ -19,6 +19,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     adminSocket.cpp \
     check/check.cpp \
+    dataBase/checkbrand.cpp \
+    dataBase/checkdatabase.cpp \
+    dataBase/checkprod.cpp \
     eliminations.cpp \
     eliminations/deleteaisle.cpp \
     eliminations/deletebrand.cpp \
@@ -43,11 +46,15 @@ SOURCES += \
     reports/generateall.cpp \
     reports/mostprodaisle.cpp \
     reports/prodlist.cpp \
+    reports/showbrands.cpp \
     restock/restock.cpp
 
 HEADERS += \
     adminSocket.h \
     check/check.h \
+    dataBase/checkbrand.h \
+    dataBase/checkdatabase.h \
+    dataBase/checkprod.h \
     eliminations.h \
     eliminations/deleteaisle.h \
     eliminations/deletebrand.h \
@@ -73,10 +80,14 @@ HEADERS += \
     reports/generateall.h \
     reports/mostprodaisle.h \
     reports/prodlist.h \
+    reports/showbrands.h \
     restock/restock.h
 
 FORMS += \
     check/check.ui \
+    dataBase/checkbrand.ui \
+    dataBase/checkdatabase.ui \
+    dataBase/checkprod.ui \
     eliminations.ui \
     eliminations/deleteaisle.ui \
     eliminations/deletebrand.ui \
@@ -100,6 +111,7 @@ FORMS += \
     reports/generateall.ui \
     reports/mostprodaisle.ui \
     reports/prodlist.ui \
+    reports/showbrands.ui \
     restock/restock.ui
 
 # Default rules for deployment.
