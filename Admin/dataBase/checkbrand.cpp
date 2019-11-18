@@ -22,6 +22,7 @@ void CheckBrand::on_pushButton_clicked()
             ";"+adminID;
 
     emit adminSock.send(req.toUtf8());
+    this->close();
 }
 
 

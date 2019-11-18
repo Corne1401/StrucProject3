@@ -14,7 +14,7 @@ class Menu : public QMainWindow
 
 public:
     explicit Menu(QWidget *parent = nullptr);
-    void on_pushButton_clicked();
+
     ~Menu();
 
 private slots:

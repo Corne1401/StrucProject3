@@ -154,7 +154,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Chech DB</string>
     </property>
    </widget>
   </widget>

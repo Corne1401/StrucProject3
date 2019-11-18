@@ -12,7 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -21,8 +21,11 @@ QT_BEGIN_NAMESPACE
 class Ui_checkDataBase
 {
 public:
-    QMenuBar *menubar;
     QWidget *centralwidget;
+    QPushButton *checkAisles;
+    QPushButton *backBtn;
+    QPushButton *checkBrands;
+    QPushButton *checkProd;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *checkDataBase)
@@ -30,11 +33,20 @@ public:
         if (checkDataBase->objectName().isEmpty())
             checkDataBase->setObjectName(QString::fromUtf8("checkDataBase"));
         checkDataBase->resize(800, 600);
-        menubar = new QMenuBar(checkDataBase);
-        menubar->setObjectName(QString::fromUtf8("menubar"));
-        checkDataBase->setMenuBar(menubar);
         centralwidget = new QWidget(checkDataBase);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        checkAisles = new QPushButton(centralwidget);
+        checkAisles->setObjectName(QString::fromUtf8("checkAisles"));
+        checkAisles->setGeometry(QRect(190, 100, 80, 21));
+        backBtn = new QPushButton(centralwidget);
+        backBtn->setObjectName(QString::fromUtf8("backBtn"));
+        backBtn->setGeometry(QRect(370, 350, 80, 21));
+        checkBrands = new QPushButton(centralwidget);
+        checkBrands->setObjectName(QString::fromUtf8("checkBrands"));
+        checkBrands->setGeometry(QRect(370, 230, 80, 21));
+        checkProd = new QPushButton(centralwidget);
+        checkProd->setObjectName(QString::fromUtf8("checkProd"));
+        checkProd->setGeometry(QRect(550, 100, 80, 21));
         checkDataBase->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(checkDataBase);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -48,6 +60,10 @@ public:
     void retranslateUi(QMainWindow *checkDataBase)
     {
         checkDataBase->setWindowTitle(QApplication::translate("checkDataBase", "MainWindow", nullptr));
+        checkAisles->setText(QApplication::translate("checkDataBase", "Check aisles", nullptr));
+        backBtn->setText(QApplication::translate("checkDataBase", "Back", nullptr));
+        checkBrands->setText(QApplication::translate("checkDataBase", "Check brands", nullptr));
+        checkProd->setText(QApplication::translate("checkDataBase", "Check products", nullptr));
     } // retranslateUi
 
 };

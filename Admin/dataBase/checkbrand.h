@@ -13,7 +13,7 @@ class CheckBrand : public QMainWindow
 
 public:
     explicit CheckBrand(QWidget *parent = nullptr);
-    void on_pushButton_clicked();
+
     ~CheckBrand();
 
 private slots:
