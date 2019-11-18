@@ -1,6 +1,7 @@
 #include "checkbrand.h"
 #include "ui_checkbrand.h"
 #include "globalAdmin.h"
+#include "adminSocket.h"
 
 CheckBrand::CheckBrand(QWidget *parent) :
     QMainWindow(parent),

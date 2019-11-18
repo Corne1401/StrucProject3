@@ -13,6 +13,10 @@ class checkDataBase : public QMainWindow
 
 public:
     explicit checkDataBase(QWidget *parent = nullptr);
+    void on_checkAisles_clicked();
+    void on_checkBrands_clicked();
+    void on_checkProd_clicked();
+    void on_backBtn_clicked();
     ~checkDataBase();
 
 private slots:
