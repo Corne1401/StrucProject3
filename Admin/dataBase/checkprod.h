@@ -16,6 +16,9 @@ public:
     void on_pushButton_clicked();
     ~CheckProd();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::CheckProd *ui;
 };

@@ -16,6 +16,9 @@ public:
     void on_pushButton_clicked();
     ~CheckBrand();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::CheckBrand *ui;
 };
