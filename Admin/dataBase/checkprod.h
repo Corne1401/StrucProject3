@@ -13,7 +13,7 @@ class CheckProd : public QMainWindow
 
 public:
     explicit CheckProd(QWidget *parent = nullptr);
-    void on_pushButton_clicked();
+
     ~CheckProd();
 
 private slots:

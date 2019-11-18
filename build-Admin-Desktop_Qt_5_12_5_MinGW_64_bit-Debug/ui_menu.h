@@ -50,7 +50,7 @@ public:
         reportButton->setGeometry(QRect(90, 180, 80, 20));
         menuBack = new QPushButton(centralwidget);
         menuBack->setObjectName(QString::fromUtf8("menuBack"));
-        menuBack->setGeometry(QRect(340, 450, 80, 20));
+        menuBack->setGeometry(QRect(340, 430, 80, 20));
         chainReports = new QPushButton(centralwidget);
         chainReports->setObjectName(QString::fromUtf8("chainReports"));
         chainReports->setGeometry(QRect(560, 270, 101, 20));
@@ -74,7 +74,7 @@ public:
         checkInventory->setGeometry(QRect(330, 270, 101, 21));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(340, 360, 80, 25));
+        pushButton->setGeometry(QRect(340, 350, 80, 21));
         Menu->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(Menu);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -98,7 +98,7 @@ public:
         billingButton->setText(QApplication::translate("Menu", "Billing", nullptr));
         restockButton->setText(QApplication::translate("Menu", "Restock", nullptr));
         checkInventory->setText(QApplication::translate("Menu", "Check inventory", nullptr));
-        pushButton->setText(QApplication::translate("Menu", "Check Trees", nullptr));
+        pushButton->setText(QApplication::translate("Menu", "Chech DB", nullptr));
     } // retranslateUi
 
 };

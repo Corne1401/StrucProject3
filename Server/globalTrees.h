@@ -15,6 +15,7 @@
 #include <TreesHandlers/AATree.h>
 #include <TreesHandlers/BTreeAdmins.h>
 #include <TreesHandlers/BTreeClients.h>
+#include <QString>
 #include <string>
 
 
@@ -55,5 +56,6 @@ extern clientQueue clientsQ;
 
 extern BFSGraphs bfsGraph;
 extern DFSGraph dfsGraph;
+
 
 #endif // GLOBALTREES_H
