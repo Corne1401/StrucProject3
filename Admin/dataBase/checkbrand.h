@@ -15,6 +15,9 @@ public:
     explicit CheckBrand(QWidget *parent = nullptr);
     ~CheckBrand();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::CheckBrand *ui;
 };

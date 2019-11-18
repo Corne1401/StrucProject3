@@ -16,7 +16,7 @@ adminSocket::adminSocket(QObject *parent):QThread(parent){};
 
 void adminSocket::connectSocket(){
     adminSock = new QTcpSocket(this);
-    adminSock->connectToHost("192.168.43.109",8080);
+    adminSock->connectToHost("127.0.0.1",8080);
 
     if(adminSock->waitForConnected(3000)){
         connect(this->adminSock,SIGNAL(connected()), this,SLOT(connected()));

@@ -17,5 +17,6 @@ CheckProd::~CheckProd()
 void CheckProd::on_pushButton_clicked()
 {
     QString req = "04;"+ui->aisleCode->text()+";"+adminID;
-    emit clientSock.send(req.toUtf8());
+    emit adminSock.send(req.toUtf8());
 }
+
