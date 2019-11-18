@@ -7,7 +7,6 @@ using namespace std;
 QString adminID;
 adminSocket adminSock;
 string dataFromServer;
-QString adminID;
 
 using namespace std;
 

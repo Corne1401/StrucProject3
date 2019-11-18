@@ -8,6 +8,4 @@ extern QString adminID;
 extern adminSocket adminSock;
 extern string dataFromServer;
 
-extern QString adminID;
-
 #endif // GLOBALADMIN_H
